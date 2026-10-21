@@ -99,14 +99,15 @@
       content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
       background: linear-gradient(90deg, rgb(20 34 27 / .38), rgb(20 34 27 / .12) 38%, transparent 57%);
     }
-    .hero-content { width: min(49%, 800px); margin-top: clamp(70px, 10vh, 170px); }
+    .hero-content { width: min(49%, 800px); }
     .hero-title {
       font: 400 clamp(44px, 4.5vw, 76px)/1.07 var(--display);
       letter-spacing: -.035em; color: var(--ivory);
     }
     .hero-title span { display: block; }
-    .hero-tagline { margin-top: 24px; font: 400 clamp(23px, 1.85vw, 30px)/1.4 var(--display); color: var(--brass); }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 34px; }
+    .hero-tagline { margin-top: 18px; font: 400 clamp(23px, 1.85vw, 30px)/1.4 var(--display); color: var(--brass); }
+    .hero-description { max-width: 46ch; margin-top: 16px; color: var(--warm-text); font-size: 16px; line-height: 1.65; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 24px; }
     .hero-actions .button { min-width: 170px; }
     .notice {
       position: fixed; z-index: 20; right: var(--page-gutter); bottom: 24px;
@@ -117,12 +118,8 @@
       font-size: 14px;
     }
     .notice-close { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; background: transparent; color: var(--ivory); font-size: 24px; }
-    @media (min-width: 1800px) {
-      .hero-content { margin-top: 12vh; }
-    }
     @media (min-width: 1101px) and (max-height: 650px) {
       .hero { min-height: 650px; padding-bottom: 60px; }
-      .hero-content { margin-top: 45px; }
     }
 
     /* A disclosure menu avoids empty sections and stays usable on touch screens. */
@@ -155,8 +152,8 @@
       .hero::before { display: none; }
       .hero-content { order: 0; width: 100%; margin-top: 0; padding: 48px var(--page-gutter) 40px; }
       .hero-title { font-size: clamp(38px, 9.8vw, 54px); line-height: 1.08; }
-      .hero-tagline { margin-top: 22px; font-size: 23px; }
-      .hero-actions { margin-top: 28px; gap: 12px; }
+      .hero-tagline { margin-top: 18px; font-size: 23px; }
+      .hero-actions { margin-top: 22px; gap: 12px; }
       .hero-actions .button { min-width: 0; flex: 1 1 145px; padding-inline: 16px; gap: 12px; }
       .hero-scene { position: relative; inset: auto; order: 1; width: 100%; aspect-ratio: 1 / 1; z-index: 0; overflow: hidden; }
       .hero-photo { object-position: 78% 50%; }
@@ -199,6 +196,7 @@
       <div class="hero-content">
         <h1 class="hero-title" id="hero-title" tabindex="-1"><span>PLAN LIKE</span><span>A GENTLEMAN.</span></h1>
         <p class="hero-tagline">Less Planning. More Living.</p>
+        <p class="hero-description">Your personal AI planner for tasks, plans, and the things you don't want to forget. Just tell Bro.</p>
         <div class="hero-actions">
           <button class="button" type="button" data-coming-soon>Meet Bro <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M7 6h11v11"/></svg></button>
           <button class="button button-outline" type="button" data-coming-soon>How It Works <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></button>
