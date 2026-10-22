@@ -1,0 +1,73 @@
+{
+  "results": [
+    {
+      "name": "meet-bro focus+hover and dynamic reduced motion",
+      "status": "passed",
+      "state": {
+        "outline": "2px",
+        "offset": "5px",
+        "outlineStyle": "solid",
+        "transform": -6,
+        "filter": "brightness(1.13)"
+      }
+    },
+    {
+      "name": "how-it-works focus+hover and dynamic reduced motion",
+      "status": "passed",
+      "state": {
+        "outline": "2px",
+        "offset": "5px",
+        "outlineStyle": "solid",
+        "transform": -4,
+        "filter": "none"
+      }
+    },
+    {
+      "name": "get-early-access focus+hover and dynamic reduced motion",
+      "status": "passed",
+      "state": {
+        "outline": "2px",
+        "offset": "5px",
+        "outlineStyle": "solid",
+        "transform": -4,
+        "filter": "brightness(1.1)"
+      }
+    },
+    {
+      "name": "Warm Welcome baseline/current and query off",
+      "status": "passed",
+      "states": [
+        {
+          "kind": "baseline",
+          "width": "808.0000000000001px",
+          "x": "164.1875px",
+          "y": "649.359375px",
+          "opacity": "0.12",
+          "display": "block",
+          "mode": "on",
+          "active": true
+        },
+        {
+          "kind": "current",
+          "width": "808.0000000000001px",
+          "x": "164.1875px",
+          "y": "649.359375px",
+          "opacity": "0.12",
+          "display": "block",
+          "mode": "on",
+          "active": true
+        },
+        {
+          "kind": "off",
+          "width": "808.0000000000001px",
+          "x": "164.1875px",
+          "y": "649.359375px",
+          "opacity": "0",
+          "display": "none",
+          "mode": "off",
+          "active": false
+        }
+      ]
+    }
+  ]
+}

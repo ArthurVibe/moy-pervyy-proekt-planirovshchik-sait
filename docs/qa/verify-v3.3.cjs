@@ -1,0 +1,88 @@
+'use strict';
+// Browser regression checks. Playwright is a QA tool, not a website dependency.
+const pw=require(process.env.PRIVATE_CLUB_PLAYWRIGHT_MODULE||'playwright');
+const fs=require('fs'),path=require('path'),cp=require('child_process'),os=require('os'),assert=require('node:assert/strict'),crypto=require('crypto');
+const root=path.resolve(__dirname,'../..'),out=path.join(root,'docs/previews/v3.3');fs.mkdirSync(out,{recursive:true});
+const base='e5fd5aaeffaf3934accb24c68301000959421d21',url=process.env.PRIVATE_CLUB_PREVIEW_URL||'http://127.0.0.1:8768/';
+const report={baseline:base,os:{platform:os.platform(),release:os.release(),arch:os.arch()},browserEngines:{},results:[],edgeTests:[],masks:{},geometry:{},errors:[]};
+const buttons=[['#meet-bro',6],['.button-outline',4],['.invitation',4]],neutral={x:700,y:870};
+const sleep=(p,ms)=>p.waitForTimeout(ms);
+const rect=e=>{const r=e.getBoundingClientRect();return{x:r.x,y:r.y,w:r.width,h:r.height}};
+const selectors=['.header-inner','.brand','.wordmark-top','.wordmark-bottom','.brand-tagline','.main-nav','.invitation','.hero-content','h1','.hero-tagline','.hero-description','.hero-actions','#meet-bro','.button-outline','#club-photo','.invitation svg','#meet-bro svg','.button-outline svg'];
+async function geometry(p){return p.evaluate(ss=>Object.fromEntries(ss.map(s=>{const e=document.querySelector(s),r=e.getBoundingClientRect(),c=getComputedStyle(e);return[s,{x:r.x,y:r.y,w:r.width,h:r.height,font:c.fontFamily,size:c.fontSize,weight:c.fontWeight,lineHeight:c.lineHeight}]})),selectors)}
+async function ready(p){await p.evaluate(()=>document.fonts.ready);await p.waitForFunction(()=>document.querySelector('#club-photo').naturalWidth===2560);await sleep(p,650)}
+async function idle(p){await p.mouse.move(neutral.x,neutral.y);await p.evaluate(()=>document.activeElement?.blur());await p.keyboard.press('Escape');await sleep(p,650)}
+async function face(p,s){return p.locator(s+' .button-face').evaluate(e=>{const r=e.getBoundingClientRect(),c=getComputedStyle(e),m=c.transform==='none'?null:new DOMMatrix(c.transform);return{x:r.x,y:r.y,w:r.width,h:r.height,dy:m?.m42||0,scale:m?.a||1,filter:c.filter,shadow:c.boxShadow,outline:c.outlineWidth,outlineStyle:c.outlineStyle,background:c.backgroundColor}})}
+async function pseudo(p,s,which='::before'){return p.locator(s).evaluate((e,which)=>{const c=getComputedStyle(e,which);return{animation:c.animationName,duration:c.animationDuration,opacity:c.opacity,iterations:c.animationIterationCount,pointer:c.pointerEvents}},which)}
+async function check(name,fn){try{const detail=await fn();report.results.push({name,status:'passed',detail});console.log('PASS',name)}catch(e){report.results.push({name,status:'failed',error:e.stack});console.log('FAIL',name,e.message)}}
+(async()=>{
+ for(const name of ['chromium','firefox','webkit']){
+  const executable=name==='chromium'?process.env.PRIVATE_CLUB_CHROMIUM_EXECUTABLE:undefined;
+  if(!fs.existsSync(executable||pw[name].executablePath())){report.browserEngines[name]={status:'not checked',reason:'Browser executable is not installed. Browser-download hosts are not enabled in this managed environment.'};continue}
+  try{const b=await pw[name].launch({...(executable?{executablePath:executable}:{}),...(name==='chromium'?{args:['--no-sandbox']}:{} )});report.browserEngines[name]={status:name==='chromium'?'available':'launch only',version:await b.version()};if(name==='chromium')global.browser=b;else await b.close()}catch(e){report.browserEngines[name]={status:'not checked',reason:e.message.split('\n')[0]}}
+ }
+ assert(global.browser,'Chromium is required for this run');const b=global.browser;
+ const p=await b.newPage({viewport:{width:1440,height:900},deviceScaleFactor:1});p.on('pageerror',e=>report.errors.push(e.message));
+ const reference=await b.newPage({viewport:{width:1440,height:900},deviceScaleFactor:1});
+ const html=cp.execFileSync('git',['show',base+':index.html'],{cwd:root,encoding:'utf8'});
+ await reference.route(url+'__v33_reference.html',r=>r.fulfill({contentType:'text/html',body:html}));await reference.goto(url+'__v33_reference.html');await ready(reference);await p.goto(url);await ready(p);
+ await check('Only three semantic wrappers were added',async()=>{
+  const source=fs.readFileSync(path.join(root,'index.html'),'utf8');
+  assert(await p.evaluate(([before,after])=>{const parse=s=>{const d=new DOMParser().parseFromString(s,'text/html');d.querySelectorAll('script').forEach(e=>e.remove());d.querySelectorAll('.button-face').forEach(e=>e.replaceWith(...e.childNodes));return d.body.innerHTML};return parse(before)===parse(after)},[html,source]));
+  assert.equal(await p.locator('.button-face').count(),3);assert(await p.locator('.button-face').evaluateAll(es=>es.every(e=>e.tagName==='SPAN'&&e.parentElement.tagName==='BUTTON'&&!e.hasAttribute('tabindex')&&!e.hasAttribute('role')&&getComputedStyle(e).pointerEvents==='none')));
+ });
+ await check('Desktop/mobile geometry and baseline images',async()=>{
+  for(const [width,height,key]of[[1440,900,'desktop'],[390,844,'mobile']]){
+   await reference.setViewportSize({width,height});await p.setViewportSize({width,height});await sleep(p,100);
+   const before=await geometry(reference),after=await geometry(p);assert.deepEqual(after,before);report.geometry[key]={before,after};
+   assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+   const masks=[];for(const [s]of buttons){const r=before[s];if(!r.w||!r.h)continue;const pad=s==='.button-outline'?{left:1,right:1,top:1,bottom:1}:{left:24,right:24,top:16,bottom:40};masks.push({selector:s,sourceRect:r,padding:pad,x:Math.max(0,Math.floor(r.x-pad.left)),y:Math.max(0,Math.floor(r.y-pad.top)),right:Math.min(width,Math.ceil(r.x+r.w+pad.right)),bottom:Math.min(height,Math.ceil(r.y+r.h+pad.bottom))})}report.masks[key]=masks;
+   await reference.screenshot({path:path.join(out,key+'-before-'+width+'x'+height+'.png')});await p.screenshot({path:path.join(out,key+'-after-'+width+'x'+height+'.png')});
+   for(const [s]of buttons){const r=await p.locator(s).boundingBox();if(r)assert.deepEqual(await p.locator(s+' .button-face').evaluate(rect),{x:r.x,y:r.y,w:r.width,h:r.height})}
+  }
+  await p.setViewportSize({width:1440,height:900});await idle(p);
+ });
+ await check('Stationary lower edge at 1/2/3px on all three controls',async()=>{
+  for(const [s,lift]of buttons)for(const distance of[1,2,3]){
+   await idle(p);const el=p.locator(s),r=await el.boundingBox();await el.evaluate(e=>{e._counts={enter:0,leave:0};if(!e._bound){e.addEventListener('pointerenter',()=>e._counts.enter++);e.addEventListener('pointerleave',()=>e._counts.leave++);e._bound=true}});
+   await p.mouse.move(r.x+r.width/2,r.y+r.height-distance);
+   const samples=await el.evaluate(e=>new Promise(resolve=>{const list=[],start=performance.now();const tick=t=>{const r=e.getBoundingClientRect(),f=e.firstElementChild,c=getComputedStyle(f);list.push({t:t-start,x:r.x,y:r.y,w:r.width,h:r.height,hover:e.matches(':hover'),faceY:c.transform==='none'?0:new DOMMatrix(c.transform).m42});if(t-start>=3000)resolve(list);else requestAnimationFrame(tick)};requestAnimationFrame(tick)}));
+   const counts=await el.evaluate(e=>e._counts);report.edgeTests.push({selector:s,distance,counts,frames:samples.length,outerRect:r,faceMin:Math.min(...samples.map(x=>x.faceY)),faceMaxAfter500ms:Math.max(...samples.filter(x=>x.t>500).map(x=>x.faceY))});
+   assert.deepEqual(counts,{enter:1,leave:0});for(const v of samples){assert.equal(v.x,r.x);assert.equal(v.y,r.y);assert.equal(v.w,r.width);assert.equal(v.h,r.height);assert(v.hover);if(v.t>500)assert(Math.abs(v.faceY+lift)<.01)}
+   assert.equal(await el.evaluate(e=>getComputedStyle(e).transform),'none');
+  }
+ });
+ await check('Slow approach from below and full return',async()=>{
+  for(const [s,lift]of buttons){await idle(p);const el=p.locator(s),r=await el.boundingBox();await p.mouse.move(r.x+r.width/2,r.y+r.height+5);await el.evaluate(e=>e._counts={enter:0,leave:0});for(let y=r.y+r.height+4;y>=r.y+r.height/2;y--){await p.mouse.move(r.x+r.width/2,y);await sleep(p,40)}await sleep(p,450);assert.deepEqual(await el.evaluate(e=>e._counts),{enter:1,leave:0});assert(Math.abs((await face(p,s)).dy+lift)<.01);await p.mouse.move(r.x+r.width/2,r.y+r.height+12);await sleep(p,500);assert.equal((await face(p,s)).dy,0);assert.deepEqual(await el.evaluate(e=>e._counts),{enter:1,leave:1})}
+ });
+ await check('Rapid enter/leave restarts exactly one wave per entry',async()=>{
+  for(const [s]of buttons){await idle(p);const el=p.locator(s);await el.evaluate(e=>{e._waves=0;e.querySelector('.button-face').addEventListener('animationstart',v=>{if(v.animationName==='bronze-reflection')e._waves++})});for(let i=0;i<4;i++){await el.hover();await sleep(p,80);await p.mouse.move(neutral.x,neutral.y);await sleep(p,60);assert.equal((await pseudo(p,s+' .button-face')).animation,'none')}await el.hover();await sleep(p,1200);assert.equal(await el.evaluate(e=>e._waves),s==='.button-outline'?0:5);if(s!=='.button-outline')assert.equal((await pseudo(p,s+' .button-face')).opacity,'0');await sleep(p,300);assert.equal(await el.evaluate(e=>e._waves),s==='.button-outline'?0:5)}
+ });
+ await check('Child crossings and lower-edge press keep one stationary hit area',async()=>{
+  for(const[s]of buttons){await idle(p);const el=p.locator(s),r=await el.boundingBox();await el.evaluate(e=>{e._counts={enter:0,leave:0};e._waves=0});await p.mouse.move(r.x+r.width/2,r.y+r.height-2);await sleep(p,1000);for(const x of[r.x+10,r.x+r.width-20,r.x+r.width/2]){await p.mouse.move(x,r.y+r.height/2);await sleep(p,80)}assert.deepEqual(await el.evaluate(e=>e._counts),{enter:1,leave:0});assert.equal(await el.evaluate(e=>e._waves),s==='.button-outline'?0:1);await p.mouse.move(r.x+r.width/2,r.y+r.height-2);await p.mouse.down();await sleep(p,180);assert.deepEqual(await el.boundingBox(),r);assert.deepEqual(await el.evaluate(e=>e._counts),{enter:1,leave:0});await p.mouse.up();assert.equal(await p.locator('#notice-message').innerText(),'Coming soon');await p.keyboard.press('Escape')}
+ });
+ await check('Tab/Shift+Tab, Enter/Space, focus-only and focus+hover',async()=>{
+  for(const[s]of buttons){await idle(p);await p.keyboard.press('Tab');await p.locator(s).focus();await sleep(p,500);assert(await p.locator(s).evaluate(e=>e.matches(':focus-visible')));let f=await face(p,s);assert.equal(f.outline,'2px');assert.equal(f.outlineStyle,'solid');assert.equal(f.dy,0);assert.equal(await p.locator(s+' svg').evaluate(e=>getComputedStyle(e).transform),'none');assert.equal((await pseudo(p,s+' .button-face')).animation,'none');await p.keyboard.press('Enter');assert.equal(await p.locator('#notice-message').innerText(),'Coming soon');await p.keyboard.press('Escape');await p.keyboard.down('Space');await sleep(p,100);assert.equal((await face(p,s)).dy,0);await p.keyboard.up('Space');assert.equal(await p.locator('#notice-message').innerText(),'Coming soon');await p.keyboard.press('Escape');await p.locator(s).hover();await sleep(p,1000);f=await face(p,s);assert.equal(f.outline,'2px');assert.equal(f.filter,s==='#meet-bro'?'brightness(1.13)':s==='.invitation'?'brightness(1.1)':'none');await p.keyboard.press('Shift+Tab');assert.notEqual(await p.evaluate(()=>document.activeElement.className),'button-face')}
+ });
+ await check('Logo focus and repeated hover coexist without duplicate waves',async()=>{
+  await idle(p);await p.locator('.brand').evaluate(e=>{window.logoWaves=0;e.addEventListener('animationstart',v=>{if(v.animationName==='living-engraving')window.logoWaves++})});await p.keyboard.press('Tab');await p.locator('.brand').focus();await sleep(p,950);assert.equal(await p.evaluate(()=>window.logoWaves),1);const before=await p.locator('.wordmark-bottom').boundingBox();await p.locator('.brand').hover();await sleep(p,950);assert.equal(await p.evaluate(()=>window.logoWaves),2);await p.mouse.move(neutral.x,neutral.y);await sleep(p,150);assert.equal(await p.evaluate(()=>window.logoWaves),2);await p.locator('.brand').hover();await sleep(p,150);await p.locator('.brand').evaluate(e=>e.blur());assert.equal(await p.locator('.brand').getAttribute('data-wave-origin'),'hover');await sleep(p,850);assert.equal(await p.evaluate(()=>window.logoWaves),3);assert.deepEqual(await p.locator('.wordmark-bottom').boundingBox(),before);assert.equal(await p.locator('.wordmark-top').evaluate(e=>getComputedStyle(e).color),'rgb(233, 223, 205)');
+ });
+ await check('Reduced motion retains static feedback and cancels current motion',async()=>{
+  await idle(p);await p.locator('#meet-bro').hover();await sleep(p,150);await p.emulateMedia({reducedMotion:'reduce'});await sleep(p,80);assert.equal((await face(p,'#meet-bro')).dy,0);assert.equal((await face(p,'#meet-bro')).filter,'brightness(1.13)');assert.equal((await pseudo(p,'#meet-bro .button-face')).animation,'none');assert.equal(await p.locator('#meet-bro svg').evaluate(e=>getComputedStyle(e).transform),'none');assert.equal(await p.locator('.hero').evaluate(e=>getComputedStyle(e,'::after').opacity),'0');await p.emulateMedia({reducedMotion:'no-preference'});await sleep(p,100);assert.equal((await face(p,'#meet-bro')).dy,0);assert.equal((await pseudo(p,'#meet-bro .button-face')).animation,'none');await idle(p);await p.locator('#meet-bro').hover();await sleep(p,500);assert.equal((await face(p,'#meet-bro')).dy,-6);await p.emulateMedia({reducedMotion:'reduce'});await idle(p);await p.keyboard.press('Tab');await p.locator('.brand').focus();assert.equal((await pseudo(p,'.wordmark-bottom','::after')).animation,'none');assert.equal(await p.locator('.brand').evaluate(e=>getComputedStyle(e).outlineWidth),'2px');await p.emulateMedia({reducedMotion:'no-preference'});await idle(p);
+ });
+ await check('Touch press/up/cancel and mobile menu',async()=>{
+  const t=await b.newPage({viewport:{width:390,height:844},deviceScaleFactor:1,isMobile:true,hasTouch:true});t.on('pageerror',e=>report.errors.push(e.message));await t.goto(url);await ready(t);const c=await t.context().newCDPSession(t);
+  for(const[s]of buttons){if(s==='.invitation')await t.locator('#menu-toggle').tap();const r=await t.locator(s).boundingBox();await c.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:r.x+r.width/2,y:r.y+r.height/2}]});await sleep(t,100);assert(await t.locator(s).evaluate(e=>e.hasAttribute('data-touch-active')));assert.equal((await face(t,s)).dy,0);assert.equal((await face(t,s)).filter,'none');assert.equal((await pseudo(t,s+' .button-face')).animation,'none');await c.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await sleep(t,100);assert.equal(await t.locator('[data-touch-active]').count(),0);assert.equal(await t.locator('#notice-message').innerText(),'Coming soon');await t.locator('#notice-close').tap();if(s==='.invitation'){assert.equal(await t.locator('#menu-toggle').getAttribute('aria-expanded'),'false');assert.equal(await t.evaluate(()=>document.activeElement.id),'menu-toggle')}}
+  const r=await t.locator('#meet-bro').boundingBox();await c.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:r.x+r.width/2,y:r.y+r.height/2}]});await c.send('Input.dispatchTouchEvent',{type:'touchCancel',touchPoints:[]});await sleep(t,100);assert.equal(await t.locator('[data-touch-active],[data-pointer-hover],[data-wave]').count(),0);assert(await t.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await t.close();
+ });
+ await check('Hybrid handler scenario with synthetic touch on fine pointer',async()=>{
+  await idle(p);await p.locator('#meet-bro').hover();await sleep(p,150);assert(await p.evaluate(()=>matchMedia('(pointer:fine)').matches));await p.locator('#meet-bro').dispatchEvent('pointerdown',{pointerType:'touch',pointerId:77,bubbles:true});assert.equal(await p.locator('[data-pointer-hover],[data-wave]').count(),0);assert.equal(await p.locator('[data-touch-active]').count(),1);assert.equal(await p.locator('.hero').getAttribute('data-warm-active'),null);await p.locator('#meet-bro').dispatchEvent('pointercancel',{pointerType:'touch',pointerId:77,bubbles:true});assert.equal(await p.locator('[data-touch-active]').count(),0);return 'Synthetic pointerType handling only; real hybrid hardware was not available.';
+ });
+ await check('No overflow, unchanged assets and no JavaScript errors',async()=>{
+  await idle(p);for(const[width,height]of[[360,800],[375,812],[430,932],[768,1024],[1024,768],[1920,1080],[1440,400]]){await p.setViewportSize({width,height});assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth))}
+  report.assets={};for(const file of['assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.png','assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp','assets/fonts/PlayfairDisplay-Variable.ttf']){const data=fs.readFileSync(path.join(root,file)),old=cp.execFileSync('git',['show',base+':'+file],{cwd:root,maxBuffer:5*1024*1024});assert(data.equals(old));report.assets[file]=crypto.createHash('sha256').update(data).digest('hex')}assert.deepEqual(report.errors,[])
+ });
+ report.browserEngines.chromium.status=report.results.some(r=>r.status==='failed')?'failed':'passed';
+ report.limits=['Firefox and WebKit unavailable: executables absent; browser-download domains are not enabled.','Real Safari, iOS/Android devices and hybrid hardware not checked. Touch was emulated; hybrid pointerType case was synthetic.'];
+ fs.writeFileSync(path.join(out,'verification.json'),JSON.stringify(report,null,2));await b.close();if(report.results.some(r=>r.status==='failed'))process.exitCode=1;
+})().catch(e=>{report.fatal=e.stack;fs.writeFileSync(path.join(out,'verification.json'),JSON.stringify(report,null,2));console.error(e);process.exitCode=1});

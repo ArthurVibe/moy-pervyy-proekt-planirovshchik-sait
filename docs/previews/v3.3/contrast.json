@@ -1,0 +1,595 @@
+{
+  "method": "Rendered background under text-range bounds; actual opaque ink rendered through the same computed filter; CSS timing paused for deterministic capture.",
+  "formula": "WCAG 2.x relative luminance of sRGB; no glyph-edge antialias pixels used as foreground colour.",
+  "threshold": 4.5,
+  "results": [
+    {
+      "button": "Meet Bro",
+      "selector": "#meet-bro",
+      "state": "rest",
+      "color": "rgb(21, 17, 13)",
+      "filter": "none",
+      "renderedInk": [
+        21,
+        17,
+        13
+      ],
+      "minimum": 4.62305,
+      "status": "passed"
+    },
+    {
+      "button": "Meet Bro",
+      "selector": "#meet-bro",
+      "state": "hover 120ms",
+      "color": "rgb(21, 17, 13)",
+      "filter": "brightness(1.09464)",
+      "renderedInk": [
+        23,
+        19,
+        14
+      ],
+      "minimum": 5.70938,
+      "status": "passed"
+    },
+    {
+      "button": "Meet Bro",
+      "selector": "#meet-bro",
+      "state": "hover 240ms",
+      "color": "rgb(21, 17, 13)",
+      "filter": "brightness(1.12269)",
+      "renderedInk": [
+        24,
+        19,
+        15
+      ],
+      "minimum": 5.95615,
+      "status": "passed"
+    },
+    {
+      "button": "Meet Bro",
+      "selector": "#meet-bro",
+      "state": "hover 400ms",
+      "color": "rgb(21, 17, 13)",
+      "filter": "brightness(1.13)",
+      "renderedInk": [
+        24,
+        19,
+        15
+      ],
+      "minimum": 6.15602,
+      "status": "passed"
+    },
+    {
+      "button": "Meet Bro",
+      "selector": "#meet-bro",
+      "state": "hover 650ms",
+      "color": "rgb(21, 17, 13)",
+      "filter": "brightness(1.13)",
+      "renderedInk": [
+        24,
+        19,
+        15
+      ],
+      "minimum": 6.17918,
+      "status": "passed"
+    },
+    {
+      "button": "Meet Bro",
+      "selector": "#meet-bro",
+      "state": "hover 1000ms",
+      "color": "rgb(21, 17, 13)",
+      "filter": "brightness(1.13)",
+      "renderedInk": [
+        24,
+        19,
+        15
+      ],
+      "minimum": 6.17918,
+      "status": "passed"
+    },
+    {
+      "button": "Meet Bro",
+      "selector": "#meet-bro",
+      "state": "focus-visible",
+      "color": "rgb(21, 17, 13)",
+      "filter": "brightness(1.13)",
+      "renderedInk": [
+        24,
+        19,
+        15
+      ],
+      "minimum": 6.17918,
+      "status": "passed"
+    },
+    {
+      "button": "Meet Bro",
+      "selector": "#meet-bro",
+      "state": "focus-visible + hover wave",
+      "color": "rgb(21, 17, 13)",
+      "filter": "brightness(1.13)",
+      "renderedInk": [
+        24,
+        19,
+        15
+      ],
+      "minimum": 6.15602,
+      "status": "passed"
+    },
+    {
+      "button": "Meet Bro",
+      "selector": "#meet-bro",
+      "state": "pointer active",
+      "color": "rgb(21, 17, 13)",
+      "filter": "brightness(1.06)",
+      "renderedInk": [
+        22,
+        18,
+        14
+      ],
+      "minimum": 5.44945,
+      "status": "passed"
+    },
+    {
+      "button": "Meet Bro",
+      "selector": "#meet-bro",
+      "state": "keyboard active + focus",
+      "color": "rgb(21, 17, 13)",
+      "filter": "brightness(1.13)",
+      "renderedInk": [
+        24,
+        19,
+        15
+      ],
+      "minimum": 6.17918,
+      "status": "passed"
+    },
+    {
+      "button": "Meet Bro",
+      "selector": "#meet-bro",
+      "state": "reduced motion + hover",
+      "color": "rgb(21, 17, 13)",
+      "filter": "brightness(1.13)",
+      "renderedInk": [
+        24,
+        19,
+        15
+      ],
+      "minimum": 6.17918,
+      "status": "passed"
+    },
+    {
+      "button": "Meet Bro",
+      "selector": "#meet-bro",
+      "state": "reduced motion + focus",
+      "color": "rgb(21, 17, 13)",
+      "filter": "brightness(1.13)",
+      "renderedInk": [
+        24,
+        19,
+        15
+      ],
+      "minimum": 6.17918,
+      "status": "passed"
+    },
+    {
+      "button": "How It Works",
+      "selector": ".button-outline",
+      "state": "rest",
+      "color": "rgb(233, 223, 205)",
+      "filter": "none",
+      "renderedInk": [
+        233,
+        223,
+        205
+      ],
+      "minimum": 12.82808,
+      "status": "passed"
+    },
+    {
+      "button": "How It Works",
+      "selector": ".button-outline",
+      "state": "hover 120ms",
+      "color": "rgb(233, 223, 205)",
+      "filter": "none",
+      "renderedInk": [
+        233,
+        223,
+        205
+      ],
+      "minimum": 9.66377,
+      "status": "passed"
+    },
+    {
+      "button": "How It Works",
+      "selector": ".button-outline",
+      "state": "hover 240ms",
+      "color": "rgb(233, 223, 205)",
+      "filter": "none",
+      "renderedInk": [
+        233,
+        223,
+        205
+      ],
+      "minimum": 9.01157,
+      "status": "passed"
+    },
+    {
+      "button": "How It Works",
+      "selector": ".button-outline",
+      "state": "hover 400ms",
+      "color": "rgb(233, 223, 205)",
+      "filter": "none",
+      "renderedInk": [
+        233,
+        223,
+        205
+      ],
+      "minimum": 9.01157,
+      "status": "passed"
+    },
+    {
+      "button": "How It Works",
+      "selector": ".button-outline",
+      "state": "hover 650ms",
+      "color": "rgb(233, 223, 205)",
+      "filter": "none",
+      "renderedInk": [
+        233,
+        223,
+        205
+      ],
+      "minimum": 9.01157,
+      "status": "passed"
+    },
+    {
+      "button": "How It Works",
+      "selector": ".button-outline",
+      "state": "hover 1000ms",
+      "color": "rgb(233, 223, 205)",
+      "filter": "none",
+      "renderedInk": [
+        233,
+        223,
+        205
+      ],
+      "minimum": 9.01157,
+      "status": "passed"
+    },
+    {
+      "button": "How It Works",
+      "selector": ".button-outline",
+      "state": "focus-visible",
+      "color": "rgb(233, 223, 205)",
+      "filter": "none",
+      "renderedInk": [
+        233,
+        223,
+        205
+      ],
+      "minimum": 9.01157,
+      "status": "passed"
+    },
+    {
+      "button": "How It Works",
+      "selector": ".button-outline",
+      "state": "focus-visible + hover wave",
+      "color": "rgb(233, 223, 205)",
+      "filter": "none",
+      "renderedInk": [
+        233,
+        223,
+        205
+      ],
+      "minimum": 9.01157,
+      "status": "passed"
+    },
+    {
+      "button": "How It Works",
+      "selector": ".button-outline",
+      "state": "pointer active",
+      "color": "rgb(233, 223, 205)",
+      "filter": "none",
+      "renderedInk": [
+        233,
+        223,
+        205
+      ],
+      "minimum": 9.01157,
+      "status": "passed"
+    },
+    {
+      "button": "How It Works",
+      "selector": ".button-outline",
+      "state": "keyboard active + focus",
+      "color": "rgb(233, 223, 205)",
+      "filter": "none",
+      "renderedInk": [
+        233,
+        223,
+        205
+      ],
+      "minimum": 9.01157,
+      "status": "passed"
+    },
+    {
+      "button": "How It Works",
+      "selector": ".button-outline",
+      "state": "reduced motion + hover",
+      "color": "rgb(233, 223, 205)",
+      "filter": "none",
+      "renderedInk": [
+        233,
+        223,
+        205
+      ],
+      "minimum": 9.01157,
+      "status": "passed"
+    },
+    {
+      "button": "How It Works",
+      "selector": ".button-outline",
+      "state": "reduced motion + focus",
+      "color": "rgb(233, 223, 205)",
+      "filter": "none",
+      "renderedInk": [
+        233,
+        223,
+        205
+      ],
+      "minimum": 9.01157,
+      "status": "passed"
+    },
+    {
+      "button": "Get Early Access",
+      "selector": ".invitation",
+      "state": "rest",
+      "color": "rgb(21, 17, 13)",
+      "filter": "none",
+      "renderedInk": [
+        21,
+        17,
+        13
+      ],
+      "minimum": 4.62305,
+      "status": "passed"
+    },
+    {
+      "button": "Get Early Access",
+      "selector": ".invitation",
+      "state": "hover 120ms",
+      "color": "rgb(21, 17, 13)",
+      "filter": "brightness(1.0728)",
+      "renderedInk": [
+        23,
+        18,
+        14
+      ],
+      "minimum": 5.55512,
+      "status": "passed"
+    },
+    {
+      "button": "Get Early Access",
+      "selector": ".invitation",
+      "state": "hover 240ms",
+      "color": "rgb(21, 17, 13)",
+      "filter": "brightness(1.09438)",
+      "renderedInk": [
+        23,
+        19,
+        14
+      ],
+      "minimum": 5.73457,
+      "status": "passed"
+    },
+    {
+      "button": "Get Early Access",
+      "selector": ".invitation",
+      "state": "hover 400ms",
+      "color": "rgb(21, 17, 13)",
+      "filter": "brightness(1.1)",
+      "renderedInk": [
+        23,
+        19,
+        14
+      ],
+      "minimum": 5.80438,
+      "status": "passed"
+    },
+    {
+      "button": "Get Early Access",
+      "selector": ".invitation",
+      "state": "hover 650ms",
+      "color": "rgb(21, 17, 13)",
+      "filter": "brightness(1.1)",
+      "renderedInk": [
+        23,
+        19,
+        14
+      ],
+      "minimum": 5.8748,
+      "status": "passed"
+    },
+    {
+      "button": "Get Early Access",
+      "selector": ".invitation",
+      "state": "hover 1000ms",
+      "color": "rgb(21, 17, 13)",
+      "filter": "brightness(1.1)",
+      "renderedInk": [
+        23,
+        19,
+        14
+      ],
+      "minimum": 5.8748,
+      "status": "passed"
+    },
+    {
+      "button": "Get Early Access",
+      "selector": ".invitation",
+      "state": "focus-visible",
+      "color": "rgb(21, 17, 13)",
+      "filter": "brightness(1.1)",
+      "renderedInk": [
+        23,
+        19,
+        14
+      ],
+      "minimum": 5.8748,
+      "status": "passed"
+    },
+    {
+      "button": "Get Early Access",
+      "selector": ".invitation",
+      "state": "focus-visible + hover wave",
+      "color": "rgb(21, 17, 13)",
+      "filter": "brightness(1.1)",
+      "renderedInk": [
+        23,
+        19,
+        14
+      ],
+      "minimum": 5.80438,
+      "status": "passed"
+    },
+    {
+      "button": "Get Early Access",
+      "selector": ".invitation",
+      "state": "pointer active",
+      "color": "rgb(21, 17, 13)",
+      "filter": "brightness(1.1)",
+      "renderedInk": [
+        23,
+        19,
+        14
+      ],
+      "minimum": 5.8748,
+      "status": "passed"
+    },
+    {
+      "button": "Get Early Access",
+      "selector": ".invitation",
+      "state": "keyboard active + focus",
+      "color": "rgb(21, 17, 13)",
+      "filter": "brightness(1.1)",
+      "renderedInk": [
+        23,
+        19,
+        14
+      ],
+      "minimum": 5.8748,
+      "status": "passed"
+    },
+    {
+      "button": "Get Early Access",
+      "selector": ".invitation",
+      "state": "reduced motion + hover",
+      "color": "rgb(21, 17, 13)",
+      "filter": "brightness(1.1)",
+      "renderedInk": [
+        23,
+        19,
+        14
+      ],
+      "minimum": 5.8748,
+      "status": "passed"
+    },
+    {
+      "button": "Get Early Access",
+      "selector": ".invitation",
+      "state": "reduced motion + focus",
+      "color": "rgb(21, 17, 13)",
+      "filter": "brightness(1.1)",
+      "renderedInk": [
+        23,
+        19,
+        14
+      ],
+      "minimum": 5.8748,
+      "status": "passed"
+    },
+    {
+      "button": "Meet Bro",
+      "selector": "#meet-bro",
+      "state": "touch active",
+      "color": "rgb(21, 17, 13)",
+      "filter": "none",
+      "renderedInk": [
+        21,
+        17,
+        13
+      ],
+      "minimum": 4.62305,
+      "status": "passed"
+    },
+    {
+      "button": "Meet Bro",
+      "selector": "#meet-bro",
+      "state": "touch active + reduced motion",
+      "color": "rgb(21, 17, 13)",
+      "filter": "none",
+      "renderedInk": [
+        21,
+        17,
+        13
+      ],
+      "minimum": 4.62305,
+      "status": "passed"
+    },
+    {
+      "button": "How It Works",
+      "selector": ".button-outline",
+      "state": "touch active",
+      "color": "rgb(233, 223, 205)",
+      "filter": "none",
+      "renderedInk": [
+        233,
+        223,
+        205
+      ],
+      "minimum": 12.61864,
+      "status": "passed"
+    },
+    {
+      "button": "How It Works",
+      "selector": ".button-outline",
+      "state": "touch active + reduced motion",
+      "color": "rgb(233, 223, 205)",
+      "filter": "none",
+      "renderedInk": [
+        233,
+        223,
+        205
+      ],
+      "minimum": 12.61864,
+      "status": "passed"
+    },
+    {
+      "button": "Get Early Access",
+      "selector": ".invitation",
+      "state": "touch active",
+      "color": "rgb(21, 17, 13)",
+      "filter": "none",
+      "renderedInk": [
+        21,
+        17,
+        13
+      ],
+      "minimum": 4.62305,
+      "status": "passed"
+    },
+    {
+      "button": "Get Early Access",
+      "selector": ".invitation",
+      "state": "touch active + reduced motion",
+      "color": "rgb(21, 17, 13)",
+      "filter": "none",
+      "renderedInk": [
+        21,
+        17,
+        13
+      ],
+      "minimum": 4.62305,
+      "status": "passed"
+    }
+  ]
+}

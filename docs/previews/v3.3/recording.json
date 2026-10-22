@@ -1,0 +1,61 @@
+{
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "dpr": 1,
+  "browser": "154.0.8037.57",
+  "frames": 484,
+  "duration": 39.18299984931946,
+  "sequence": [
+    {
+      "text": "v3.3 | Actual browser recording | 1440 x 900",
+      "startSeconds": 0
+    },
+    {
+      "text": "Hover: Meet Bro | One pass, then hold",
+      "startSeconds": 0.7639999389648438
+    },
+    {
+      "text": "Hover: How It Works | One pass, then hold",
+      "startSeconds": 4.327999830245972
+    },
+    {
+      "text": "Hover: Get Early Access | One pass, then hold",
+      "startSeconds": 7.898000001907349
+    },
+    {
+      "text": "Hover: BRO? / Living Engraving | One pass, then hold",
+      "startSeconds": 11.454999923706055
+    },
+    {
+      "text": "Rapid re-entry: Meet Bro | Reset on each exit",
+      "startSeconds": 15.137999773025513
+    },
+    {
+      "text": "Rapid re-entry: Get Early Access | Reset on each exit",
+      "startSeconds": 18.402999877929688
+    },
+    {
+      "text": "Rapid re-entry: BRO? | Reset on each exit",
+      "startSeconds": 24.256999969482422
+    },
+    {
+      "text": "Lower-edge hold: Meet Bro | 2 CSS px above bottom / 3.2 s",
+      "startSeconds": 27.906999826431274
+    },
+    {
+      "text": "Lower-edge hold: Get Early Access | 2 CSS px above bottom / 3.2 s",
+      "startSeconds": 33.51199984550476
+    },
+    {
+      "text": "End | No repeated waves while the pointer is stationary",
+      "startSeconds": 38.52899980545044
+    }
+  ],
+  "closeups": {
+    "dpr": 2,
+    "logoAnimationTimeMs": 425
+  },
+  "note": "CDP screencast resampled to 30 fps from timestamps; pointer coordinates and labels composited only in video."
+}

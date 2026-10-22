@@ -1,0 +1,138 @@
+{
+  "baseline": "e5fd5aaeffaf3934accb24c68301000959421d21",
+  "masks": {
+    "desktop": [
+      {
+        "selector": "#meet-bro",
+        "sourceRect": {
+          "x": 79.1875,
+          "y": 624.359375,
+          "w": 170,
+          "h": 50,
+          "font": "system-ui, -apple-system, \"Segoe UI\", Arial, sans-serif",
+          "size": "13px",
+          "weight": "600",
+          "lineHeight": "19.5px"
+        },
+        "padding": {
+          "left": 24,
+          "right": 24,
+          "top": 16,
+          "bottom": 40
+        },
+        "x": 55,
+        "y": 608,
+        "right": 274,
+        "bottom": 715
+      },
+      {
+        "selector": ".button-outline",
+        "sourceRect": {
+          "x": 265.1875,
+          "y": 624.359375,
+          "w": 171.5625,
+          "h": 50,
+          "font": "system-ui, -apple-system, \"Segoe UI\", Arial, sans-serif",
+          "size": "13px",
+          "weight": "500",
+          "lineHeight": "19.5px"
+        },
+        "padding": {
+          "left": 1,
+          "right": 1,
+          "top": 1,
+          "bottom": 1
+        },
+        "x": 264,
+        "y": 623,
+        "right": 438,
+        "bottom": 676
+      },
+      {
+        "selector": ".invitation",
+        "sourceRect": {
+          "x": 1184.03125,
+          "y": 31,
+          "w": 176.78125,
+          "h": 50,
+          "font": "system-ui, -apple-system, \"Segoe UI\", Arial, sans-serif",
+          "size": "12px",
+          "weight": "600",
+          "lineHeight": "18px"
+        },
+        "padding": {
+          "left": 24,
+          "right": 24,
+          "top": 16,
+          "bottom": 40
+        },
+        "x": 1160,
+        "y": 15,
+        "right": 1385,
+        "bottom": 121
+      }
+    ],
+    "mobile": [
+      {
+        "selector": "#meet-bro",
+        "sourceRect": {
+          "x": 24,
+          "y": 401.890625,
+          "w": 165,
+          "h": 50,
+          "font": "system-ui, -apple-system, \"Segoe UI\", Arial, sans-serif",
+          "size": "13px",
+          "weight": "600",
+          "lineHeight": "19.5px"
+        },
+        "padding": {
+          "left": 24,
+          "right": 24,
+          "top": 16,
+          "bottom": 40
+        },
+        "x": 0,
+        "y": 385,
+        "right": 213,
+        "bottom": 492
+      },
+      {
+        "selector": ".button-outline",
+        "sourceRect": {
+          "x": 201,
+          "y": 401.890625,
+          "w": 165,
+          "h": 50,
+          "font": "system-ui, -apple-system, \"Segoe UI\", Arial, sans-serif",
+          "size": "13px",
+          "weight": "500",
+          "lineHeight": "19.5px"
+        },
+        "padding": {
+          "left": 1,
+          "right": 1,
+          "top": 1,
+          "bottom": 1
+        },
+        "x": 200,
+        "y": 400,
+        "right": 367,
+        "bottom": 453
+      }
+    ]
+  },
+  "comparisons": {
+    "desktop": {
+      "insideMaskChangedPixels": 30,
+      "outsideMaskChangedPixels": 0,
+      "totalPixels": 1296000,
+      "status": "passed"
+    },
+    "mobile": {
+      "insideMaskChangedPixels": 194,
+      "outsideMaskChangedPixels": 0,
+      "totalPixels": 329160,
+      "status": "passed"
+    }
+  }
+}
