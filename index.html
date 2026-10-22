@@ -184,6 +184,7 @@
     /* Stage 2: all decorative layers are out of flow and ignore pointer events. */
     :root {
       --motion-ease: cubic-bezier(.2, .65, .3, 1);
+      --button-float-duration: 400ms;
       --engraving-ivory: #e5d2ad;
     }
     .button-meet, .invitation { position: relative; isolation: isolate; }
@@ -243,7 +244,8 @@
     }
     @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
       .button-meet {
-        transition: background-color 300ms var(--motion-ease), transform 300ms var(--motion-ease), box-shadow 300ms var(--motion-ease);
+        transition: background-color 300ms var(--motion-ease),
+          transform var(--button-float-duration) var(--motion-ease), box-shadow var(--button-float-duration) var(--motion-ease);
       }
       .button-meet .arrow { transition: transform 250ms var(--motion-ease); }
       .button-meet:hover {
@@ -254,17 +256,26 @@
       .button-meet:hover::before { animation: brass-reflection 600ms var(--motion-ease) 1 both; }
       .button-meet:hover .arrow { transform: translate(3px, -3px); }
       .button-meet:active { transform: translateY(0) scale(.99); transition-duration: 120ms; }
-      .button-outline { transition: border-color 300ms var(--motion-ease), background-color 300ms var(--motion-ease); }
+      .button-outline {
+        transition: border-color var(--button-float-duration) var(--motion-ease), background-color 300ms var(--motion-ease),
+          transform var(--button-float-duration) var(--motion-ease), box-shadow var(--button-float-duration) var(--motion-ease);
+      }
       .button-outline .arrow { transition: transform 300ms var(--motion-ease); }
-      .button-outline:hover { border-color: var(--bronze-hover-border); background-color: rgb(61 48 34 / .62); }
+      .button-outline:hover {
+        transform: translateY(-4px); border-color: var(--bronze-hover-border); background-color: rgb(61 48 34 / .62);
+        box-shadow: inset 0 0 0 1px rgb(176 138 90 / .16), 0 10px 20px rgb(0 0 0 / .3);
+      }
       .button-outline:hover .arrow { transform: translateX(3px); }
-      .invitation { transition: background-color 260ms var(--motion-ease), box-shadow 260ms var(--motion-ease); }
+      .invitation {
+        transition: background-color 260ms var(--motion-ease),
+          transform var(--button-float-duration) var(--motion-ease), box-shadow var(--button-float-duration) var(--motion-ease);
+      }
       .invitation .arrow { transition: transform 260ms var(--motion-ease); }
       .invitation::after { transition: opacity 260ms var(--motion-ease); }
       .invitation:hover {
-        background-color: var(--bronze-hover-top);
+        background-color: var(--bronze-hover-top); transform: translateY(-4px);
         box-shadow: inset 0 1px 0 rgb(233 223 205 / .22), inset 0 -1px 0 rgb(94 69 43 / .2),
-          0 3px 0 var(--bronze-dark), 0 7px 14px rgb(0 0 0 / .22);
+          0 4px 0 var(--bronze-dark), 0 12px 22px rgb(0 0 0 / .28);
       }
       .invitation:hover::after { opacity: 1; }
       .invitation:hover .arrow { transform: translateX(2px); }

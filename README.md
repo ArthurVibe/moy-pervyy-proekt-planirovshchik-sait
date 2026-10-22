@@ -1,18 +1,18 @@
 # What’s Up, Bro? — The Private Club
 
-Этап 2: сдержанные анимации Header + Hero. Последняя корректировка — бронзовые кнопки Aged Bronze. Рабочая ветка — `feature/private-club-hero`.
+Этап 2: сдержанные анимации Header + Hero. Последняя корректировка — Floating Invitation для всех трёх кнопок Aged Bronze. Рабочая ветка — `feature/private-club-hero`.
 
 Утверждённая статичная композиция сохранена тегом [`private-club-hero-v1.0`](https://github.com/ArthurVibe/moy-pervyy-proekt-planirovshchik-sait/tree/private-club-hero-v1.0), коммит `bffb72c9e968b81a941399d9e1a7f0d2ea5764f6`. Основная ветка, тег и действующий сайт не изменялись. Этап 2 не опубликован через GitHub Pages и не объединён с main.
 
 ## Посмотреть эффекты без архива
 
-[Открыть GIF-запись бронзовых кнопок](docs/previews/aged-bronze-hover.gif) · [MP4 1440×900](docs/previews/aged-bronze-hover.mp4?raw=1)
+[Новое видео: все три кнопки, MP4 1440×900](docs/previews/floating-invitation-hover.mp4?raw=1) · [Увеличенная запись GIF](docs/previews/floating-invitation-closeup.gif)
 
-![Наведение на бронзовые кнопки Meet Bro и Get Early Access](docs/previews/aged-bronze-hover.gif)
+![Floating Invitation: последовательное наведение на три кнопки](docs/previews/floating-invitation-closeup.gif)
 
-Запись около 8 секунд: два наведения на Meet Bro → два наведения на Get Early Access. GIF повторяет запись для удобства просмотра; блик на самой странице выполняется однократно за наведение. Видео и GIF — записи браузера, а не интерактивный сайт. Для оценки бронзового оттенка используйте PNG или MP4; GIF имеет ограниченную палитру.
+Последовательность: Meet Bro → Get Early Access → How It Works. В видео показан весь экран и указатель мыши; GIF показывает увеличенные вдвое области тех же кнопок, чтобы подъём и возврат были лучше видны. Подписи и указатель добавлены только в запись. GIF повторяется для удобства просмотра; анимации на странице не зациклены. Для оценки бронзового оттенка используйте PNG или MP4; GIF имеет ограниченную палитру.
 
-[Новый скриншот Desktop 1440×900](docs/previews/aged-bronze-desktop-1440x900.png). [Отчёт Aged Bronze и проверка контраста](docs/aged-bronze-report.md).
+[Статичный вид Desktop 1440×900](docs/previews/aged-bronze-desktop-1440x900.png) не изменился. [Отчёт Floating Invitation](docs/floating-invitation-report.md) · [Aged Bronze и проверка контраста](docs/aged-bronze-report.md).
 
 Материалы до изменения палитры: [все анимации](docs/previews/hero-animations.gif) · [Mobile 390 px](docs/previews/stage2-mobile-390.png) · [Warm Welcome включён](docs/previews/warm-welcome-on.png) · [Warm Welcome выключен](docs/previews/warm-welcome-off.png).
 
@@ -37,11 +37,11 @@ python3 -m http.server 8000 --bind 127.0.0.1
 
 ## Реализованные эффекты
 
-- Meet Bro / Aged Bronze: мягкий бронзовый градиент, тонкая рамка, верхний отблеск и нижняя тень. Однократный бронзовый блик 600 мс, подъём 6 px, стрелка 3 px, нажатие 0.99.
+- Meet Bro / Aged Bronze: мягкий бронзовый градиент, тонкая рамка, верхний отблеск и нижняя тень. Однократный бронзовый блик 600 мс, подъём 6 px за 400 мс, стрелка 3 px, нажатие 0.99.
 - Warm Welcome: радиальное пятно 360 px, итоговая непрозрачность 0.12, появление 500 мс, исчезновение 550 мс. Слой под текстом обрезан перед фигурой Bro.
 - Living Engraving: однократный блик 400 мс только на BRO?, без изменения размеров.
-- How It Works: рамка, тёплый фон и стрелка за 300 мс.
-- Embossed Invitation: внутренний контур и стрелка за 260 мс.
+- How It Works: подъём 4 px, усиление бронзовой рамки и мягкая тёмная тень за 400 мс; тёплый фон и стрелка за 300 мс.
+- Get Early Access / Embossed Invitation: подъём 4 px и усиление нижней тени за 400 мс; внутренний контур и стрелка за 260 мс.
 - Навигация: цвет и подчёркивание за 220 мс.
 - Однократное появление текста за 550 мс, без перемещения.
 
@@ -49,6 +49,6 @@ python3 -m http.server 8000 --bind 127.0.0.1
 
 ## Проверки
 
-13 проверок Chromium повторно пройдены после изменения кнопок. Геометрия и шрифты desktop/mobile совпадают с утверждённым тегом; исходные PNG/WebP не изменены. Минимальный расчётный контраст текста на бронзовой поверхности — 4,56:1. Подробности — [отчёт Aged Bronze](docs/aged-bronze-report.md); предыдущий этап — [отчёт анимаций](docs/stage2-report.md).
+После Floating Invitation проверены движение и возврат всех трёх кнопок по промежуточным кадрам, сохранение статичной геометрии и оформления при 1440×900 / 390×844, клавиатурное управление, reduced motion и сенсорное меню. Исходные PNG/WebP и контраст текста на бронзовой поверхности не менялись. Подробности — [отчёт Floating Invitation](docs/floating-invitation-report.md); предыдущие проверки — [Aged Bronze](docs/aged-bronze-report.md) и [анимации](docs/stage2-report.md).
 
 Safari, Firefox, Edge и реальные смартфоны не проверялись. Сайт ожидает визуального согласования; слияние и публикация не выполнялись.
