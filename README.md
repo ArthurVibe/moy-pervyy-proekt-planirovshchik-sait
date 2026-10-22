@@ -1,50 +1,54 @@
 # What’s Up, Bro? — The Private Club
 
-Stage 1 / specification v2.0: static Header + Hero.
-Development is confined to `feature/private-club-hero`; main and the backup tag are unchanged. Source and preview screenshots are saved in this branch for review. No merge or website publication has been performed.
+Этап 2: сдержанные анимации Header + Hero. Рабочая ветка — `feature/private-club-hero`.
 
-## Просмотр без скачивания
+Утверждённая статичная композиция сохранена тегом [`private-club-hero-v1.0`](https://github.com/ArthurVibe/moy-pervyy-proekt-planirovshchik-sait/tree/private-club-hero-v1.0), коммит `bffb72c9e968b81a941399d9e1a7f0d2ea5764f6`. Основная ветка, тег и действующий сайт не изменялись. Этап 2 не опубликован через GitHub Pages и не объединён с main.
 
-Скриншоты этапа 1 можно открыть прямо на GitHub:
+## Посмотреть эффекты без архива
 
-- [Desktop 1440×900](docs/previews/desktop-1440x900.png)
-- [Mobile 390 px](docs/previews/mobile-390.png)
+[Открыть GIF-запись](docs/previews/hero-animations.gif) · [MP4 1440×900](docs/previews/hero-animations.mp4?raw=1)
 
-### Desktop
+![Демонстрация анимаций THE PRIVATE CLUB](docs/previews/hero-animations.gif)
 
-![Desktop 1440×900](docs/previews/desktop-1440x900.png)
+Запись около 14 секунд: Meet Bro с Warm Welcome → логотип → How It Works → Get Early Access → три пункта меню → повтор Meet Bro при `warmWelcome=off`. GIF повторяет запись для удобства просмотра; блики на самой странице выполняются однократно за наведение. Видео и GIF — записи браузера, а не интерактивный сайт. Для лучшего качества используйте MP4; GIF имеет ограниченную палитру.
 
-### Mobile
+Скриншоты: [Desktop 1440×900](docs/previews/stage2-desktop-1440x900.png) · [Mobile 390 px](docs/previews/stage2-mobile-390.png).
 
-![Mobile 390 px](docs/previews/mobile-390.png)
+Сравнение: [Warm Welcome включён](docs/previews/warm-welcome-on.png) · [Warm Welcome выключен](docs/previews/warm-welcome-off.png). На обоих скриншотах Meet Bro находится под наведением; отличается только локальная подсветка.
 
-Это скриншоты для визуального согласования. Работающая новая страница пока не опубликована; GitHub Pages продолжает использовать main.
+## Интерактивный просмотр на вашем компьютере
 
-## Local preview
-
-Extract the complete archive, keep `assets/` beside `index.html`, and open `index.html` in a modern browser. No installation, build or internet is required. For a local HTTP preview, run this from the project directory:
+При установленных Git и Python:
 
 ```sh
+git clone --branch feature/private-club-hero --single-branch https://github.com/ArthurVibe/moy-pervyy-proekt-planirovshchik-sait.git private-club-preview
+cd private-club-preview
 python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-Then open http://127.0.0.1:8000 on that same computer. This starts only a loopback server, not a public deployment.
+На Windows последнюю команду можно выполнить через `py -m http.server 8000 --bind 127.0.0.1`.
 
-## Stage 1
+В браузере на том же компьютере откройте:
 
-- Typographic two-line WHAT’S UP, / BRO? logo in locally hosted Playfair Display, with a larger BRO? and YOUR PERSONAL AI PLANNER.
-- About Bro / How It Works / Features and Get Early Access.
-- PLAN LIKE A GENTLEMAN., Less Planning. More Living., Meet Bro / How It Works.
-- One continuous club scene behind the desktop composition.
-- Mobile text above a separately displayed crop of the same approved photograph.
-- Keyboard-accessible disclosure menu and non-blocking Coming soon prototype notices.
+- Обычный режим: `http://127.0.0.1:8000/`
+- Только Warm Welcome выключен: `http://127.0.0.1:8000/?warmWelcome=off`
 
-The logo and headline use the official local Playfair Display variable font; its SIL OFL license is included in assets/fonts/OFL.txt. Interface controls use system sans-serif. No external font requests are required.
+Сервер привязан только к локальному компьютеру; это не публичная публикация. Интернет для самой страницы не нужен: фотография, шрифт Playfair Display и код локальные. Шрифт распространяется с лицензией SIL OFL в `assets/fonts/OFL.txt`.
 
-The original PNG is unchanged. The page loads a pixel-identical lossless WebP, with PNG as an unsupported-format fallback. Both are included. The person, face, clothing, interior and lighting were not edited.
+## Реализованные эффекты
 
-No animations, hover effects, Warm Welcome, Living Engraving, registration, additional sections or footer are included. Stage 2 awaits visual approval.
+- Brass Reflection: однократный блик 600 мс, подъём 2 px, стрелка 3 px, нажатие 0.99.
+- Warm Welcome: радиальное пятно 360 px, итоговая непрозрачность 0.12, появление 500 мс, исчезновение 550 мс. Слой под текстом обрезан перед фигурой Bro.
+- Living Engraving: однократный блик 400 мс только на BRO?, без изменения размеров.
+- How It Works: рамка, тёплый фон и стрелка за 300 мс.
+- Embossed Invitation: внутренний контур и стрелка за 260 мс.
+- Навигация: цвет и подчёркивание за 220 мс.
+- Однократное появление текста за 550 мс, без перемещения.
 
-## Validation
+При системном reduced motion декоративные анимации отключены. Hover-эффекты работают только с точным указателем, поддерживающим наведение; касания их не запускают. Coming soon и клавиатурный фокус сохранены.
 
-See `docs/stage1-report.md`. The older `docs/acceptance-results.md` refers to the previous UI Kit, not this Hero.
+## Проверки
+
+13 проверок Chromium пройдены. Геометрия и шрифты desktop/mobile совпадают с утверждённым тегом; исходные PNG/WebP не изменены. Сравнение Warm Welcome подтвердило неизменность правой области с персонажем. Подробности и ограничения — [docs/stage2-report.md](docs/stage2-report.md).
+
+Safari, Firefox, Edge и реальные смартфоны не проверялись. Сайт ожидает визуального согласования; слияние и публикация не выполнялись.
