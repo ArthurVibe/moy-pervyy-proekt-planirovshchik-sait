@@ -20,18 +20,19 @@
       --forest: #14221b;
       --brass: #b99a69;
       /* Bronze is scoped to buttons; the approved brand colours stay intact. */
-      --bronze: #8a6946;
-      --bronze-mid: #9a744b;
-      --bronze-highlight: #b0895b;
-      --bronze-dark: #5f452c;
-      --bronze-edge: #4a3523;
-      --bronze-border: #b48b5d;
+      --bronze: #825536;
+      --bronze-mid: #966443;
+      --bronze-highlight: #a8764d;
+      --bronze-light: #c49a6c;
+      --bronze-dark: #63452f;
+      --bronze-edge: #3e2a1d;
+      --bronze-border: #a8764d;
       /* A warmer near-black lets the central bronze stay dark and readable. */
       --bronze-ink: #15110d;
-      --bronze-surface: #9d7551;
-      --bronze-hover-surface: #a17a56;
-      --bronze-hover-border: #b99369;
-      --metal-sheen: rgb(214 178 122 / .55);
+      --bronze-surface: #a57350;
+      --bronze-hover-surface: #ac7954;
+      --bronze-hover-border: #c49a6c;
+      --metal-sheen: rgb(214 181 137 / .85);
       --ivory: #e9dfcd;
       --burgundy: #512b35;
       --warm-text: #ddd0b9;
@@ -90,13 +91,13 @@
       color: var(--bronze-ink); background: var(--bronze-surface);
       /* Dark edges frame a quiet centre; the label stays over the readable midtone. */
       background-image: linear-gradient(180deg, var(--bronze-highlight), var(--bronze-mid) 14%,
-        transparent 32%, transparent 70%, var(--bronze) 90%, var(--bronze-dark));
+        transparent 30%, transparent 74%, var(--bronze) 90%, var(--bronze-dark));
       font-size: 13px; line-height: 1.5; font-weight: 600; white-space: nowrap;
     }
     .invitation {
       font-size: 12px; padding-inline: 20px; gap: 20px;
-      box-shadow: inset 0 1px 0 rgb(214 178 122 / .18), inset 0 -1px 0 var(--bronze-edge),
-        0 2px 0 var(--bronze-edge), 0 5px 10px rgb(0 0 0 / .22);
+      box-shadow: inset 0 1px 0 rgb(214 181 137 / .22), inset 0 -1px 0 var(--bronze-edge),
+        0 2px 0 var(--bronze-edge), 0 6px 12px rgb(0 0 0 / .25);
     }
     .button-outline { color: var(--ivory); background: rgb(20 34 27 / .42); font-weight: 500; }
     .arrow { display: block; width: 18px; height: 18px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
@@ -196,16 +197,17 @@
       border-bottom-color: var(--bronze-edge);
     }
     .button-meet {
-      --sheen-width: 38%; --sheen-strength: .9;
-      box-shadow: inset 0 1px 0 rgb(214 178 122 / .26), inset 0 -1px 0 var(--bronze-edge),
-        0 3px 0 var(--bronze-edge), 0 7px 14px rgb(0 0 0 / .28);
+      --sheen-width: 75%; --sheen-strength: .95;
+      box-shadow: inset 0 1px 0 rgb(214 181 137 / .3), inset 0 -1px 0 var(--bronze-edge),
+        0 3px 0 var(--bronze-edge), 0 8px 16px rgb(0 0 0 / .3);
     }
-    .invitation { --sheen-width: 28%; --sheen-strength: .65; }
+    .invitation { --sheen-width: 60%; --sheen-strength: .75; }
     .button-meet::before, .invitation::before {
       content: ''; position: absolute; top: -60%; bottom: -60%; left: 0; width: var(--sheen-width);
       z-index: -1; pointer-events: none; opacity: 0;
-      background: linear-gradient(90deg, transparent, var(--metal-sheen), transparent);
-      transform: translateX(-240%) skewX(-22deg);
+      background: linear-gradient(90deg, transparent, rgb(196 154 108 / .25) 20%,
+        var(--metal-sheen) 44%, var(--metal-sheen) 56%, rgb(196 154 108 / .25) 80%, transparent);
+      transform: translateX(-160%) skewX(-20deg);
     }
     .invitation::after {
       content: ''; position: absolute; inset: 4px; pointer-events: none;
@@ -222,7 +224,8 @@
     .wordmark-bottom::after {
       content: attr(data-engraving); position: absolute; inset: 0; pointer-events: none;
       color: transparent; opacity: 0;
-      background: linear-gradient(110deg, transparent 38%, var(--metal-sheen) 50%, transparent 62%);
+      background: linear-gradient(110deg, transparent 25%, rgb(150 100 67 / .7) 40%,
+        #d6b589 50%, rgb(168 118 77 / .7) 60%, transparent 75%);
       background-size: 200% 100%; background-position: 150% 0; background-repeat: no-repeat;
       -webkit-background-clip: text; background-clip: text;
     }
@@ -236,13 +239,13 @@
     }
     .hero[data-warm-welcome="off"]::after { display: none; }
     @keyframes bronze-reflection {
-      0% { transform: translateX(-240%) skewX(-22deg); opacity: 0; }
-      18%, 65% { opacity: var(--sheen-strength); }
-      100% { transform: translateX(450%) skewX(-22deg); opacity: 0; }
+      0% { transform: translateX(-160%) skewX(-20deg); opacity: 0; }
+      12%, 85% { opacity: var(--sheen-strength); }
+      100% { transform: translateX(220%) skewX(-20deg); opacity: 0; }
     }
     @keyframes living-engraving {
       0% { background-position: 150% 0; opacity: 0; }
-      25%, 70% { opacity: .9; }
+      20%, 80% { opacity: 1; }
       100% { background-position: -50% 0; opacity: 0; }
     }
     @keyframes hero-reveal { from { opacity: 0; } to { opacity: 1; } }
@@ -252,47 +255,51 @@
     }
     @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
       .button-meet {
-        transition: background-color 300ms var(--motion-ease),
+        transition: background-color 350ms var(--motion-ease), border-color 350ms var(--motion-ease),
+          filter var(--button-float-duration) var(--motion-ease),
           transform var(--button-float-duration) var(--motion-ease), box-shadow var(--button-float-duration) var(--motion-ease);
       }
       .button-meet .arrow { transition: transform 250ms var(--motion-ease); }
       .button-meet:hover {
-        background-color: var(--bronze-hover-surface); transform: translateY(-6px);
-        box-shadow: inset 0 1px 0 rgb(214 178 122 / .3), inset 0 -1px 0 var(--bronze-edge),
-          0 4px 0 var(--bronze-edge), 0 15px 26px rgb(0 0 0 / .34);
+        background-color: var(--bronze-hover-surface); border-color: var(--bronze-hover-border);
+        border-bottom-color: var(--bronze-edge); transform: translateY(-6px); filter: brightness(1.13);
+        box-shadow: inset 0 1px 0 rgb(214 181 137 / .55), inset 0 -1px 0 var(--bronze-edge),
+          0 4px 0 var(--bronze-edge), 0 16px 28px rgb(0 0 0 / .38);
       }
-      .button-meet:hover::before { animation: bronze-reflection 600ms cubic-bezier(.25, .1, .35, 1) 1 both; }
-      .button-meet:hover .arrow { transform: translate(3px, -3px); }
-      .button-meet:active { transform: translateY(0) scale(.99); transition-duration: 120ms; }
+      .button-meet:hover::before { animation: bronze-reflection 800ms ease-in-out 1 both; }
+      .button-meet:hover .arrow { transform: translate(5px, -3px); }
+      .button-meet:active { transform: translateY(-1px) scale(.99); filter: brightness(1.06); transition-duration: 120ms; }
       .button-outline {
         transition: border-color var(--button-float-duration) var(--motion-ease), background-color 300ms var(--motion-ease),
           transform var(--button-float-duration) var(--motion-ease), box-shadow var(--button-float-duration) var(--motion-ease);
       }
       .button-outline .arrow { transition: transform 300ms var(--motion-ease); }
       .button-outline:hover {
-        transform: translateY(-4px); border-color: var(--bronze-hover-border); background-color: rgb(61 48 34 / .62);
-        box-shadow: inset 0 0 0 1px rgb(176 138 90 / .16), 0 10px 20px rgb(0 0 0 / .3);
+        transform: translateY(-4px); border-color: var(--bronze-hover-border); background-color: rgb(81 58 39 / .78);
+        box-shadow: inset 0 0 0 1px rgb(196 154 108 / .25), 0 12px 24px rgb(0 0 0 / .34);
       }
-      .button-outline:hover .arrow { transform: translateX(3px); }
+      .button-outline:hover .arrow { transform: translateX(4px); }
       .invitation {
-        transition: background-color 260ms var(--motion-ease),
+        transition: background-color 350ms var(--motion-ease), border-color 350ms var(--motion-ease),
+          filter var(--button-float-duration) var(--motion-ease),
           transform var(--button-float-duration) var(--motion-ease), box-shadow var(--button-float-duration) var(--motion-ease);
       }
       .invitation .arrow { transition: transform 260ms var(--motion-ease); }
       .invitation::after { transition: opacity 260ms var(--motion-ease); }
       .invitation:hover {
-        background-color: var(--bronze-hover-surface); transform: translateY(-4px);
-        box-shadow: inset 0 1px 0 rgb(214 178 122 / .24), inset 0 -1px 0 var(--bronze-edge),
+        background-color: var(--bronze-hover-surface); border-color: var(--bronze-hover-border);
+        border-bottom-color: var(--bronze-edge); transform: translateY(-4px); filter: brightness(1.1);
+        box-shadow: inset 0 1px 0 rgb(214 181 137 / .4), inset 0 -1px 0 var(--bronze-edge),
           0 4px 0 var(--bronze-edge), 0 12px 22px rgb(0 0 0 / .3);
       }
-      .invitation:hover::before { animation: bronze-reflection 480ms cubic-bezier(.25, .1, .35, 1) 1 both; }
+      .invitation:hover::before { animation: bronze-reflection 700ms ease-in-out 1 both; }
       .invitation:hover::after { opacity: 1; }
-      .invitation:hover .arrow { transform: translateX(2px); }
+      .invitation:hover .arrow { transform: translateX(3px); }
       .nav-action { transition: color 220ms var(--motion-ease); }
       .nav-action::after { transition: transform 220ms var(--motion-ease); }
       .nav-action:hover { color: var(--brass); }
       .nav-action:hover::after { transform: scaleX(1); }
-      .brand:hover .wordmark-bottom::after { animation: living-engraving 450ms ease-in-out 1 both; }
+      .brand:hover .wordmark-bottom::after { animation: living-engraving 850ms ease-in-out 1 both; }
       .hero::after { transition: opacity 550ms var(--motion-ease); }
       .hero[data-warm-active]::after { opacity: .12; transition-duration: 500ms; }
     }
