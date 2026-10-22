@@ -1,20 +1,20 @@
 # What’s Up, Bro? — The Private Club
 
-Этап 2: сдержанные анимации Header + Hero. Рабочая ветка — `feature/private-club-hero`.
+Этап 2: сдержанные анимации Header + Hero. Последняя корректировка — бронзовые кнопки Aged Bronze. Рабочая ветка — `feature/private-club-hero`.
 
 Утверждённая статичная композиция сохранена тегом [`private-club-hero-v1.0`](https://github.com/ArthurVibe/moy-pervyy-proekt-planirovshchik-sait/tree/private-club-hero-v1.0), коммит `bffb72c9e968b81a941399d9e1a7f0d2ea5764f6`. Основная ветка, тег и действующий сайт не изменялись. Этап 2 не опубликован через GitHub Pages и не объединён с main.
 
 ## Посмотреть эффекты без архива
 
-[Открыть GIF-запись](docs/previews/hero-animations.gif) · [MP4 1440×900](docs/previews/hero-animations.mp4?raw=1)
+[Открыть GIF-запись бронзовых кнопок](docs/previews/aged-bronze-hover.gif) · [MP4 1440×900](docs/previews/aged-bronze-hover.mp4?raw=1)
 
-![Демонстрация анимаций THE PRIVATE CLUB](docs/previews/hero-animations.gif)
+![Наведение на бронзовые кнопки Meet Bro и Get Early Access](docs/previews/aged-bronze-hover.gif)
 
-Запись около 14 секунд: Meet Bro с Warm Welcome → логотип → How It Works → Get Early Access → три пункта меню → повтор Meet Bro при `warmWelcome=off`. GIF повторяет запись для удобства просмотра; блики на самой странице выполняются однократно за наведение. Видео и GIF — записи браузера, а не интерактивный сайт. Для лучшего качества используйте MP4; GIF имеет ограниченную палитру.
+Запись около 8 секунд: два наведения на Meet Bro → два наведения на Get Early Access. GIF повторяет запись для удобства просмотра; блик на самой странице выполняется однократно за наведение. Видео и GIF — записи браузера, а не интерактивный сайт. Для оценки бронзового оттенка используйте PNG или MP4; GIF имеет ограниченную палитру.
 
-Скриншоты: [Desktop 1440×900](docs/previews/stage2-desktop-1440x900.png) · [Mobile 390 px](docs/previews/stage2-mobile-390.png).
+[Новый скриншот Desktop 1440×900](docs/previews/aged-bronze-desktop-1440x900.png). [Отчёт Aged Bronze и проверка контраста](docs/aged-bronze-report.md).
 
-Сравнение: [Warm Welcome включён](docs/previews/warm-welcome-on.png) · [Warm Welcome выключен](docs/previews/warm-welcome-off.png). На обоих скриншотах Meet Bro находится под наведением; отличается только локальная подсветка.
+Материалы до изменения палитры: [все анимации](docs/previews/hero-animations.gif) · [Mobile 390 px](docs/previews/stage2-mobile-390.png) · [Warm Welcome включён](docs/previews/warm-welcome-on.png) · [Warm Welcome выключен](docs/previews/warm-welcome-off.png).
 
 ## Интерактивный просмотр на вашем компьютере
 
@@ -37,7 +37,7 @@ python3 -m http.server 8000 --bind 127.0.0.1
 
 ## Реализованные эффекты
 
-- Brass Reflection: однократный блик 600 мс, подъём 2 px, стрелка 3 px, нажатие 0.99.
+- Meet Bro / Aged Bronze: мягкий бронзовый градиент, тонкая рамка, верхний отблеск и нижняя тень. Однократный бронзовый блик 600 мс, подъём 6 px, стрелка 3 px, нажатие 0.99.
 - Warm Welcome: радиальное пятно 360 px, итоговая непрозрачность 0.12, появление 500 мс, исчезновение 550 мс. Слой под текстом обрезан перед фигурой Bro.
 - Living Engraving: однократный блик 400 мс только на BRO?, без изменения размеров.
 - How It Works: рамка, тёплый фон и стрелка за 300 мс.
@@ -49,6 +49,6 @@ python3 -m http.server 8000 --bind 127.0.0.1
 
 ## Проверки
 
-13 проверок Chromium пройдены. Геометрия и шрифты desktop/mobile совпадают с утверждённым тегом; исходные PNG/WebP не изменены. Сравнение Warm Welcome подтвердило неизменность правой области с персонажем. Подробности и ограничения — [docs/stage2-report.md](docs/stage2-report.md).
+13 проверок Chromium повторно пройдены после изменения кнопок. Геометрия и шрифты desktop/mobile совпадают с утверждённым тегом; исходные PNG/WebP не изменены. Минимальный расчётный контраст текста на бронзовой поверхности — 4,56:1. Подробности — [отчёт Aged Bronze](docs/aged-bronze-report.md); предыдущий этап — [отчёт анимаций](docs/stage2-report.md).
 
 Safari, Firefox, Edge и реальные смартфоны не проверялись. Сайт ожидает визуального согласования; слияние и публикация не выполнялись.

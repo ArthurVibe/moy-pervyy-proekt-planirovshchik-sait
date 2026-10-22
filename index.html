@@ -19,6 +19,17 @@
     :root {
       --forest: #14221b;
       --brass: #b99a69;
+      /* Bronze is scoped to buttons; the approved brand colours stay intact. */
+      --bronze: #8c6a43;
+      --bronze-light: #a47a4c;
+      --bronze-dark: #5e452b;
+      --bronze-border: #b08a5a;
+      --bronze-ink: #1a1d18;
+      /* Slightly lighter surfaces keep small dark labels above 4.5:1. */
+      --bronze-surface: #a47d50;
+      --bronze-sheen: rgb(173 134 88 / .7);
+      --bronze-hover-top: #b08a5a;
+      --bronze-hover-border: #c09b6b;
       --ivory: #e9dfcd;
       --burgundy: #512b35;
       --warm-text: #ddd0b9;
@@ -73,11 +84,15 @@
     .button {
       display: inline-flex; align-items: center; justify-content: center; gap: 22px;
       min-height: var(--control-height); padding: 13px 24px;
-      border: 1px solid var(--brass); border-radius: var(--control-radius);
-      color: var(--forest); background: var(--brass);
+      border: 1px solid var(--bronze-border); border-radius: var(--control-radius);
+      color: var(--bronze-ink); background: var(--bronze-surface);
+      background-image: linear-gradient(180deg, var(--bronze-sheen), transparent);
       font-size: 13px; line-height: 1.5; font-weight: 600; white-space: nowrap;
     }
-    .invitation { font-size: 12px; padding-inline: 20px; gap: 20px; }
+    .invitation {
+      font-size: 12px; padding-inline: 20px; gap: 20px;
+      box-shadow: inset 0 1px 0 rgb(233 223 205 / .12), 0 2px 0 var(--bronze-dark), 0 4px 8px rgb(0 0 0 / .16);
+    }
     .button-outline { color: var(--ivory); background: rgb(20 34 27 / .42); font-weight: 500; }
     .arrow { display: block; width: 18px; height: 18px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
     .menu-toggle { display: none; align-items: center; justify-content: center; gap: 10px; min-width: 48px; min-height: 48px; padding: 10px 14px; background: rgb(20 34 27 / .55); border: 1px solid var(--brass); border-radius: var(--control-radius); color: var(--ivory); font-size: 12px; }
@@ -169,21 +184,23 @@
     /* Stage 2: all decorative layers are out of flow and ignore pointer events. */
     :root {
       --motion-ease: cubic-bezier(.2, .65, .3, 1);
-      --brass-light: #c8aa7a;
-      --brass-outline: #d1b27c;
       --engraving-ivory: #e5d2ad;
     }
     .button-meet, .invitation { position: relative; isolation: isolate; }
-    .button-meet { overflow: hidden; }
+    .button-meet {
+      overflow: hidden;
+      box-shadow: inset 0 1px 0 rgb(233 223 205 / .18), inset 0 -1px 0 rgb(94 69 43 / .25),
+        0 3px 0 var(--bronze-dark), 0 6px 12px rgb(0 0 0 / .22);
+    }
     .button-meet::before {
       content: ''; position: absolute; top: -60%; bottom: -60%; left: 0; width: 32%;
       z-index: -1; pointer-events: none; opacity: 0;
-      background: linear-gradient(90deg, transparent, rgb(229 193 136 / .38), transparent);
+      background: linear-gradient(90deg, transparent, rgb(224 182 126 / .55), transparent);
       transform: translateX(-240%) skewX(-22deg);
     }
     .invitation::after {
       content: ''; position: absolute; inset: 4px; pointer-events: none;
-      border: 1px solid rgb(20 34 27 / .3); border-radius: 3px; opacity: 0;
+      border: 1px solid rgb(94 69 43 / .45); border-radius: 3px; opacity: 0;
     }
     .nav-action { position: relative; }
     .nav-action::after {
@@ -211,7 +228,7 @@
     .hero[data-warm-welcome="off"]::after { display: none; }
     @keyframes brass-reflection {
       0% { transform: translateX(-240%) skewX(-22deg); opacity: 0; }
-      18%, 65% { opacity: .7; }
+      18%, 65% { opacity: .85; }
       100% { transform: translateX(450%) skewX(-22deg); opacity: 0; }
     }
     @keyframes living-engraving {
@@ -226,24 +243,29 @@
     }
     @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
       .button-meet {
-        transition: background-color 300ms var(--motion-ease), transform 250ms var(--motion-ease), box-shadow 250ms var(--motion-ease);
+        transition: background-color 300ms var(--motion-ease), transform 300ms var(--motion-ease), box-shadow 300ms var(--motion-ease);
       }
       .button-meet .arrow { transition: transform 250ms var(--motion-ease); }
       .button-meet:hover {
-        background-color: var(--brass-light); transform: translateY(-2px);
-        box-shadow: 0 5px 14px rgb(0 0 0 / .18);
+        background-color: var(--bronze-hover-top); transform: translateY(-6px);
+        box-shadow: inset 0 1px 0 rgb(233 223 205 / .24), inset 0 -1px 0 rgb(94 69 43 / .25),
+          0 4px 0 var(--bronze-dark), 0 14px 24px rgb(0 0 0 / .3);
       }
       .button-meet:hover::before { animation: brass-reflection 600ms var(--motion-ease) 1 both; }
       .button-meet:hover .arrow { transform: translate(3px, -3px); }
       .button-meet:active { transform: translateY(0) scale(.99); transition-duration: 120ms; }
       .button-outline { transition: border-color 300ms var(--motion-ease), background-color 300ms var(--motion-ease); }
       .button-outline .arrow { transition: transform 300ms var(--motion-ease); }
-      .button-outline:hover { border-color: var(--brass-outline); background-color: rgb(53 48 32 / .55); }
+      .button-outline:hover { border-color: var(--bronze-hover-border); background-color: rgb(61 48 34 / .62); }
       .button-outline:hover .arrow { transform: translateX(3px); }
       .invitation { transition: background-color 260ms var(--motion-ease), box-shadow 260ms var(--motion-ease); }
       .invitation .arrow { transition: transform 260ms var(--motion-ease); }
       .invitation::after { transition: opacity 260ms var(--motion-ease); }
-      .invitation:hover { background-color: #b39465; box-shadow: 0 5px 12px rgb(0 0 0 / .15), inset 0 1px rgb(233 223 205 / .12); }
+      .invitation:hover {
+        background-color: var(--bronze-hover-top);
+        box-shadow: inset 0 1px 0 rgb(233 223 205 / .22), inset 0 -1px 0 rgb(94 69 43 / .2),
+          0 3px 0 var(--bronze-dark), 0 7px 14px rgb(0 0 0 / .22);
+      }
       .invitation:hover::after { opacity: 1; }
       .invitation:hover .arrow { transform: translateX(2px); }
       .nav-action { transition: color 220ms var(--motion-ease); }
