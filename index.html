@@ -20,16 +20,18 @@
       --forest: #14221b;
       --brass: #b99a69;
       /* Bronze is scoped to buttons; the approved brand colours stay intact. */
-      --bronze: #8c6a43;
-      --bronze-light: #a47a4c;
-      --bronze-dark: #5e452b;
-      --bronze-border: #b08a5a;
-      --bronze-ink: #1a1d18;
-      /* Slightly lighter surfaces keep small dark labels above 4.5:1. */
-      --bronze-surface: #a47d50;
-      --bronze-sheen: rgb(173 134 88 / .7);
-      --bronze-hover-top: #b08a5a;
-      --bronze-hover-border: #c09b6b;
+      --bronze: #8a6946;
+      --bronze-mid: #9a744b;
+      --bronze-highlight: #b0895b;
+      --bronze-dark: #5f452c;
+      --bronze-edge: #4a3523;
+      --bronze-border: #b48b5d;
+      /* A warmer near-black lets the central bronze stay dark and readable. */
+      --bronze-ink: #15110d;
+      --bronze-surface: #9d7551;
+      --bronze-hover-surface: #a17a56;
+      --bronze-hover-border: #b99369;
+      --metal-sheen: rgb(214 178 122 / .55);
       --ivory: #e9dfcd;
       --burgundy: #512b35;
       --warm-text: #ddd0b9;
@@ -86,12 +88,15 @@
       min-height: var(--control-height); padding: 13px 24px;
       border: 1px solid var(--bronze-border); border-radius: var(--control-radius);
       color: var(--bronze-ink); background: var(--bronze-surface);
-      background-image: linear-gradient(180deg, var(--bronze-sheen), transparent);
+      /* Dark edges frame a quiet centre; the label stays over the readable midtone. */
+      background-image: linear-gradient(180deg, var(--bronze-highlight), var(--bronze-mid) 14%,
+        transparent 32%, transparent 70%, var(--bronze) 90%, var(--bronze-dark));
       font-size: 13px; line-height: 1.5; font-weight: 600; white-space: nowrap;
     }
     .invitation {
       font-size: 12px; padding-inline: 20px; gap: 20px;
-      box-shadow: inset 0 1px 0 rgb(233 223 205 / .12), 0 2px 0 var(--bronze-dark), 0 4px 8px rgb(0 0 0 / .16);
+      box-shadow: inset 0 1px 0 rgb(214 178 122 / .18), inset 0 -1px 0 var(--bronze-edge),
+        0 2px 0 var(--bronze-edge), 0 5px 10px rgb(0 0 0 / .22);
     }
     .button-outline { color: var(--ivory); background: rgb(20 34 27 / .42); font-weight: 500; }
     .arrow { display: block; width: 18px; height: 18px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
@@ -185,23 +190,26 @@
     :root {
       --motion-ease: cubic-bezier(.2, .65, .3, 1);
       --button-float-duration: 400ms;
-      --engraving-ivory: #e5d2ad;
     }
-    .button-meet, .invitation { position: relative; isolation: isolate; }
+    .button-meet, .invitation {
+      position: relative; isolation: isolate; overflow: hidden;
+      border-bottom-color: var(--bronze-edge);
+    }
     .button-meet {
-      overflow: hidden;
-      box-shadow: inset 0 1px 0 rgb(233 223 205 / .18), inset 0 -1px 0 rgb(94 69 43 / .25),
-        0 3px 0 var(--bronze-dark), 0 6px 12px rgb(0 0 0 / .22);
+      --sheen-width: 38%; --sheen-strength: .9;
+      box-shadow: inset 0 1px 0 rgb(214 178 122 / .26), inset 0 -1px 0 var(--bronze-edge),
+        0 3px 0 var(--bronze-edge), 0 7px 14px rgb(0 0 0 / .28);
     }
-    .button-meet::before {
-      content: ''; position: absolute; top: -60%; bottom: -60%; left: 0; width: 32%;
+    .invitation { --sheen-width: 28%; --sheen-strength: .65; }
+    .button-meet::before, .invitation::before {
+      content: ''; position: absolute; top: -60%; bottom: -60%; left: 0; width: var(--sheen-width);
       z-index: -1; pointer-events: none; opacity: 0;
-      background: linear-gradient(90deg, transparent, rgb(224 182 126 / .55), transparent);
+      background: linear-gradient(90deg, transparent, var(--metal-sheen), transparent);
       transform: translateX(-240%) skewX(-22deg);
     }
     .invitation::after {
       content: ''; position: absolute; inset: 4px; pointer-events: none;
-      border: 1px solid rgb(94 69 43 / .45); border-radius: 3px; opacity: 0;
+      border: 1px solid rgb(74 53 35 / .5); border-radius: 3px; opacity: 0;
     }
     .nav-action { position: relative; }
     .nav-action::after {
@@ -214,8 +222,8 @@
     .wordmark-bottom::after {
       content: attr(data-engraving); position: absolute; inset: 0; pointer-events: none;
       color: transparent; opacity: 0;
-      background: linear-gradient(115deg, transparent 38%, rgb(209 178 124 / .35) 50%, transparent 62%);
-      background-size: 250% 100%; background-position: 150% 0;
+      background: linear-gradient(110deg, transparent 38%, var(--metal-sheen) 50%, transparent 62%);
+      background-size: 200% 100%; background-position: 150% 0; background-repeat: no-repeat;
       -webkit-background-clip: text; background-clip: text;
     }
     .hero::after {
@@ -227,15 +235,15 @@
       mask-image: linear-gradient(90deg, #000 calc(100% - 120px), transparent);
     }
     .hero[data-warm-welcome="off"]::after { display: none; }
-    @keyframes brass-reflection {
+    @keyframes bronze-reflection {
       0% { transform: translateX(-240%) skewX(-22deg); opacity: 0; }
-      18%, 65% { opacity: .85; }
+      18%, 65% { opacity: var(--sheen-strength); }
       100% { transform: translateX(450%) skewX(-22deg); opacity: 0; }
     }
     @keyframes living-engraving {
       0% { background-position: 150% 0; opacity: 0; }
-      25%, 70% { opacity: .65; }
-      100% { background-position: -150% 0; opacity: 0; }
+      25%, 70% { opacity: .9; }
+      100% { background-position: -50% 0; opacity: 0; }
     }
     @keyframes hero-reveal { from { opacity: 0; } to { opacity: 1; } }
     @media (prefers-reduced-motion: no-preference) {
@@ -249,11 +257,11 @@
       }
       .button-meet .arrow { transition: transform 250ms var(--motion-ease); }
       .button-meet:hover {
-        background-color: var(--bronze-hover-top); transform: translateY(-6px);
-        box-shadow: inset 0 1px 0 rgb(233 223 205 / .24), inset 0 -1px 0 rgb(94 69 43 / .25),
-          0 4px 0 var(--bronze-dark), 0 14px 24px rgb(0 0 0 / .3);
+        background-color: var(--bronze-hover-surface); transform: translateY(-6px);
+        box-shadow: inset 0 1px 0 rgb(214 178 122 / .3), inset 0 -1px 0 var(--bronze-edge),
+          0 4px 0 var(--bronze-edge), 0 15px 26px rgb(0 0 0 / .34);
       }
-      .button-meet:hover::before { animation: brass-reflection 600ms var(--motion-ease) 1 both; }
+      .button-meet:hover::before { animation: bronze-reflection 600ms cubic-bezier(.25, .1, .35, 1) 1 both; }
       .button-meet:hover .arrow { transform: translate(3px, -3px); }
       .button-meet:active { transform: translateY(0) scale(.99); transition-duration: 120ms; }
       .button-outline {
@@ -273,19 +281,18 @@
       .invitation .arrow { transition: transform 260ms var(--motion-ease); }
       .invitation::after { transition: opacity 260ms var(--motion-ease); }
       .invitation:hover {
-        background-color: var(--bronze-hover-top); transform: translateY(-4px);
-        box-shadow: inset 0 1px 0 rgb(233 223 205 / .22), inset 0 -1px 0 rgb(94 69 43 / .2),
-          0 4px 0 var(--bronze-dark), 0 12px 22px rgb(0 0 0 / .28);
+        background-color: var(--bronze-hover-surface); transform: translateY(-4px);
+        box-shadow: inset 0 1px 0 rgb(214 178 122 / .24), inset 0 -1px 0 var(--bronze-edge),
+          0 4px 0 var(--bronze-edge), 0 12px 22px rgb(0 0 0 / .3);
       }
+      .invitation:hover::before { animation: bronze-reflection 480ms cubic-bezier(.25, .1, .35, 1) 1 both; }
       .invitation:hover::after { opacity: 1; }
       .invitation:hover .arrow { transform: translateX(2px); }
       .nav-action { transition: color 220ms var(--motion-ease); }
       .nav-action::after { transition: transform 220ms var(--motion-ease); }
       .nav-action:hover { color: var(--brass); }
       .nav-action:hover::after { transform: scaleX(1); }
-      .wordmark { transition: color 400ms var(--motion-ease); }
-      .brand:hover .wordmark { color: var(--engraving-ivory); }
-      .brand:hover .wordmark-bottom::after { animation: living-engraving 400ms var(--motion-ease) 1 both; }
+      .brand:hover .wordmark-bottom::after { animation: living-engraving 450ms ease-in-out 1 both; }
       .hero::after { transition: opacity 550ms var(--motion-ease); }
       .hero[data-warm-active]::after { opacity: .12; transition-duration: 500ms; }
     }
