@@ -1,0 +1,113 @@
+{
+  "baseline": "5a4810f0a4a40b7a377a38728ae4ae7a85af5f1c",
+  "viewports": [
+    {
+      "name": "desktop-1440x900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "dpr": 1,
+      "icon": {
+        "x": 1352,
+        "y": 812,
+        "width": 64,
+        "height": 64,
+        "right": 24,
+        "bottom": 24,
+        "position": "absolute",
+        "pointerEvents": "none",
+        "transform": "none",
+        "animations": 0,
+        "heroParent": true,
+        "decorative": true,
+        "noInteractiveChildren": true,
+        "loaded": true,
+        "currentSrc": "http://127.0.0.1:8792/assets/mini-bro/mini-bro-icon-v1.0-64.webp",
+        "hitThrough": true
+      },
+      "geometryUnchanged": true,
+      "noControlOverlap": true,
+      "noHorizontalOverflow": true,
+      "existingControlsPassed": true
+    },
+    {
+      "name": "desktop-1280x800",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "dpr": 1,
+      "icon": {
+        "x": 1192,
+        "y": 712,
+        "width": 64,
+        "height": 64,
+        "right": 24,
+        "bottom": 24,
+        "position": "absolute",
+        "pointerEvents": "none",
+        "transform": "none",
+        "animations": 0,
+        "heroParent": true,
+        "decorative": true,
+        "noInteractiveChildren": true,
+        "loaded": true,
+        "currentSrc": "http://127.0.0.1:8792/assets/mini-bro/mini-bro-icon-v1.0-64.webp",
+        "hitThrough": true
+      },
+      "geometryUnchanged": true,
+      "noControlOverlap": true,
+      "noHorizontalOverflow": true,
+      "existingControlsPassed": true
+    },
+    {
+      "name": "mobile-390x844",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dpr": 1,
+      "icon": {
+        "x": 326,
+        "y": 780,
+        "width": 48,
+        "height": 48,
+        "right": 16,
+        "bottom": 16,
+        "position": "absolute",
+        "pointerEvents": "none",
+        "transform": "none",
+        "animations": 0,
+        "heroParent": true,
+        "decorative": true,
+        "noInteractiveChildren": true,
+        "loaded": true,
+        "currentSrc": "http://127.0.0.1:8792/assets/mini-bro/mini-bro-icon-v1.0-64.webp",
+        "hitThrough": true
+      },
+      "geometryUnchanged": true,
+      "noControlOverlap": true,
+      "noHorizontalOverflow": true,
+      "existingControlsPassed": true
+    }
+  ],
+  "retina": [
+    {
+      "label": "desktop",
+      "dpr": 2,
+      "webp": "http://127.0.0.1:8792/assets/mini-bro/mini-bro-icon-v1.0-128.webp",
+      "pngFallback": "http://127.0.0.1:8792/assets/mini-bro/mini-bro-icon-v1.0-128.png"
+    },
+    {
+      "label": "mobile",
+      "dpr": 2,
+      "webp": "http://127.0.0.1:8792/assets/mini-bro/mini-bro-icon-v1.0-128.webp",
+      "pngFallback": "http://127.0.0.1:8792/assets/mini-bro/mini-bro-icon-v1.0-128.png"
+    }
+  ],
+  "errors": [],
+  "browser": "154.0.8037.57",
+  "sourceChangeLimitedToIcon": true,
+  "status": "passed"
+}

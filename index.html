@@ -331,6 +331,25 @@
       .hero::after { opacity: 0 !important; transition: none !important; }
     }
 
+    /* Static Mini Bro experiment. Absolute positioning stays inside the Hero;
+       the viewport cap keeps the icon visible when the mobile Hero is taller. */
+    .mini-bro {
+      --mini-bro-size: 64px;
+      --mini-bro-inset: 24px;
+      position: absolute; z-index: 1;
+      right: var(--mini-bro-inset);
+      top: min(calc(100% - var(--mini-bro-size) - var(--mini-bro-inset)),
+        calc(100vh - var(--mini-bro-size) - var(--mini-bro-inset)));
+      top: min(calc(100% - var(--mini-bro-size) - var(--mini-bro-inset)),
+        calc(100svh - var(--mini-bro-size) - var(--mini-bro-inset)));
+      display: block; width: var(--mini-bro-size); height: var(--mini-bro-size);
+      pointer-events: none; user-select: none;
+    }
+    .mini-bro img { display: block; width: 100%; height: 100%; object-fit: contain; }
+    @media (max-width: 767px) {
+      .mini-bro { --mini-bro-size: 48px; --mini-bro-inset: 16px; }
+    }
+
   </style>
 </head>
 <body>
@@ -366,6 +385,10 @@
           <button class="button button-outline" type="button" data-coming-soon><span class="button-face">How It Works <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></span></button>
         </div>
       </div>
+      <picture class="mini-bro" aria-hidden="true">
+        <source type="image/webp" srcset="assets/mini-bro/mini-bro-icon-v1.0-64.webp 64w, assets/mini-bro/mini-bro-icon-v1.0-128.webp 128w, assets/mini-bro/mini-bro-icon-v1.0-256.webp 256w" sizes="(max-width: 767px) 48px, 64px">
+        <img src="assets/mini-bro/mini-bro-icon-v1.0-64.png" srcset="assets/mini-bro/mini-bro-icon-v1.0-48.png 48w, assets/mini-bro/mini-bro-icon-v1.0-64.png 64w, assets/mini-bro/mini-bro-icon-v1.0-128.png 128w, assets/mini-bro/mini-bro-icon-v1.0-256.png 256w" sizes="(max-width: 767px) 48px, 64px" width="64" height="64" alt="" decoding="async" fetchpriority="low" draggable="false">
+      </picture>
     </main>
   </div>
   <aside class="notice" id="coming-soon" aria-label="Preview notice" hidden>

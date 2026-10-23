@@ -1,0 +1,26 @@
+{
+  "baseline": "5a4810f0a4a40b7a377a38728ae4ae7a85af5f1c",
+  "comparisons": [
+    {
+      "viewport": "desktop-1440x900",
+      "insideIconChangedPixels": 2113,
+      "outsideIconChangedPixels": 0,
+      "geometryUnchanged": true,
+      "status": "passed"
+    },
+    {
+      "viewport": "desktop-1280x800",
+      "insideIconChangedPixels": 2112,
+      "outsideIconChangedPixels": 0,
+      "geometryUnchanged": true,
+      "status": "passed"
+    },
+    {
+      "viewport": "mobile-390x844",
+      "insideIconChangedPixels": 1251,
+      "outsideIconChangedPixels": 0,
+      "geometryUnchanged": true,
+      "status": "passed"
+    }
+  ]
+}
