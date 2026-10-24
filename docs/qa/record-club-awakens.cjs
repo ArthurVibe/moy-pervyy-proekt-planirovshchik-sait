@@ -17,7 +17,7 @@ const q = require('./club-awakens-common.cjs');
     }
     await page.close();
     const common = ['-c:v', 'libx264', '-preset', 'medium', '-crf', '18', '-pix_fmt', 'yuv420p', '-movflags', '+faststart'];
-    const on = q.path.join(q.out, 'club-awakens-on-1440x900.mp4');
+    const on = q.path.join(q.out, process.env.CLUB_LIGHTS_QA_VIDEO_NAME || 'club-awakens-on-1440x900.mp4');
     const off = q.path.join(q.out, 'club-awakens-off-1440x900.mp4');
     q.cp.execFileSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-framerate', '30', '-i', q.path.join(frames, '%04d.png'), ...common, on]);
     q.cp.execFileSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-loop', '1', '-framerate', '30', '-i',

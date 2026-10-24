@@ -1,0 +1,856 @@
+{
+  "status": "passed",
+  "method": "Mean Y-prime = 0.2126 R + 0.7152 G + 0.0722 B on 8-bit sRGB PNGs (0\u2013255); not physical luminance. ROI circles use pixel centres and are clipped at the viewport edge.",
+  "interpretation": "localGlowLift isolates each lamp by comparing the same frame with and without local glows. Raw frame means also include the intentionally different global dimming curves.",
+  "sourceRegions": {
+    "left_lamp": {
+      "x": 196,
+      "y": 262,
+      "radius": 100
+    },
+    "right_lamp": {
+      "x": 2200,
+      "y": 430,
+      "radius": 100
+    },
+    "neutral_wall": {
+      "x": 1000,
+      "y": 560,
+      "radius": 90
+    },
+    "bro_face": {
+      "x": 1720,
+      "y": 210,
+      "radius": 90
+    }
+  },
+  "diagnosticGains": [
+    {
+      "region": "left_lamp",
+      "timeMs": 750,
+      "v11GlowLift": 9.733973124999991,
+      "v12GlowLift": 21.023763832236845,
+      "ratio": 2.159833765951235,
+      "diagnosticTarget1_5Met": true
+    },
+    {
+      "region": "right_lamp",
+      "timeMs": 1100,
+      "v11GlowLift": 8.67506145816344,
+      "v12GlowLift": 16.559644935573317,
+      "ratio": 1.9088792644794803,
+      "diagnosticTarget1_5Met": true
+    }
+  ],
+  "broSourceBand": {
+    "x": [
+      1550,
+      2010
+    ],
+    "glowChangedPixelsAcrossAllSamples": 0
+  },
+  "neutralAndFaceGlowChangedPixels": 0,
+  "initialAndFinalV11V12ChangedPixels": 0,
+  "samples": [
+    {
+      "version": "v1.1",
+      "timeMs": 0,
+      "region": "left_lamp",
+      "meanLuma": 46.0985010361842,
+      "sameShadeWithoutGlowLuma": 46.0985010361842,
+      "localGlowLift": 0.0,
+      "pixels": 12160,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 0,
+      "region": "right_lamp",
+      "meanLuma": 113.76142396020225,
+      "sameShadeWithoutGlowLuma": 113.76142396020225,
+      "localGlowLift": 0.0,
+      "pixels": 12262,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 0,
+      "region": "neutral_wall",
+      "meanLuma": 20.966773087761677,
+      "sameShadeWithoutGlowLuma": 20.966773087761677,
+      "localGlowLift": 0.0,
+      "pixels": 9936,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 0,
+      "region": "bro_face",
+      "meanLuma": 53.79119468492046,
+      "sameShadeWithoutGlowLuma": 53.79119468492046,
+      "localGlowLift": 0.0,
+      "pixels": 9934,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 250,
+      "region": "left_lamp",
+      "meanLuma": 46.0985010361842,
+      "sameShadeWithoutGlowLuma": 46.0985010361842,
+      "localGlowLift": 0.0,
+      "pixels": 12160,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 250,
+      "region": "right_lamp",
+      "meanLuma": 113.76142396020225,
+      "sameShadeWithoutGlowLuma": 113.76142396020225,
+      "localGlowLift": 0.0,
+      "pixels": 12262,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 250,
+      "region": "neutral_wall",
+      "meanLuma": 20.966773087761677,
+      "sameShadeWithoutGlowLuma": 20.966773087761677,
+      "localGlowLift": 0.0,
+      "pixels": 9936,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 250,
+      "region": "bro_face",
+      "meanLuma": 53.79119468492046,
+      "sameShadeWithoutGlowLuma": 53.79119468492046,
+      "localGlowLift": 0.0,
+      "pixels": 9934,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 450,
+      "region": "left_lamp",
+      "meanLuma": 51.16324391447368,
+      "sameShadeWithoutGlowLuma": 47.14842726973684,
+      "localGlowLift": 4.01481664473684,
+      "pixels": 12160,
+      "pixelsChangedByGlow": 12160
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 450,
+      "region": "right_lamp",
+      "meanLuma": 117.03555468928396,
+      "sameShadeWithoutGlowLuma": 117.03555468928396,
+      "localGlowLift": 0.0,
+      "pixels": 12262,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 450,
+      "region": "neutral_wall",
+      "meanLuma": 21.469348933172302,
+      "sameShadeWithoutGlowLuma": 21.469348933172302,
+      "localGlowLift": 0.0,
+      "pixels": 9936,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 450,
+      "region": "bro_face",
+      "meanLuma": 55.30758226293538,
+      "sameShadeWithoutGlowLuma": 55.30758226293538,
+      "localGlowLift": 0.0,
+      "pixels": 9934,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 550,
+      "region": "left_lamp",
+      "meanLuma": 56.488081480263155,
+      "sameShadeWithoutGlowLuma": 48.87107495065789,
+      "localGlowLift": 7.617006529605263,
+      "pixels": 12160,
+      "pixelsChangedByGlow": 12160
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 550,
+      "region": "right_lamp",
+      "meanLuma": 124.48059804273365,
+      "sameShadeWithoutGlowLuma": 122.47491701190671,
+      "localGlowLift": 2.005681030826935,
+      "pixels": 12262,
+      "pixelsChangedByGlow": 12262
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 550,
+      "region": "neutral_wall",
+      "meanLuma": 22.382548047504024,
+      "sameShadeWithoutGlowLuma": 22.382548047504024,
+      "localGlowLift": 0.0,
+      "pixels": 9936,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 550,
+      "region": "bro_face",
+      "meanLuma": 57.81354465472116,
+      "sameShadeWithoutGlowLuma": 57.81354465472116,
+      "localGlowLift": 0.0,
+      "pixels": 9934,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 600,
+      "region": "left_lamp",
+      "meanLuma": 58.462709374999996,
+      "sameShadeWithoutGlowLuma": 49.911337286184214,
+      "localGlowLift": 8.551372088815782,
+      "pixels": 12160,
+      "pixelsChangedByGlow": 12160
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 600,
+      "region": "right_lamp",
+      "meanLuma": 129.27163567117924,
+      "sameShadeWithoutGlowLuma": 125.7493437612135,
+      "localGlowLift": 3.5222919099657446,
+      "pixels": 12262,
+      "pixelsChangedByGlow": 12262
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 600,
+      "region": "neutral_wall",
+      "meanLuma": 22.90469476650563,
+      "sameShadeWithoutGlowLuma": 22.90469476650563,
+      "localGlowLift": 0.0,
+      "pixels": 9936,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 600,
+      "region": "bro_face",
+      "meanLuma": 59.31907400845581,
+      "sameShadeWithoutGlowLuma": 59.31907400845581,
+      "localGlowLift": 0.0,
+      "pixels": 9934,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 750,
+      "region": "left_lamp",
+      "meanLuma": 61.34654205592104,
+      "sameShadeWithoutGlowLuma": 51.61256893092105,
+      "localGlowLift": 9.733973124999991,
+      "pixels": 12160,
+      "pixelsChangedByGlow": 12160
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 750,
+      "region": "right_lamp",
+      "meanLuma": 138.26345033436633,
+      "sameShadeWithoutGlowLuma": 131.17653138150382,
+      "localGlowLift": 7.086918952862504,
+      "pixels": 12262,
+      "pixelsChangedByGlow": 12262
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 750,
+      "region": "neutral_wall",
+      "meanLuma": 23.762807769726244,
+      "sameShadeWithoutGlowLuma": 23.762807769726244,
+      "localGlowLift": 0.0,
+      "pixels": 9936,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 750,
+      "region": "bro_face",
+      "meanLuma": 61.81973102476343,
+      "sameShadeWithoutGlowLuma": 61.81973102476343,
+      "localGlowLift": 0.0,
+      "pixels": 9934,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 1000,
+      "region": "left_lamp",
+      "meanLuma": 62.73842777960526,
+      "sameShadeWithoutGlowLuma": 52.786378651315786,
+      "localGlowLift": 9.952049128289474,
+      "pixels": 12160,
+      "pixelsChangedByGlow": 12160
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 1000,
+      "region": "right_lamp",
+      "meanLuma": 143.3471786168651,
+      "sameShadeWithoutGlowLuma": 134.98451939324744,
+      "localGlowLift": 8.36265922361767,
+      "pixels": 12262,
+      "pixelsChangedByGlow": 12262
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 1000,
+      "region": "neutral_wall",
+      "meanLuma": 24.364348913043475,
+      "sameShadeWithoutGlowLuma": 24.364348913043475,
+      "localGlowLift": 0.0,
+      "pixels": 9936,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 1000,
+      "region": "bro_face",
+      "meanLuma": 63.544558486007645,
+      "sameShadeWithoutGlowLuma": 63.544558486007645,
+      "localGlowLift": 0.0,
+      "pixels": 9934,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 1100,
+      "region": "left_lamp",
+      "meanLuma": 62.73842777960526,
+      "sameShadeWithoutGlowLuma": 52.786378651315786,
+      "localGlowLift": 9.952049128289474,
+      "pixels": 12160,
+      "pixelsChangedByGlow": 12160
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 1100,
+      "region": "right_lamp",
+      "meanLuma": 143.65958085141088,
+      "sameShadeWithoutGlowLuma": 134.98451939324744,
+      "localGlowLift": 8.67506145816344,
+      "pixels": 12262,
+      "pixelsChangedByGlow": 12262
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 1100,
+      "region": "neutral_wall",
+      "meanLuma": 24.364348913043475,
+      "sameShadeWithoutGlowLuma": 24.364348913043475,
+      "localGlowLift": 0.0,
+      "pixels": 9936,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 1100,
+      "region": "bro_face",
+      "meanLuma": 63.544558486007645,
+      "sameShadeWithoutGlowLuma": 63.544558486007645,
+      "localGlowLift": 0.0,
+      "pixels": 9934,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 1400,
+      "region": "left_lamp",
+      "meanLuma": 58.850699523026314,
+      "sameShadeWithoutGlowLuma": 53.497137039473685,
+      "localGlowLift": 5.353562483552629,
+      "pixels": 12160,
+      "pixelsChangedByGlow": 12160
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 1400,
+      "region": "right_lamp",
+      "meanLuma": 141.85225307453922,
+      "sameShadeWithoutGlowLuma": 137.19903844397325,
+      "localGlowLift": 4.653214630565969,
+      "pixels": 12262,
+      "pixelsChangedByGlow": 12262
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 1400,
+      "region": "neutral_wall",
+      "meanLuma": 24.534104066022547,
+      "sameShadeWithoutGlowLuma": 24.534104066022547,
+      "localGlowLift": 0.0,
+      "pixels": 9936,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 1400,
+      "region": "bro_face",
+      "meanLuma": 64.51064413126635,
+      "sameShadeWithoutGlowLuma": 64.51064413126635,
+      "localGlowLift": 0.0,
+      "pixels": 9934,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 1800,
+      "region": "left_lamp",
+      "meanLuma": 54.741330279605265,
+      "sameShadeWithoutGlowLuma": 54.741330279605265,
+      "localGlowLift": 0.0,
+      "pixels": 12160,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 1800,
+      "region": "right_lamp",
+      "meanLuma": 139.283264100473,
+      "sameShadeWithoutGlowLuma": 139.283264100473,
+      "localGlowLift": 0.0,
+      "pixels": 12262,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 1800,
+      "region": "neutral_wall",
+      "meanLuma": 25.92504231078905,
+      "sameShadeWithoutGlowLuma": 25.92504231078905,
+      "localGlowLift": 0.0,
+      "pixels": 9936,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.1",
+      "timeMs": 1800,
+      "region": "bro_face",
+      "meanLuma": 65.94631677068654,
+      "sameShadeWithoutGlowLuma": 65.94631677068654,
+      "localGlowLift": 0.0,
+      "pixels": 9934,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 0,
+      "region": "left_lamp",
+      "meanLuma": 46.0985010361842,
+      "sameShadeWithoutGlowLuma": 46.0985010361842,
+      "localGlowLift": 0.0,
+      "pixels": 12160,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 0,
+      "region": "right_lamp",
+      "meanLuma": 113.76142396020225,
+      "sameShadeWithoutGlowLuma": 113.76142396020225,
+      "localGlowLift": 0.0,
+      "pixels": 12262,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 0,
+      "region": "neutral_wall",
+      "meanLuma": 20.966773087761677,
+      "sameShadeWithoutGlowLuma": 20.966773087761677,
+      "localGlowLift": 0.0,
+      "pixels": 9936,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 0,
+      "region": "bro_face",
+      "meanLuma": 53.79119468492046,
+      "sameShadeWithoutGlowLuma": 53.79119468492046,
+      "localGlowLift": 0.0,
+      "pixels": 9934,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 250,
+      "region": "left_lamp",
+      "meanLuma": 46.0985010361842,
+      "sameShadeWithoutGlowLuma": 46.0985010361842,
+      "localGlowLift": 0.0,
+      "pixels": 12160,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 250,
+      "region": "right_lamp",
+      "meanLuma": 113.76142396020225,
+      "sameShadeWithoutGlowLuma": 113.76142396020225,
+      "localGlowLift": 0.0,
+      "pixels": 12262,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 250,
+      "region": "neutral_wall",
+      "meanLuma": 20.966773087761677,
+      "sameShadeWithoutGlowLuma": 20.966773087761677,
+      "localGlowLift": 0.0,
+      "pixels": 9936,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 250,
+      "region": "bro_face",
+      "meanLuma": 53.79119468492046,
+      "sameShadeWithoutGlowLuma": 53.79119468492046,
+      "localGlowLift": 0.0,
+      "pixels": 9934,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 450,
+      "region": "left_lamp",
+      "meanLuma": 60.37861532894736,
+      "sameShadeWithoutGlowLuma": 47.310355493421056,
+      "localGlowLift": 13.068259835526305,
+      "pixels": 12160,
+      "pixelsChangedByGlow": 12160
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 450,
+      "region": "right_lamp",
+      "meanLuma": 117.5703406458979,
+      "sameShadeWithoutGlowLuma": 117.5703406458979,
+      "localGlowLift": 0.0,
+      "pixels": 12262,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 450,
+      "region": "neutral_wall",
+      "meanLuma": 21.60181203703704,
+      "sameShadeWithoutGlowLuma": 21.60181203703704,
+      "localGlowLift": 0.0,
+      "pixels": 9936,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 450,
+      "region": "bro_face",
+      "meanLuma": 55.54492166297564,
+      "sameShadeWithoutGlowLuma": 55.54492166297564,
+      "localGlowLift": 0.0,
+      "pixels": 9934,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 550,
+      "region": "left_lamp",
+      "meanLuma": 66.48943398026316,
+      "sameShadeWithoutGlowLuma": 48.00048044407895,
+      "localGlowLift": 18.488953536184205,
+      "pixels": 12160,
+      "pixelsChangedByGlow": 12160
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 550,
+      "region": "right_lamp",
+      "meanLuma": 119.74171526667753,
+      "sameShadeWithoutGlowLuma": 119.74171526667753,
+      "localGlowLift": 0.0,
+      "pixels": 12262,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 550,
+      "region": "neutral_wall",
+      "meanLuma": 21.938227918679548,
+      "sameShadeWithoutGlowLuma": 21.938227918679548,
+      "localGlowLift": 0.0,
+      "pixels": 9936,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 550,
+      "region": "bro_face",
+      "meanLuma": 56.546062130058374,
+      "sameShadeWithoutGlowLuma": 56.546062130058374,
+      "localGlowLift": 0.0,
+      "pixels": 9934,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 600,
+      "region": "left_lamp",
+      "meanLuma": 68.16008054276317,
+      "sameShadeWithoutGlowLuma": 48.35893503289473,
+      "localGlowLift": 19.80114550986844,
+      "pixels": 12160,
+      "pixelsChangedByGlow": 12160
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 600,
+      "region": "right_lamp",
+      "meanLuma": 121.31775017126081,
+      "sameShadeWithoutGlowLuma": 120.83148470070135,
+      "localGlowLift": 0.48626547055945935,
+      "pixels": 12262,
+      "pixelsChangedByGlow": 11439
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 600,
+      "region": "neutral_wall",
+      "meanLuma": 22.10411443236715,
+      "sameShadeWithoutGlowLuma": 22.10411443236715,
+      "localGlowLift": 0.0,
+      "pixels": 9936,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 600,
+      "region": "bro_face",
+      "meanLuma": 57.0500250251661,
+      "sameShadeWithoutGlowLuma": 57.0500250251661,
+      "localGlowLift": 0.0,
+      "pixels": 9934,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 750,
+      "region": "left_lamp",
+      "meanLuma": 70.23336953947368,
+      "sameShadeWithoutGlowLuma": 49.20960570723684,
+      "localGlowLift": 21.023763832236845,
+      "pixels": 12160,
+      "pixelsChangedByGlow": 12160
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 750,
+      "region": "right_lamp",
+      "meanLuma": 132.90097613766108,
+      "sameShadeWithoutGlowLuma": 123.55967011906702,
+      "localGlowLift": 9.341306018594054,
+      "pixels": 12262,
+      "pixelsChangedByGlow": 12262
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 750,
+      "region": "neutral_wall",
+      "meanLuma": 22.61336578099839,
+      "sameShadeWithoutGlowLuma": 22.61336578099839,
+      "localGlowLift": 0.0,
+      "pixels": 9936,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 750,
+      "region": "bro_face",
+      "meanLuma": 58.31503811153614,
+      "sameShadeWithoutGlowLuma": 58.31503811153614,
+      "localGlowLift": 0.0,
+      "pixels": 9934,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 1000,
+      "region": "left_lamp",
+      "meanLuma": 71.36438481907895,
+      "sameShadeWithoutGlowLuma": 50.589670279605265,
+      "localGlowLift": 20.774714539473685,
+      "pixels": 12160,
+      "pixelsChangedByGlow": 12160
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 1000,
+      "region": "right_lamp",
+      "meanLuma": 144.05506750937855,
+      "sameShadeWithoutGlowLuma": 127.91433891697928,
+      "localGlowLift": 16.14072859239927,
+      "pixels": 12262,
+      "pixelsChangedByGlow": 12262
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 1000,
+      "region": "neutral_wall",
+      "meanLuma": 23.188292109500807,
+      "sameShadeWithoutGlowLuma": 23.188292109500807,
+      "localGlowLift": 0.0,
+      "pixels": 9936,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 1000,
+      "region": "bro_face",
+      "meanLuma": 60.310919206764645,
+      "sameShadeWithoutGlowLuma": 60.310919206764645,
+      "localGlowLift": 0.0,
+      "pixels": 9934,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 1100,
+      "region": "left_lamp",
+      "meanLuma": 71.7941691118421,
+      "sameShadeWithoutGlowLuma": 51.12352088815789,
+      "localGlowLift": 20.670648223684204,
+      "pixels": 12160,
+      "pixelsChangedByGlow": 12160
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 1100,
+      "region": "right_lamp",
+      "meanLuma": 146.0996606752569,
+      "sameShadeWithoutGlowLuma": 129.54001573968358,
+      "localGlowLift": 16.559644935573317,
+      "pixels": 12262,
+      "pixelsChangedByGlow": 12262
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 1100,
+      "region": "neutral_wall",
+      "meanLuma": 23.57134307568438,
+      "sameShadeWithoutGlowLuma": 23.57134307568438,
+      "localGlowLift": 0.0,
+      "pixels": 9936,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 1100,
+      "region": "bro_face",
+      "meanLuma": 61.07395913025971,
+      "sameShadeWithoutGlowLuma": 61.07395913025971,
+      "localGlowLift": 0.0,
+      "pixels": 9934,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 1400,
+      "region": "left_lamp",
+      "meanLuma": 71.35224519736842,
+      "sameShadeWithoutGlowLuma": 52.978207878289474,
+      "localGlowLift": 18.374037319078944,
+      "pixels": 12160,
+      "pixelsChangedByGlow": 12160
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 1400,
+      "region": "right_lamp",
+      "meanLuma": 151.19071151525034,
+      "sameShadeWithoutGlowLuma": 135.52331539716195,
+      "localGlowLift": 15.66739611808839,
+      "pixels": 12262,
+      "pixelsChangedByGlow": 12262
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 1400,
+      "region": "neutral_wall",
+      "meanLuma": 24.424235809178743,
+      "sameShadeWithoutGlowLuma": 24.424235809178743,
+      "localGlowLift": 0.0,
+      "pixels": 9936,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 1400,
+      "region": "bro_face",
+      "meanLuma": 63.78566760620092,
+      "sameShadeWithoutGlowLuma": 63.78566760620092,
+      "localGlowLift": 0.0,
+      "pixels": 9934,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 1800,
+      "region": "left_lamp",
+      "meanLuma": 54.741330279605265,
+      "sameShadeWithoutGlowLuma": 54.741330279605265,
+      "localGlowLift": 0.0,
+      "pixels": 12160,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 1800,
+      "region": "right_lamp",
+      "meanLuma": 139.283264100473,
+      "sameShadeWithoutGlowLuma": 139.283264100473,
+      "localGlowLift": 0.0,
+      "pixels": 12262,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 1800,
+      "region": "neutral_wall",
+      "meanLuma": 25.92504231078905,
+      "sameShadeWithoutGlowLuma": 25.92504231078905,
+      "localGlowLift": 0.0,
+      "pixels": 9936,
+      "pixelsChangedByGlow": 0
+    },
+    {
+      "version": "v1.2",
+      "timeMs": 1800,
+      "region": "bro_face",
+      "meanLuma": 65.94631677068654,
+      "sameShadeWithoutGlowLuma": 65.94631677068654,
+      "localGlowLift": 0.0,
+      "pixels": 9934,
+      "pixelsChangedByGlow": 0
+    }
+  ]
+}

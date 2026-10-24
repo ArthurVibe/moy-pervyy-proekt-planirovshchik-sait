@@ -1,0 +1,942 @@
+{
+  "baseline": "0ed62f88d53e32d25a628ec8b94b69f05b5a7a91",
+  "browser": "154.0.8037.57",
+  "conditions": "Local HTTP, cold contexts, no CPU throttling, 5 alternating samples per mode and viewport. Lab observations, not field Core Web Vitals.",
+  "sourceBytes": {
+    "baseline": 34358,
+    "experiment": 43795
+  },
+  "samples": [
+    {
+      "width": 1440,
+      "height": 900,
+      "repeat": 0,
+      "mode": "baseline",
+      "cls": 0,
+      "lcpMs": 1648,
+      "lcpElement": "SPAN",
+      "longTasks": [
+        {
+          "time": 604.2000000029802,
+          "duration": 186,
+          "value": 0,
+          "recentInput": false,
+          "element": null
+        },
+        {
+          "time": 860.1000000089407,
+          "duration": 90,
+          "value": 0,
+          "recentInput": false,
+          "element": null
+        },
+        {
+          "time": 1508,
+          "duration": 68,
+          "value": 0,
+          "recentInput": false,
+          "element": null
+        }
+      ],
+      "jsErrors": [],
+      "states": [],
+      "domContentLoadedMs": 858.3000000119209,
+      "resources": [
+        {
+          "url": "/assets/fonts/PlayfairDisplay-Variable.ttf",
+          "duration": 419.5,
+          "transferSize": 301024
+        },
+        {
+          "url": "/assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp",
+          "duration": 436.79999999701977,
+          "transferSize": 1713302
+        },
+        {
+          "url": "/assets/mini-bro/mini-bro-icon-v1.0-64.webp",
+          "duration": 259.3999999910593,
+          "transferSize": 5680
+        },
+        {
+          "url": "/favicon.ico",
+          "duration": 11.600000008940697,
+          "transferSize": 0
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "repeat": 0,
+      "mode": "on",
+      "cls": 0,
+      "lcpMs": 692,
+      "lcpElement": "SPAN",
+      "longTasks": [],
+      "jsErrors": [],
+      "states": [
+        {
+          "state": "pending",
+          "time": 48.400000005960464
+        },
+        {
+          "state": "running",
+          "time": 241.80000001192093
+        },
+        {
+          "state": null,
+          "time": 2097.4000000059605
+        }
+      ],
+      "domContentLoadedMs": 84.90000000596046,
+      "resources": [
+        {
+          "url": "/assets/fonts/PlayfairDisplay-Variable.ttf",
+          "duration": 9,
+          "transferSize": 301024
+        },
+        {
+          "url": "/assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp",
+          "duration": 12.900000005960464,
+          "transferSize": 1713302
+        },
+        {
+          "url": "/assets/mini-bro/mini-bro-icon-v1.0-64.webp",
+          "duration": 17.299999997019768,
+          "transferSize": 5680
+        },
+        {
+          "url": "/favicon.ico",
+          "duration": 7.4000000059604645,
+          "transferSize": 635
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "repeat": 1,
+      "mode": "on",
+      "cls": 0,
+      "lcpMs": 664,
+      "lcpElement": "SPAN",
+      "longTasks": [],
+      "jsErrors": [],
+      "states": [
+        {
+          "state": "pending",
+          "time": 42.599999994039536
+        },
+        {
+          "state": "running",
+          "time": 205.3999999910593
+        },
+        {
+          "state": null,
+          "time": 2051.7999999970198
+        }
+      ],
+      "domContentLoadedMs": 82.3999999910593,
+      "resources": [
+        {
+          "url": "/assets/fonts/PlayfairDisplay-Variable.ttf",
+          "duration": 23.099999994039536,
+          "transferSize": 301024
+        },
+        {
+          "url": "/assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp",
+          "duration": 21.5,
+          "transferSize": 1713302
+        },
+        {
+          "url": "/assets/mini-bro/mini-bro-icon-v1.0-64.webp",
+          "duration": 22.899999991059303,
+          "transferSize": 5680
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "repeat": 1,
+      "mode": "baseline",
+      "cls": 0,
+      "lcpMs": 720,
+      "lcpElement": "SPAN",
+      "longTasks": [
+        {
+          "time": 30.30000001192093,
+          "duration": 68,
+          "value": 0,
+          "recentInput": false,
+          "element": null
+        }
+      ],
+      "jsErrors": [],
+      "states": [],
+      "domContentLoadedMs": 115.30000001192093,
+      "resources": [
+        {
+          "url": "/assets/fonts/PlayfairDisplay-Variable.ttf",
+          "duration": 39.099999994039536,
+          "transferSize": 301024
+        },
+        {
+          "url": "/assets/mini-bro/mini-bro-icon-v1.0-64.webp",
+          "duration": 39.29999999701977,
+          "transferSize": 5680
+        },
+        {
+          "url": "/assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp",
+          "duration": 47.8999999910593,
+          "transferSize": 1713302
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "repeat": 2,
+      "mode": "baseline",
+      "cls": 0,
+      "lcpMs": 700,
+      "lcpElement": "SPAN",
+      "longTasks": [
+        {
+          "time": 35.30000001192093,
+          "duration": 64,
+          "value": 0,
+          "recentInput": false,
+          "element": null
+        }
+      ],
+      "jsErrors": [],
+      "states": [],
+      "domContentLoadedMs": 109,
+      "resources": [
+        {
+          "url": "/assets/fonts/PlayfairDisplay-Variable.ttf",
+          "duration": 28.400000005960464,
+          "transferSize": 301024
+        },
+        {
+          "url": "/assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp",
+          "duration": 42.29999999701977,
+          "transferSize": 1713302
+        },
+        {
+          "url": "/assets/mini-bro/mini-bro-icon-v1.0-64.webp",
+          "duration": 33,
+          "transferSize": 5680
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "repeat": 2,
+      "mode": "on",
+      "cls": 0,
+      "lcpMs": 716,
+      "lcpElement": "SPAN",
+      "longTasks": [
+        {
+          "time": 24.200000002980232,
+          "duration": 55,
+          "value": 0,
+          "recentInput": false,
+          "element": null
+        }
+      ],
+      "jsErrors": [],
+      "states": [
+        {
+          "state": "pending",
+          "time": 25.400000005960464
+        },
+        {
+          "state": "running",
+          "time": 221.90000000596046
+        },
+        {
+          "state": null,
+          "time": 2058
+        }
+      ],
+      "domContentLoadedMs": 88,
+      "resources": [
+        {
+          "url": "/assets/fonts/PlayfairDisplay-Variable.ttf",
+          "duration": 10.799999997019768,
+          "transferSize": 301024
+        },
+        {
+          "url": "/assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp",
+          "duration": 19.69999998807907,
+          "transferSize": 1713302
+        },
+        {
+          "url": "/assets/mini-bro/mini-bro-icon-v1.0-64.webp",
+          "duration": 18.299999997019768,
+          "transferSize": 5680
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "repeat": 3,
+      "mode": "on",
+      "cls": 0,
+      "lcpMs": 744,
+      "lcpElement": "SPAN",
+      "longTasks": [
+        {
+          "time": 35.30000001192093,
+          "duration": 62,
+          "value": 0,
+          "recentInput": false,
+          "element": null
+        }
+      ],
+      "jsErrors": [],
+      "states": [
+        {
+          "state": "pending",
+          "time": 26.80000001192093
+        },
+        {
+          "state": "running",
+          "time": 234.70000000298023
+        },
+        {
+          "state": null,
+          "time": 2080
+        }
+      ],
+      "domContentLoadedMs": 114.80000001192093,
+      "resources": [
+        {
+          "url": "/assets/fonts/PlayfairDisplay-Variable.ttf",
+          "duration": 15.5,
+          "transferSize": 301024
+        },
+        {
+          "url": "/assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp",
+          "duration": 38.20000000298023,
+          "transferSize": 1713302
+        },
+        {
+          "url": "/assets/mini-bro/mini-bro-icon-v1.0-64.webp",
+          "duration": 27.799999997019768,
+          "transferSize": 5680
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "repeat": 3,
+      "mode": "baseline",
+      "cls": 0,
+      "lcpMs": 692,
+      "lcpElement": "SPAN",
+      "longTasks": [
+        {
+          "time": 32.79999999701977,
+          "duration": 56,
+          "value": 0,
+          "recentInput": false,
+          "element": null
+        }
+      ],
+      "jsErrors": [],
+      "states": [],
+      "domContentLoadedMs": 100.79999999701977,
+      "resources": [
+        {
+          "url": "/assets/fonts/PlayfairDisplay-Variable.ttf",
+          "duration": 30.099999994039536,
+          "transferSize": 301024
+        },
+        {
+          "url": "/assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp",
+          "duration": 42,
+          "transferSize": 1713302
+        },
+        {
+          "url": "/assets/mini-bro/mini-bro-icon-v1.0-64.webp",
+          "duration": 36.70000000298023,
+          "transferSize": 5680
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "repeat": 4,
+      "mode": "baseline",
+      "cls": 0,
+      "lcpMs": 712,
+      "lcpElement": "SPAN",
+      "longTasks": [],
+      "jsErrors": [],
+      "states": [],
+      "domContentLoadedMs": 109.6000000089407,
+      "resources": [
+        {
+          "url": "/assets/fonts/PlayfairDisplay-Variable.ttf",
+          "duration": 53.30000001192093,
+          "transferSize": 301024
+        },
+        {
+          "url": "/assets/mini-bro/mini-bro-icon-v1.0-64.webp",
+          "duration": 53.8999999910593,
+          "transferSize": 5680
+        },
+        {
+          "url": "/assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp",
+          "duration": 66.8999999910593,
+          "transferSize": 1713302
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "repeat": 4,
+      "mode": "on",
+      "cls": 0,
+      "lcpMs": 780,
+      "lcpElement": "SPAN",
+      "longTasks": [
+        {
+          "time": 37.8999999910593,
+          "duration": 100,
+          "value": 0,
+          "recentInput": false,
+          "element": null
+        }
+      ],
+      "jsErrors": [],
+      "states": [
+        {
+          "state": "pending",
+          "time": 39.5
+        },
+        {
+          "state": "running",
+          "time": 267.3999999910593
+        },
+        {
+          "state": null,
+          "time": 2104.5
+        }
+      ],
+      "domContentLoadedMs": 152.59999999403954,
+      "resources": [
+        {
+          "url": "/assets/fonts/PlayfairDisplay-Variable.ttf",
+          "duration": 13.200000002980232,
+          "transferSize": 301024
+        },
+        {
+          "url": "/assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp",
+          "duration": 28.299999997019768,
+          "transferSize": 1713302
+        },
+        {
+          "url": "/assets/mini-bro/mini-bro-icon-v1.0-64.webp",
+          "duration": 25.100000008940697,
+          "transferSize": 5680
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "repeat": 0,
+      "mode": "baseline",
+      "cls": 0,
+      "lcpMs": 144,
+      "lcpElement": "club-photo",
+      "longTasks": [
+        {
+          "time": 49.29999999701977,
+          "duration": 55,
+          "value": 0,
+          "recentInput": false,
+          "element": null
+        }
+      ],
+      "jsErrors": [],
+      "states": [],
+      "domContentLoadedMs": 113.29999999701977,
+      "resources": [
+        {
+          "url": "/assets/fonts/PlayfairDisplay-Variable.ttf",
+          "duration": 48.5,
+          "transferSize": 301024
+        },
+        {
+          "url": "/assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp",
+          "duration": 61.599999994039536,
+          "transferSize": 1713302
+        },
+        {
+          "url": "/assets/mini-bro/mini-bro-icon-v1.0-64.webp",
+          "duration": 51.099999994039536,
+          "transferSize": 5680
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "repeat": 0,
+      "mode": "on",
+      "cls": 0,
+      "lcpMs": 112,
+      "lcpElement": "club-photo",
+      "longTasks": [],
+      "jsErrors": [],
+      "states": [
+        {
+          "state": "pending",
+          "time": 35.6000000089407
+        },
+        {
+          "state": "running",
+          "time": 207.80000001192093
+        },
+        {
+          "state": null,
+          "time": 2025.6000000089407
+        }
+      ],
+      "domContentLoadedMs": 85.30000001192093,
+      "resources": [
+        {
+          "url": "/assets/fonts/PlayfairDisplay-Variable.ttf",
+          "duration": 7.9000000059604645,
+          "transferSize": 301024
+        },
+        {
+          "url": "/assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp",
+          "duration": 18.099999994039536,
+          "transferSize": 1713302
+        },
+        {
+          "url": "/assets/mini-bro/mini-bro-icon-v1.0-64.webp",
+          "duration": 24,
+          "transferSize": 5680
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "repeat": 1,
+      "mode": "on",
+      "cls": 0,
+      "lcpMs": 136,
+      "lcpElement": "club-photo",
+      "longTasks": [],
+      "jsErrors": [],
+      "states": [
+        {
+          "state": "pending",
+          "time": 48.79999999701977
+        },
+        {
+          "state": "running",
+          "time": 239.70000000298023
+        },
+        {
+          "state": null,
+          "time": 2048.5999999940395
+        }
+      ],
+      "domContentLoadedMs": 92.09999999403954,
+      "resources": [
+        {
+          "url": "/assets/fonts/PlayfairDisplay-Variable.ttf",
+          "duration": 12.599999994039536,
+          "transferSize": 301024
+        },
+        {
+          "url": "/assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp",
+          "duration": 21.700000002980232,
+          "transferSize": 1713302
+        },
+        {
+          "url": "/assets/mini-bro/mini-bro-icon-v1.0-64.webp",
+          "duration": 29.299999997019768,
+          "transferSize": 5680
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "repeat": 1,
+      "mode": "baseline",
+      "cls": 0,
+      "lcpMs": 148,
+      "lcpElement": "club-photo",
+      "longTasks": [
+        {
+          "time": 26,
+          "duration": 62,
+          "value": 0,
+          "recentInput": false,
+          "element": null
+        }
+      ],
+      "jsErrors": [],
+      "states": [],
+      "domContentLoadedMs": 100.79999999701977,
+      "resources": [
+        {
+          "url": "/assets/fonts/PlayfairDisplay-Variable.ttf",
+          "duration": 36.79999999701977,
+          "transferSize": 301024
+        },
+        {
+          "url": "/assets/mini-bro/mini-bro-icon-v1.0-64.webp",
+          "duration": 35.900000005960464,
+          "transferSize": 5680
+        },
+        {
+          "url": "/assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp",
+          "duration": 51.5,
+          "transferSize": 1713302
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "repeat": 2,
+      "mode": "baseline",
+      "cls": 0,
+      "lcpMs": 232,
+      "lcpElement": "club-photo",
+      "longTasks": [],
+      "jsErrors": [],
+      "states": [],
+      "domContentLoadedMs": 62.29999999701977,
+      "resources": [
+        {
+          "url": "/assets/fonts/PlayfairDisplay-Variable.ttf",
+          "duration": 45.70000000298023,
+          "transferSize": 301024
+        },
+        {
+          "url": "/assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp",
+          "duration": 54.29999999701977,
+          "transferSize": 1713302
+        },
+        {
+          "url": "/assets/mini-bro/mini-bro-icon-v1.0-64.webp",
+          "duration": 37.900000005960464,
+          "transferSize": 5680
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "repeat": 2,
+      "mode": "on",
+      "cls": 0,
+      "lcpMs": 136,
+      "lcpElement": "club-photo",
+      "longTasks": [
+        {
+          "time": 23.299999997019768,
+          "duration": 61,
+          "value": 0,
+          "recentInput": false,
+          "element": null
+        }
+      ],
+      "jsErrors": [],
+      "states": [
+        {
+          "state": "pending",
+          "time": 25.200000002980232
+        },
+        {
+          "state": "running",
+          "time": 194.79999999701977
+        },
+        {
+          "state": null,
+          "time": 2017.1000000089407
+        }
+      ],
+      "domContentLoadedMs": 99.40000000596046,
+      "resources": [
+        {
+          "url": "/assets/fonts/PlayfairDisplay-Variable.ttf",
+          "duration": 19.899999991059303,
+          "transferSize": 301024
+        },
+        {
+          "url": "/assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp",
+          "duration": 23.899999991059303,
+          "transferSize": 1713302
+        },
+        {
+          "url": "/assets/mini-bro/mini-bro-icon-v1.0-64.webp",
+          "duration": 19.099999994039536,
+          "transferSize": 5680
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "repeat": 3,
+      "mode": "on",
+      "cls": 0,
+      "lcpMs": 124,
+      "lcpElement": "club-photo",
+      "longTasks": [],
+      "jsErrors": [],
+      "states": [
+        {
+          "state": "pending",
+          "time": 44.20000000298023
+        },
+        {
+          "state": "running",
+          "time": 194.70000000298023
+        },
+        {
+          "state": null,
+          "time": 2022.2999999970198
+        }
+      ],
+      "domContentLoadedMs": 94.29999999701977,
+      "resources": [
+        {
+          "url": "/assets/fonts/PlayfairDisplay-Variable.ttf",
+          "duration": 16.900000005960464,
+          "transferSize": 301024
+        },
+        {
+          "url": "/assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp",
+          "duration": 27.30000001192093,
+          "transferSize": 1713302
+        },
+        {
+          "url": "/assets/mini-bro/mini-bro-icon-v1.0-64.webp",
+          "duration": 34.400000005960464,
+          "transferSize": 5680
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "repeat": 3,
+      "mode": "baseline",
+      "cls": 0,
+      "lcpMs": 132,
+      "lcpElement": "club-photo",
+      "longTasks": [
+        {
+          "time": 27.700000002980232,
+          "duration": 65,
+          "value": 0,
+          "recentInput": false,
+          "element": null
+        }
+      ],
+      "jsErrors": [],
+      "states": [],
+      "domContentLoadedMs": 99.70000000298023,
+      "resources": [
+        {
+          "url": "/assets/fonts/PlayfairDisplay-Variable.ttf",
+          "duration": 38,
+          "transferSize": 301024
+        },
+        {
+          "url": "/assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp",
+          "duration": 47.8999999910593,
+          "transferSize": 1713302
+        },
+        {
+          "url": "/assets/mini-bro/mini-bro-icon-v1.0-64.webp",
+          "duration": 38.3999999910593,
+          "transferSize": 5680
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "repeat": 4,
+      "mode": "baseline",
+      "cls": 0,
+      "lcpMs": 152,
+      "lcpElement": "club-photo",
+      "longTasks": [
+        {
+          "time": 36.20000000298023,
+          "duration": 74,
+          "value": 0,
+          "recentInput": false,
+          "element": null
+        }
+      ],
+      "jsErrors": [],
+      "states": [],
+      "domContentLoadedMs": 118.6000000089407,
+      "resources": [
+        {
+          "url": "/assets/fonts/PlayfairDisplay-Variable.ttf",
+          "duration": 45.3999999910593,
+          "transferSize": 301024
+        },
+        {
+          "url": "/assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp",
+          "duration": 57.400000005960464,
+          "transferSize": 1713302
+        },
+        {
+          "url": "/assets/mini-bro/mini-bro-icon-v1.0-64.webp",
+          "duration": 44.1000000089407,
+          "transferSize": 5680
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "repeat": 4,
+      "mode": "on",
+      "cls": 0,
+      "lcpMs": 128,
+      "lcpElement": "club-photo",
+      "longTasks": [
+        {
+          "time": 23.5,
+          "duration": 50,
+          "value": 0,
+          "recentInput": false,
+          "element": null
+        }
+      ],
+      "jsErrors": [],
+      "states": [
+        {
+          "state": "pending",
+          "time": 25.19999998807907
+        },
+        {
+          "state": "running",
+          "time": 207.09999999403954
+        },
+        {
+          "state": null,
+          "time": 2024.8999999910593
+        }
+      ],
+      "domContentLoadedMs": 83.8999999910593,
+      "resources": [
+        {
+          "url": "/assets/fonts/PlayfairDisplay-Variable.ttf",
+          "duration": 14.5,
+          "transferSize": 301024
+        },
+        {
+          "url": "/assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp",
+          "duration": 32,
+          "transferSize": 1713302
+        },
+        {
+          "url": "/assets/mini-bro/mini-bro-icon-v1.0-64.webp",
+          "duration": 21.099999994039536,
+          "transferSize": 5680
+        }
+      ]
+    }
+  ],
+  "summaries": [
+    {
+      "viewport": "1440x900",
+      "mode": "baseline",
+      "lcpMedianMs": 712,
+      "clsMax": 0,
+      "longTaskCount": 6,
+      "maxLongTaskMs": 186,
+      "resourcePaths": [
+        "/assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp",
+        "/assets/fonts/PlayfairDisplay-Variable.ttf",
+        "/assets/mini-bro/mini-bro-icon-v1.0-64.webp",
+        "/favicon.ico"
+      ]
+    },
+    {
+      "viewport": "1440x900",
+      "mode": "on",
+      "lcpMedianMs": 716,
+      "clsMax": 0,
+      "longTaskCount": 3,
+      "maxLongTaskMs": 100,
+      "resourcePaths": [
+        "/assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp",
+        "/assets/fonts/PlayfairDisplay-Variable.ttf",
+        "/assets/mini-bro/mini-bro-icon-v1.0-64.webp",
+        "/favicon.ico"
+      ]
+    },
+    {
+      "viewport": "390x844",
+      "mode": "baseline",
+      "lcpMedianMs": 148,
+      "clsMax": 0,
+      "longTaskCount": 4,
+      "maxLongTaskMs": 74,
+      "resourcePaths": [
+        "/assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp",
+        "/assets/fonts/PlayfairDisplay-Variable.ttf",
+        "/assets/mini-bro/mini-bro-icon-v1.0-64.webp"
+      ]
+    },
+    {
+      "viewport": "390x844",
+      "mode": "on",
+      "lcpMedianMs": 128,
+      "clsMax": 0,
+      "longTaskCount": 2,
+      "maxLongTaskMs": 61,
+      "resourcePaths": [
+        "/assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp",
+        "/assets/fonts/PlayfairDisplay-Variable.ttf",
+        "/assets/mini-bro/mini-bro-icon-v1.0-64.webp"
+      ]
+    }
+  ],
+  "throttledMobile": {
+    "latencyMs": 200,
+    "downloadBytesPerSecond": 64000,
+    "states": [
+      {
+        "state": "pending",
+        "time": 256.09999999403954
+      },
+      {
+        "state": null,
+        "time": 1500.5999999940395
+      }
+    ],
+    "loaded": true,
+    "loadMs": 32601.59999999404
+  },
+  "status": "passed"
+}

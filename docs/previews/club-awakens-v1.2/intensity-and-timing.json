@@ -1,0 +1,158 @@
+{
+  "referenceCommit": "b4fe632a0efe798409aa9b2048ca64349f509512",
+  "times": [
+    0,
+    250,
+    450,
+    550,
+    600,
+    750,
+    1000,
+    1100,
+    1400,
+    1800
+  ],
+  "versions": {
+    "v1.1": {
+      "photoMap": {
+        "scale": 0.625,
+        "offsetX": -64,
+        "offsetY": 0
+      },
+      "samples": [
+        {
+          "timeMs": 0,
+          "shade": 0.18,
+          "left": 0,
+          "right": 0
+        },
+        {
+          "timeMs": 250,
+          "shade": 0.18,
+          "left": 0,
+          "right": 0
+        },
+        {
+          "timeMs": 450,
+          "shade": 0.156351,
+          "left": 0.0465987,
+          "right": 0.00159491
+        },
+        {
+          "timeMs": 550,
+          "shade": 0.116394,
+          "left": 0.0866736,
+          "right": 0.0212225
+        },
+        {
+          "timeMs": 600,
+          "shade": 0.0955922,
+          "left": 0.0983861,
+          "right": 0.0427157
+        },
+        {
+          "timeMs": 750,
+          "shade": 0.0549534,
+          "left": 0.115926,
+          "right": 0.0901873
+        },
+        {
+          "timeMs": 1000,
+          "shade": 0.0292916,
+          "left": 0.12,
+          "right": 0.10964
+        },
+        {
+          "timeMs": 1100,
+          "shade": 0.0259741,
+          "left": 0.12,
+          "right": 0.11
+        },
+        {
+          "timeMs": 1400,
+          "shade": 0.0135688,
+          "left": 0.06513,
+          "right": 0.0597025
+        },
+        {
+          "timeMs": 1800,
+          "shade": 0,
+          "left": 0,
+          "right": 0
+        }
+      ]
+    },
+    "v1.2": {
+      "photoMap": {
+        "scale": 0.625,
+        "offsetX": -64,
+        "offsetY": 0
+      },
+      "samples": [
+        {
+          "timeMs": 0,
+          "shade": 0.18,
+          "left": 0,
+          "right": 0
+        },
+        {
+          "timeMs": 250,
+          "shade": 0.18,
+          "left": 0,
+          "right": 0
+        },
+        {
+          "timeMs": 450,
+          "shade": 0.151429,
+          "left": 0.147262,
+          "right": 0
+        },
+        {
+          "timeMs": 550,
+          "shade": 0.137143,
+          "left": 0.210232,
+          "right": 0
+        },
+        {
+          "timeMs": 600,
+          "shade": 0.13,
+          "left": 0.225179,
+          "right": 0.00418347
+        },
+        {
+          "timeMs": 750,
+          "shade": 0.11125,
+          "left": 0.24,
+          "right": 0.106657
+        },
+        {
+          "timeMs": 1000,
+          "shade": 0.0800001,
+          "left": 0.24,
+          "right": 0.195983
+        },
+        {
+          "timeMs": 1100,
+          "shade": 0.0662501,
+          "left": 0.24,
+          "right": 0.2
+        },
+        {
+          "timeMs": 1400,
+          "shade": 0.0250001,
+          "left": 0.216,
+          "right": 0.2
+        },
+        {
+          "timeMs": 1800,
+          "shade": 0,
+          "left": 0,
+          "right": 0
+        }
+      ]
+    }
+  },
+  "sourceChange": "CSS only",
+  "status": "passed",
+  "browser": "154.0.8037.57"
+}

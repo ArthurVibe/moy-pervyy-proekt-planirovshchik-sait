@@ -1,0 +1,73 @@
+{
+  "status": "passed",
+  "referenceCommit": "b4fe632a0efe798409aa9b2048ca64349f509512",
+  "browser": "154.0.8037.57",
+  "referenceReusedByteForByte": true,
+  "referenceConditions": "Same Chromium 154, viewport, DPR 1, local font, completed text reveal, keyframe sampling and encoder settings as v1.2.",
+  "sideBySide": {
+    "left": "v1.1",
+    "right": "v1.2"
+  },
+  "videos": [
+    {
+      "file": "club-awakens-v1.1-1440x900.mp4",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1440,
+          "height": 900,
+          "r_frame_rate": "30/1",
+          "duration": "3.800000",
+          "nb_frames": "114"
+        }
+      ]
+    },
+    {
+      "file": "club-awakens-v1.2-1440x900.mp4",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1440,
+          "height": 900,
+          "r_frame_rate": "30/1",
+          "duration": "3.800000",
+          "nb_frames": "114"
+        }
+      ]
+    },
+    {
+      "file": "club-awakens-off-1440x900.mp4",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1440,
+          "height": 900,
+          "r_frame_rate": "30/1",
+          "duration": "3.800000",
+          "nb_frames": "114"
+        }
+      ]
+    },
+    {
+      "file": "club-awakens-v1.1-vs-v1.2.mp4",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 2880,
+          "height": 900,
+          "r_frame_rate": "30/1",
+          "duration": "3.800000",
+          "nb_frames": "114"
+        }
+      ]
+    }
+  ]
+}

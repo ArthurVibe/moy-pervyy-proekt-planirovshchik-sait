@@ -3,7 +3,8 @@ const q = require('./club-awakens-common.cjs');
 (async () => {
   q.assertOriginalPreserved();
   const browser = await q.launch();
-  const report = { baseline: q.base, browser: await browser.version(), viewports: [], screenshotTimes: [0, 600, 1800] };
+  const times = (process.env.CLUB_LIGHTS_QA_TIMES || '0,600,1800').split(',').map(Number);
+  const report = { baseline: q.base, browser: await browser.version(), viewports: [], screenshotTimes: times };
   try {
     for (const [width, height] of q.viewports) {
       const label = q.name(width, height), viewport = { width, height };
@@ -23,7 +24,7 @@ const q = require('./club-awakens-common.cjs');
             radius: parseFloat(s.getPropertyValue(`--club-${name}-radius`)),
             hidden: document.querySelector(`.club-light-${name}`).hidden })) };
       });
-      for (const time of [0, 600, 1800]) {
+      for (const time of times) {
         await q.frame(page, time);
         if (time === 1800) await q.waitState(page, null);
         if (width === 1440 || width === 390) {

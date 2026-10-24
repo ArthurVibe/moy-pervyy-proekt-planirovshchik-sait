@@ -1,0 +1,149 @@
+{
+  "baseline": "0ed62f88d53e32d25a628ec8b94b69f05b5a7a91",
+  "cases": [
+    {
+      "name": "natural lifecycle and zero final opacity",
+      "status": "passed",
+      "durationMs": 1839.300000011921,
+      "states": [
+        {
+          "state": "pending",
+          "time": 49.599999994039536
+        },
+        {
+          "state": "running",
+          "time": 225.59999999403954
+        },
+        {
+          "state": null,
+          "time": 2064.9000000059605
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "independent parameters ?clubLights=off",
+      "status": "passed"
+    },
+    {
+      "name": "independent parameters ?warmWelcome=off",
+      "status": "passed"
+    },
+    {
+      "name": "independent parameters ?clubLights=off&warmWelcome=off",
+      "status": "passed"
+    },
+    {
+      "name": "early hover settles within 200 ms",
+      "status": "passed",
+      "settlingMs": 160.5
+    },
+    {
+      "name": "early keyboard focus settles within 200 ms",
+      "status": "passed",
+      "settlingMs": 161
+    },
+    {
+      "name": "early scroll intent settles within 200 ms",
+      "status": "passed",
+      "settlingMs": 160.70000000298023
+    },
+    {
+      "name": "reduced motion from first paint",
+      "status": "passed"
+    },
+    {
+      "name": "reduced motion toggled while playing",
+      "status": "passed"
+    },
+    {
+      "name": "JavaScript disabled",
+      "status": "passed",
+      "sourcePhotoLoaded": true
+    },
+    {
+      "name": "runtime error restores plain lighting",
+      "status": "passed",
+      "expectedErrors": [
+        "planned lighting safety test"
+      ]
+    },
+    {
+      "name": "missing controller cannot leave pending darkness",
+      "status": "passed"
+    },
+    {
+      "name": "slow image misses 1500 ms deadline without late restart",
+      "status": "passed",
+      "states": [
+        {
+          "state": "pending",
+          "time": 38.19999998807907
+        },
+        {
+          "state": null,
+          "time": 1501.5
+        }
+      ]
+    },
+    {
+      "name": "image ready inside deadline starts only after decoding",
+      "status": "passed",
+      "startTimeMs": 846.1999999880791
+    },
+    {
+      "name": "photo error removes every light layer",
+      "status": "passed"
+    },
+    {
+      "name": "reload and cached image each get one entrance",
+      "status": "passed",
+      "cachedResponseObserved": true,
+      "revalidatedBody": true,
+      "imageResource": {
+        "transferSize": 0,
+        "encodedBodySize": 1713002,
+        "deliveryType": "cache"
+      },
+      "reloadSingleEntrance": true
+    },
+    {
+      "name": "initially hidden tab starts only when shown within deadline",
+      "status": "passed",
+      "method": "visibilityState/hidden getters and visibilitychange event emulation"
+    },
+    {
+      "name": "initially hidden tab misses deadline and stays static",
+      "status": "passed",
+      "method": "visibilityState/hidden getters and visibilitychange event emulation"
+    },
+    {
+      "name": "bfcache and persisted pageshow never replay entrance",
+      "status": "passed",
+      "actualBfcacheRestored": true,
+      "persistedEventFallback": false
+    },
+    {
+      "name": "resize remaps cropped lamps without restarting",
+      "status": "passed"
+    },
+    {
+      "name": "glow excludes Bro source band X 1550–2010",
+      "status": "passed",
+      "sourceBand": [
+        1550,
+        2010
+      ],
+      "pixelCheck": "compare-club-awakens.py"
+    },
+    {
+      "name": "touch menu and Coming soon stay usable during entrance",
+      "status": "passed"
+    }
+  ],
+  "webkit": {
+    "installed": false
+  },
+  "browser": "154.0.8037.57",
+  "status": "passed"
+}
