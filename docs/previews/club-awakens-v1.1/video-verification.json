@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "captureMethod": "Chromium renders the actual CSS keyframes at 30 equally spaced times per second. Browser timers are frozen only in QA; text reveal is completed equally for both comparison videos.",
+  "effectMs": 1800,
+  "stableTailMs": 2000,
+  "videos": [
+    {
+      "file": "club-awakens-on-1440x900.mp4",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1440,
+          "height": 900,
+          "r_frame_rate": "30/1",
+          "duration": "3.800000",
+          "nb_frames": "114"
+        }
+      ]
+    },
+    {
+      "file": "club-awakens-off-1440x900.mp4",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1440,
+          "height": 900,
+          "r_frame_rate": "30/1",
+          "duration": "3.800000",
+          "nb_frames": "114"
+        }
+      ]
+    }
+  ]
+}

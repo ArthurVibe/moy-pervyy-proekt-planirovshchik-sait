@@ -1,0 +1,80 @@
+{
+  "baseline": "0ed62f88d53e32d25a628ec8b94b69f05b5a7a91",
+  "status": "passed",
+  "comparisons": [
+    {
+      "viewport": "desktop-1440x900",
+      "comparisons": {
+        "off": {
+          "changedPixels": 0,
+          "status": "passed"
+        },
+        "completed": {
+          "changedPixels": 0,
+          "status": "passed"
+        }
+      }
+    },
+    {
+      "viewport": "desktop-1280x800",
+      "comparisons": {
+        "off": {
+          "changedPixels": 0,
+          "status": "passed"
+        },
+        "completed": {
+          "changedPixels": 0,
+          "status": "passed"
+        }
+      }
+    },
+    {
+      "viewport": "tablet-1024x768",
+      "comparisons": {
+        "off": {
+          "changedPixels": 0,
+          "status": "passed"
+        },
+        "completed": {
+          "changedPixels": 0,
+          "status": "passed"
+        }
+      }
+    },
+    {
+      "viewport": "mobile-390x844",
+      "comparisons": {
+        "off": {
+          "changedPixels": 0,
+          "status": "passed"
+        },
+        "completed": {
+          "changedPixels": 0,
+          "status": "passed"
+        }
+      }
+    },
+    {
+      "viewport": "mobile-360x800",
+      "comparisons": {
+        "off": {
+          "changedPixels": 0,
+          "status": "passed"
+        },
+        "completed": {
+          "changedPixels": 0,
+          "status": "passed"
+        }
+      }
+    }
+  ],
+  "broMask": {
+    "protectedSourceX": [
+      1550,
+      2010
+    ],
+    "changedPixelsInBroRegion": 0,
+    "status": "passed"
+  },
+  "mobileUiOutsidePhotoChangedPixels": 0
+}

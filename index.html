@@ -5,6 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
   <meta name="description" content="What’s Up, Bro? Your personal AI planner. Less Planning. More Living.">
+  <script>
+    // Arm before first paint. Default CSS stays transparent without this script.
+    (() => {
+      const root = document.documentElement;
+      const motion = matchMedia('(prefers-reduced-motion: reduce)');
+      const deadline = 1500;
+      if (new URLSearchParams(location.search).get('clubLights') === 'off' ||
+          motion.matches || performance.now() >= deadline) return;
+      const safety = new AbortController();
+      const entrance = {
+        deadline,
+        finish() {
+          clearTimeout(entrance.timer);
+          root.removeAttribute('data-club-lights');
+          safety.abort();
+        }
+      };
+      window.clubLightEntrance = entrance;
+      root.setAttribute('data-club-lights', 'pending');
+      entrance.timer = setTimeout(() => entrance.finish(), deadline - performance.now());
+      const options = { signal: safety.signal };
+      addEventListener('error', () => entrance.finish(), options);
+      addEventListener('unhandledrejection', () => entrance.finish(), options);
+      addEventListener('pagehide', () => entrance.finish(), options);
+      addEventListener('pageshow', event => { if (event.persisted) entrance.finish(); }, options);
+      motion.addEventListener('change', () => { if (motion.matches) entrance.finish(); }, options);
+    })();
+  </script>
   <link rel="preload" href="assets/fonts/PlayfairDisplay-Variable.ttf" as="font" type="font/ttf" crossorigin>
   <title>What’s Up, Bro? — The Private Club</title>
   <style>
@@ -350,6 +378,52 @@
       .mini-bro { --mini-bro-size: 48px; --mini-bro-inset: 16px; }
     }
 
+    /* The Club Awakens: photo-only layers; all resting opacities are exactly zero. */
+    .club-lights { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+    .club-light-shade { position: absolute; inset: 0; background: #000; opacity: 0; }
+    .club-light-glow {
+      position: absolute; width: calc(var(--club-radius) * 2); height: calc(var(--club-radius) * 2);
+      left: calc(var(--club-x) - var(--club-radius)); top: calc(var(--club-y) - var(--club-radius));
+      background: radial-gradient(circle, rgb(255 219 157) 0%, rgb(229 170 95 / .65) 42%,
+        rgb(182 116 56 / .15) 70%, transparent 100%);
+      mix-blend-mode: screen; opacity: 0;
+    }
+    .club-light-left {
+      --club-x: var(--club-left-x, 0px); --club-y: var(--club-left-y, 0px);
+      --club-radius: var(--club-left-radius, 0px); --club-strength: var(--club-left-strength, .12);
+    }
+    .club-light-right {
+      --club-x: var(--club-right-x, 0px); --club-y: var(--club-right-y, 0px);
+      --club-radius: var(--club-right-radius, 0px); --club-strength: var(--club-right-strength, .11);
+      /* In source coordinates: no light at X <= 2010; feather to full at X = 2070. */
+      -webkit-mask-image: linear-gradient(90deg, transparent 12%, #000 24%);
+      mask-image: linear-gradient(90deg, transparent 12%, #000 24%);
+    }
+    @keyframes club-light-shade {
+      0%, 13.8889% { opacity: .18; }
+      66.6667% { opacity: .025; }
+      100% { opacity: 0; }
+    }
+    @keyframes club-light-left {
+      0%, 13.8889% { opacity: 0; }
+      50%, 66.6667% { opacity: var(--club-strength); }
+      100% { opacity: 0; }
+    }
+    @keyframes club-light-right {
+      0%, 22.2222% { opacity: 0; }
+      58.3333%, 66.6667% { opacity: var(--club-strength); }
+      100% { opacity: 0; }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      :root[data-club-lights="pending"] .club-light-shade { opacity: .18; }
+      :root[data-club-lights="running"] .club-light-shade { animation: club-light-shade 1800ms cubic-bezier(.4, 0, .2, 1) both; }
+      :root[data-club-lights="running"] .club-light-left { animation: club-light-left 1800ms cubic-bezier(.4, 0, .2, 1) both; }
+      :root[data-club-lights="running"] .club-light-right { animation: club-light-right 1800ms cubic-bezier(.4, 0, .2, 1) both; }
+      :root[data-club-lights="settling"] .club-lights > div { transition: opacity 160ms ease-out; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .club-lights > div { animation: none !important; transition: none !important; opacity: 0 !important; }
+    }
   </style>
 </head>
 <body>
@@ -375,7 +449,9 @@
       </div>
     </header>
     <main class="hero" id="hero" aria-labelledby="hero-title">
-      <figure class="hero-scene"><picture><source type="image/webp" srcset="assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp"><img class="hero-photo" id="club-photo" src="assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.png" width="2560" height="1440" alt="Bro Gentleman in a green hoodie and graphite jacket beside a burgundy Chesterfield sofa in a warmly lit private club." fetchpriority="high" decoding="async"></picture></figure>
+      <figure class="hero-scene"><picture><source type="image/webp" srcset="assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp"><img class="hero-photo" id="club-photo" src="assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.png" width="2560" height="1440" alt="Bro Gentleman in a green hoodie and graphite jacket beside a burgundy Chesterfield sofa in a warmly lit private club." fetchpriority="high" decoding="async"></picture>
+        <div class="club-lights" aria-hidden="true"><div class="club-light-shade"></div><div class="club-light-glow club-light-left" hidden></div><div class="club-light-glow club-light-right" hidden></div></div>
+      </figure>
       <div class="hero-content">
         <h1 class="hero-title" id="hero-title" tabindex="-1"><span>PLAN LIKE</span><span>A GENTLEMAN.</span></h1>
         <p class="hero-tagline">Less Planning. More Living.</p>
@@ -577,6 +653,103 @@
 
       photo.addEventListener('error', photoUnavailable);
       if (photo.complete && !photo.naturalWidth) photoUnavailable();
+    })();
+  </script>
+  <script>
+    // Independent from the approved Warm Welcome and control-feedback handlers.
+    (() => {
+      const entrance = window.clubLightEntrance;
+      const root = document.documentElement;
+      if (!entrance || root.getAttribute('data-club-lights') !== 'pending') return;
+      const scene = document.querySelector('.hero-scene');
+      const photo = document.getElementById('club-photo');
+      const layers = [...document.querySelectorAll('.club-lights > div')];
+      const shade = layers[0];
+      const listeners = new AbortController();
+      const options = { signal: listeners.signal };
+      const restore = entrance.finish;
+      let observer, endTimer, finished = false, photoReady = false;
+      let wasVisible = !document.hidden;
+      const sources = [
+        { name: 'left', x: 196, y: 262, radius: 260, element: layers[1] },
+        { name: 'right', x: 2200, y: 430, radius: 250, element: layers[2] }
+      ];
+      const finish = () => {
+        if (finished) return;
+        finished = true;
+        clearTimeout(endTimer);
+        restore();
+        layers.forEach(layer => layer.style.removeProperty('opacity'));
+        observer?.disconnect();
+        listeners.abort();
+      };
+      entrance.finish = finish;
+      const measure = () => {
+        if (!photo.naturalWidth || !photo.naturalHeight) return;
+        const area = scene.getBoundingClientRect();
+        const image = photo.getBoundingClientRect();
+        const scale = Math.max(image.width / photo.naturalWidth, image.height / photo.naturalHeight);
+        // The approved CSS uses two percentage components for every breakpoint.
+        const [px, py] = getComputedStyle(photo).objectPosition.split(' ').map(value => parseFloat(value) / 100);
+        const offsetX = image.left - area.left + (image.width - photo.naturalWidth * scale) * px;
+        const offsetY = image.top - area.top + (image.height - photo.naturalHeight * scale) * py;
+        sources.forEach(source => {
+          const x = offsetX + source.x / 2560 * photo.naturalWidth * scale;
+          const y = offsetY + source.y / 1440 * photo.naturalHeight * scale;
+          const radius = source.radius / 2560 * photo.naturalWidth * scale;
+          scene.style.setProperty(`--club-${source.name}-x`, `${x}px`);
+          scene.style.setProperty(`--club-${source.name}-y`, `${y}px`);
+          scene.style.setProperty(`--club-${source.name}-radius`, `${radius}px`);
+          source.element.hidden = x < 0 || x > area.width || y < 0 || y > area.height;
+        });
+      };
+      const interrupt = () => {
+        if (finished || root.getAttribute('data-club-lights') === 'settling') return;
+        clearTimeout(entrance.timer);
+        clearTimeout(endTimer);
+        const opacities = layers.map(layer => getComputedStyle(layer).opacity);
+        layers.forEach((layer, index) => { layer.style.opacity = opacities[index]; });
+        root.setAttribute('data-club-lights', 'settling');
+        getComputedStyle(shade).opacity; // Commit the captured opacity once, never per frame.
+        layers.forEach(layer => { layer.style.opacity = '0'; });
+        endTimer = setTimeout(finish, 160);
+      };
+      const start = () => {
+        if (finished || !photoReady || document.hidden) return;
+        if (performance.now() >= entrance.deadline) { finish(); return; }
+        measure();
+        clearTimeout(entrance.timer);
+        root.setAttribute('data-club-lights', 'running');
+        endTimer = setTimeout(finish, 1900); // CSS reaches zero at 1800 ms even if JS is busy.
+      };
+      const ready = () => {
+        if (!photo.naturalWidth) { finish(); return; }
+        photo.decode().then(() => { photoReady = true; start(); }).catch(finish);
+      };
+      shade.addEventListener('animationend', event => {
+        if (event.animationName === 'club-light-shade') finish();
+      }, options);
+      photo.addEventListener('error', finish, options);
+      document.getElementById('meet-bro').addEventListener('pointerenter', event => {
+        if (event.pointerType !== 'touch') interrupt();
+      }, options);
+      document.addEventListener('focusin', event => {
+        if (event.target.closest('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])')) interrupt();
+      }, options);
+      addEventListener('scroll', interrupt, { ...options, passive: true, capture: true });
+      addEventListener('wheel', interrupt, { ...options, passive: true });
+      addEventListener('touchmove', interrupt, { ...options, passive: true });
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) { if (wasVisible) finish(); }
+        else { wasVisible = true; start(); }
+      }, options);
+      if ('ResizeObserver' in window) {
+        observer = new ResizeObserver(measure);
+        observer.observe(scene);
+        observer.observe(photo);
+      } else addEventListener('resize', measure, options);
+      if (photo.complete) ready();
+      else photo.addEventListener('load', ready, { ...options, once: true });
     })();
   </script>
 </body>

@@ -1,0 +1,207 @@
+{
+  "baseline": "0ed62f88d53e32d25a628ec8b94b69f05b5a7a91",
+  "browser": "154.0.8037.57",
+  "viewports": [
+    {
+      "name": "desktop-1440x900",
+      "positions": {
+        "scene": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 900,
+          "top": 0,
+          "right": 1440,
+          "bottom": 900,
+          "left": 0
+        },
+        "objectPosition": "40% 0%",
+        "sources": [
+          {
+            "name": "left",
+            "x": 58.5,
+            "y": 163.75,
+            "radius": 162.5,
+            "hidden": false
+          },
+          {
+            "name": "right",
+            "x": 1311,
+            "y": 268.75,
+            "radius": 156.25,
+            "hidden": false
+          }
+        ]
+      },
+      "geometryUnchanged": true,
+      "noHorizontalOverflow": true,
+      "finalOpacities": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "desktop-1280x800",
+      "positions": {
+        "scene": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 800,
+          "top": 0,
+          "right": 1280,
+          "bottom": 800,
+          "left": 0
+        },
+        "objectPosition": "40% 0%",
+        "sources": [
+          {
+            "name": "left",
+            "x": 52.00000000000003,
+            "y": 145.55555555555557,
+            "radius": 144.44444444444446,
+            "hidden": false
+          },
+          {
+            "name": "right",
+            "x": 1165.3333333333333,
+            "y": 238.88888888888889,
+            "radius": 138.88888888888889,
+            "hidden": false
+          }
+        ]
+      },
+      "geometryUnchanged": true,
+      "noHorizontalOverflow": true,
+      "finalOpacities": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "tablet-1024x768",
+      "positions": {
+        "scene": {
+          "x": 0,
+          "y": 0,
+          "width": 1024,
+          "height": 768,
+          "top": 0,
+          "right": 1024,
+          "bottom": 768,
+          "left": 0
+        },
+        "objectPosition": "68% 0%",
+        "sources": [
+          {
+            "name": "left",
+            "x": -127.5733333333333,
+            "y": 139.73333333333332,
+            "radius": 138.66666666666666,
+            "hidden": true
+          },
+          {
+            "name": "right",
+            "x": 941.2266666666667,
+            "y": 229.33333333333334,
+            "radius": 133.33333333333334,
+            "hidden": false
+          }
+        ]
+      },
+      "geometryUnchanged": true,
+      "noHorizontalOverflow": true,
+      "finalOpacities": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "mobile-390x844",
+      "positions": {
+        "scene": {
+          "x": 0,
+          "y": 491.890625,
+          "width": 390,
+          "height": 390,
+          "top": 491.890625,
+          "right": 390,
+          "bottom": 881.890625,
+          "left": 0
+        },
+        "objectPosition": "78% 50%",
+        "sources": [
+          {
+            "name": "left",
+            "x": -183.5166666666666,
+            "y": 70.95833333333333,
+            "radius": 70.41666666666666,
+            "hidden": true
+          },
+          {
+            "name": "right",
+            "x": 359.23333333333335,
+            "y": 116.45833333333333,
+            "radius": 67.70833333333333,
+            "hidden": false
+          }
+        ]
+      },
+      "geometryUnchanged": true,
+      "noHorizontalOverflow": true,
+      "finalOpacities": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "mobile-360x800",
+      "positions": {
+        "scene": {
+          "x": 0,
+          "y": 491.421875,
+          "width": 360,
+          "height": 360,
+          "top": 491.421875,
+          "right": 360,
+          "bottom": 851.421875,
+          "left": 0
+        },
+        "objectPosition": "78% 50%",
+        "sources": [
+          {
+            "name": "left",
+            "x": -169.4,
+            "y": 65.5,
+            "radius": 65,
+            "hidden": true
+          },
+          {
+            "name": "right",
+            "x": 331.6,
+            "y": 107.5,
+            "radius": 62.5,
+            "hidden": false
+          }
+        ]
+      },
+      "geometryUnchanged": true,
+      "noHorizontalOverflow": true,
+      "finalOpacities": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "screenshotTimes": [
+    0,
+    600,
+    1800
+  ],
+  "status": "passed"
+}
