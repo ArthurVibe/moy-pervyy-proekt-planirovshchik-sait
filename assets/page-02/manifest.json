@@ -1,0 +1,37 @@
+[
+  {
+    "file": "01_tasks_reminders.webp",
+    "width": 1590,
+    "height": 989,
+    "bytes": 144834,
+    "sha256": "f48e9f4245a957a342217cfc7a412248aecd518cd784fc8f46d2974c06514310"
+  },
+  {
+    "file": "club_ambience_background.webp",
+    "width": 1600,
+    "height": 900,
+    "bytes": 7098,
+    "sha256": "fd36851121f8222c8148700d97680f47472ffff8f22a41c4b00bf902025e82da"
+  },
+  {
+    "file": "03_bro_thoughts.webp",
+    "width": 1024,
+    "height": 637,
+    "bytes": 82970,
+    "sha256": "51a6e90f533bf80575ac625a8cf00355ac9e02347ce714c06ae828fc8f2c5cbb"
+  },
+  {
+    "file": "02_day_timeline.webp",
+    "width": 1024,
+    "height": 637,
+    "bytes": 75520,
+    "sha256": "711a9cfc4d4d87fe680f333aae16b724b1a65a970a27740e59cbe53ea31101a2"
+  },
+  {
+    "file": "04_reschedule.webp",
+    "width": 1024,
+    "height": 641,
+    "bytes": 72986,
+    "sha256": "6511c27a72c1bf87e4d16a449eaaf0a18962c250578ef86a4dccf8d674c978d1"
+  }
+]

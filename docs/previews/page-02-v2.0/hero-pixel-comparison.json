@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "comparisons": [
+    {
+      "viewport": "desktop-1440x900",
+      "heroChangedPixels": 0,
+      "status": "passed"
+    },
+    {
+      "viewport": "desktop-1280x800",
+      "heroChangedPixels": 0,
+      "status": "passed"
+    },
+    {
+      "viewport": "tablet-1024x768",
+      "heroChangedPixels": 0,
+      "status": "passed"
+    },
+    {
+      "viewport": "mobile-390x844",
+      "heroChangedPixels": 0,
+      "status": "passed"
+    }
+  ]
+}

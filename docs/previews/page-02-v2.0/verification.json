@@ -1,0 +1,564 @@
+{
+  "baseline": "0ed62f88d53e32d25a628ec8b94b69f05b5a7a91",
+  "viewports": [
+    {
+      "name": "desktop-1440x900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "heroGeometryUnchanged": true,
+      "slides": [
+        {
+          "fit": "contain",
+          "natural": [
+            1590,
+            989
+          ],
+          "paint": {
+            "x": 298.96875,
+            "y": 226.24607900943397,
+            "width": 842.0625,
+            "height": 523.7734669811321
+          },
+          "track": {
+            "x": 293.96875,
+            "y": 219.578125,
+            "width": 852.0625,
+            "height": 537.109375,
+            "top": 219.578125,
+            "right": 1146.03125,
+            "bottom": 756.6875,
+            "left": 293.96875
+          },
+          "loading": "lazy",
+          "image": "/assets/page-02/01_tasks_reminders.webp",
+          "scrollLeft": 0,
+          "count": "01 / 04",
+          "visibleToAccessibility": 1,
+          "activeDots": 1,
+          "overflow": false
+        },
+        {
+          "fit": "contain",
+          "natural": [
+            1024,
+            637
+          ],
+          "paint": {
+            "x": 299.03125,
+            "y": 226.22177124023438,
+            "width": 842.0625,
+            "height": 523.8220825195312
+          },
+          "track": {
+            "x": 293.96875,
+            "y": 219.578125,
+            "width": 852.0625,
+            "height": 537.109375,
+            "top": 219.578125,
+            "right": 1146.03125,
+            "bottom": 756.6875,
+            "left": 293.96875
+          },
+          "loading": "lazy",
+          "image": "/assets/page-02/02_day_timeline.webp",
+          "scrollLeft": 850,
+          "count": "02 / 04",
+          "visibleToAccessibility": 1,
+          "activeDots": 1,
+          "overflow": false
+        },
+        {
+          "fit": "contain",
+          "natural": [
+            1024,
+            637
+          ],
+          "paint": {
+            "x": 299.09375,
+            "y": 226.22177124023438,
+            "width": 842.0625,
+            "height": 523.8220825195312
+          },
+          "track": {
+            "x": 293.96875,
+            "y": 219.578125,
+            "width": 852.0625,
+            "height": 537.109375,
+            "top": 219.578125,
+            "right": 1146.03125,
+            "bottom": 756.6875,
+            "left": 293.96875
+          },
+          "loading": "lazy",
+          "image": "/assets/page-02/03_bro_thoughts.webp",
+          "scrollLeft": 1700,
+          "count": "03 / 04",
+          "visibleToAccessibility": 1,
+          "activeDots": 1,
+          "overflow": false
+        },
+        {
+          "fit": "contain",
+          "natural": [
+            1024,
+            641
+          ],
+          "paint": {
+            "x": 299.15785881435255,
+            "y": 224.578125,
+            "width": 842.0592823712949,
+            "height": 527.109375
+          },
+          "track": {
+            "x": 293.96875,
+            "y": 219.578125,
+            "width": 852.0625,
+            "height": 537.109375,
+            "top": 219.578125,
+            "right": 1146.03125,
+            "bottom": 756.6875,
+            "left": 293.96875
+          },
+          "loading": "lazy",
+          "image": "/assets/page-02/04_reschedule.webp",
+          "scrollLeft": 2550,
+          "count": "04 / 04",
+          "visibleToAccessibility": 1,
+          "activeDots": 1,
+          "overflow": false
+        }
+      ],
+      "arrowsDotsKeyboardPassed": true,
+      "navigationPassed": true,
+      "comingSoonPreserved": true,
+      "noAutoplay": true
+    },
+    {
+      "name": "desktop-1280x800",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "heroGeometryUnchanged": true,
+      "slides": [
+        {
+          "fit": "contain",
+          "natural": [
+            1590,
+            989
+          ],
+          "paint": {
+            "x": 299.34375,
+            "y": 221.11238698899373,
+            "width": 681.296875,
+            "height": 423.77522602201253
+          },
+          "track": {
+            "x": 294.34375,
+            "y": 214.765625,
+            "width": 691.296875,
+            "height": 436.46875,
+            "top": 214.765625,
+            "right": 985.640625,
+            "bottom": 651.234375,
+            "left": 294.34375
+          },
+          "loading": "lazy",
+          "image": "/assets/page-02/01_tasks_reminders.webp",
+          "scrollLeft": 0,
+          "count": "01 / 04",
+          "visibleToAccessibility": 1,
+          "activeDots": 1,
+          "overflow": false
+        },
+        {
+          "fit": "contain",
+          "natural": [
+            1024,
+            637
+          ],
+          "paint": {
+            "x": 299.640625,
+            "y": 221.09272003173828,
+            "width": 681.296875,
+            "height": 423.81455993652344
+          },
+          "track": {
+            "x": 294.34375,
+            "y": 214.765625,
+            "width": 691.296875,
+            "height": 436.46875,
+            "top": 214.765625,
+            "right": 985.640625,
+            "bottom": 651.234375,
+            "left": 294.34375
+          },
+          "loading": "lazy",
+          "image": "/assets/page-02/02_day_timeline.webp",
+          "scrollLeft": 689,
+          "count": "02 / 04",
+          "visibleToAccessibility": 1,
+          "activeDots": 1,
+          "overflow": false
+        },
+        {
+          "fit": "contain",
+          "natural": [
+            1024,
+            637
+          ],
+          "paint": {
+            "x": 298.9375,
+            "y": 221.09272003173828,
+            "width": 681.296875,
+            "height": 423.81455993652344
+          },
+          "track": {
+            "x": 294.34375,
+            "y": 214.765625,
+            "width": 691.296875,
+            "height": 436.46875,
+            "top": 214.765625,
+            "right": 985.640625,
+            "bottom": 651.234375,
+            "left": 294.34375
+          },
+          "loading": "lazy",
+          "image": "/assets/page-02/03_bro_thoughts.webp",
+          "scrollLeft": 1379,
+          "count": "03 / 04",
+          "visibleToAccessibility": 1,
+          "activeDots": 1,
+          "overflow": false
+        },
+        {
+          "fit": "contain",
+          "natural": [
+            1024,
+            641
+          ],
+          "paint": {
+            "x": 299.2400667901716,
+            "y": 219.765625,
+            "width": 681.2854914196568,
+            "height": 426.46875
+          },
+          "track": {
+            "x": 294.34375,
+            "y": 214.765625,
+            "width": 691.296875,
+            "height": 436.46875,
+            "top": 214.765625,
+            "right": 985.640625,
+            "bottom": 651.234375,
+            "left": 294.34375
+          },
+          "loading": "lazy",
+          "image": "/assets/page-02/04_reschedule.webp",
+          "scrollLeft": 2068,
+          "count": "04 / 04",
+          "visibleToAccessibility": 1,
+          "activeDots": 1,
+          "overflow": false
+        }
+      ],
+      "arrowsDotsKeyboardPassed": true,
+      "navigationPassed": true,
+      "comingSoonPreserved": true,
+      "noAutoplay": true
+    },
+    {
+      "name": "tablet-1024x768",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "heroGeometryUnchanged": true,
+      "slides": [
+        {
+          "fit": "contain",
+          "natural": [
+            1590,
+            989
+          ],
+          "paint": {
+            "x": 197.078125,
+            "y": 216.02869496855345,
+            "width": 629.84375,
+            "height": 391.7707350628931
+          },
+          "track": {
+            "x": 192.078125,
+            "y": 209.78125,
+            "width": 639.84375,
+            "height": 404.265625,
+            "top": 209.78125,
+            "right": 831.921875,
+            "bottom": 614.046875,
+            "left": 192.078125
+          },
+          "loading": "lazy",
+          "image": "/assets/page-02/01_tasks_reminders.webp",
+          "scrollLeft": 0,
+          "count": "01 / 04",
+          "visibleToAccessibility": 1,
+          "activeDots": 1,
+          "overflow": false
+        },
+        {
+          "fit": "contain",
+          "natural": [
+            1024,
+            637
+          ],
+          "paint": {
+            "x": 196.921875,
+            "y": 216.01051330566406,
+            "width": 629.84375,
+            "height": 391.8070983886719
+          },
+          "track": {
+            "x": 192.078125,
+            "y": 209.78125,
+            "width": 639.84375,
+            "height": 404.265625,
+            "top": 209.78125,
+            "right": 831.921875,
+            "bottom": 614.046875,
+            "left": 192.078125
+          },
+          "loading": "lazy",
+          "image": "/assets/page-02/02_day_timeline.webp",
+          "scrollLeft": 638,
+          "count": "02 / 04",
+          "visibleToAccessibility": 1,
+          "activeDots": 1,
+          "overflow": false
+        },
+        {
+          "fit": "contain",
+          "natural": [
+            1024,
+            637
+          ],
+          "paint": {
+            "x": 196.765625,
+            "y": 216.01051330566406,
+            "width": 629.84375,
+            "height": 391.8070983886719
+          },
+          "track": {
+            "x": 192.078125,
+            "y": 209.78125,
+            "width": 639.84375,
+            "height": 404.265625,
+            "top": 209.78125,
+            "right": 831.921875,
+            "bottom": 614.046875,
+            "left": 192.078125
+          },
+          "loading": "lazy",
+          "image": "/assets/page-02/03_bro_thoughts.webp",
+          "scrollLeft": 1276,
+          "count": "03 / 04",
+          "visibleToAccessibility": 1,
+          "activeDots": 1,
+          "overflow": false
+        },
+        {
+          "fit": "contain",
+          "natural": [
+            1024,
+            641
+          ],
+          "paint": {
+            "x": 197.6108131825273,
+            "y": 214.78125,
+            "width": 629.8408736349454,
+            "height": 394.265625
+          },
+          "track": {
+            "x": 192.078125,
+            "y": 209.78125,
+            "width": 639.84375,
+            "height": 404.265625,
+            "top": 209.78125,
+            "right": 831.921875,
+            "bottom": 614.046875,
+            "left": 192.078125
+          },
+          "loading": "lazy",
+          "image": "/assets/page-02/04_reschedule.webp",
+          "scrollLeft": 1913,
+          "count": "04 / 04",
+          "visibleToAccessibility": 1,
+          "activeDots": 1,
+          "overflow": false
+        }
+      ],
+      "arrowsDotsKeyboardPassed": true,
+      "navigationPassed": true,
+      "comingSoonPreserved": true,
+      "noAutoplay": true
+    },
+    {
+      "name": "mobile-390x844",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "heroGeometryUnchanged": true,
+      "slides": [
+        {
+          "fit": "contain",
+          "natural": [
+            1590,
+            989
+          ],
+          "paint": {
+            "x": 29,
+            "y": 335.37091194968554,
+            "width": 332,
+            "height": 206.50817610062893
+          },
+          "track": {
+            "x": 24,
+            "y": 329.71875,
+            "width": 342,
+            "height": 217.8125,
+            "top": 329.71875,
+            "right": 366,
+            "bottom": 547.53125,
+            "left": 24
+          },
+          "loading": "lazy",
+          "image": "/assets/page-02/01_tasks_reminders.webp",
+          "scrollLeft": 0,
+          "count": "01 / 04",
+          "visibleToAccessibility": 1,
+          "activeDots": 1,
+          "overflow": false
+        },
+        {
+          "fit": "contain",
+          "natural": [
+            1024,
+            637
+          ],
+          "paint": {
+            "x": 29,
+            "y": 335.361328125,
+            "width": 332,
+            "height": 206.52734375
+          },
+          "track": {
+            "x": 24,
+            "y": 329.71875,
+            "width": 342,
+            "height": 217.8125,
+            "top": 329.71875,
+            "right": 366,
+            "bottom": 547.53125,
+            "left": 24
+          },
+          "loading": "lazy",
+          "image": "/assets/page-02/02_day_timeline.webp",
+          "scrollLeft": 340,
+          "count": "02 / 04",
+          "visibleToAccessibility": 1,
+          "activeDots": 1,
+          "overflow": false
+        },
+        {
+          "fit": "contain",
+          "natural": [
+            1024,
+            637
+          ],
+          "paint": {
+            "x": 29,
+            "y": 335.361328125,
+            "width": 332,
+            "height": 206.52734375
+          },
+          "track": {
+            "x": 24,
+            "y": 329.71875,
+            "width": 342,
+            "height": 217.8125,
+            "top": 329.71875,
+            "right": 366,
+            "bottom": 547.53125,
+            "left": 24
+          },
+          "loading": "lazy",
+          "image": "/assets/page-02/03_bro_thoughts.webp",
+          "scrollLeft": 680,
+          "count": "03 / 04",
+          "visibleToAccessibility": 1,
+          "activeDots": 1,
+          "overflow": false
+        },
+        {
+          "fit": "contain",
+          "natural": [
+            1024,
+            641
+          ],
+          "paint": {
+            "x": 29.009360374414968,
+            "y": 334.71875,
+            "width": 331.98127925117006,
+            "height": 207.8125
+          },
+          "track": {
+            "x": 24,
+            "y": 329.71875,
+            "width": 342,
+            "height": 217.8125,
+            "top": 329.71875,
+            "right": 366,
+            "bottom": 547.53125,
+            "left": 24
+          },
+          "loading": "lazy",
+          "image": "/assets/page-02/04_reschedule.webp",
+          "scrollLeft": 1020,
+          "count": "04 / 04",
+          "visibleToAccessibility": 1,
+          "activeDots": 1,
+          "overflow": false
+        }
+      ],
+      "arrowsDotsKeyboardPassed": true,
+      "navigationPassed": true,
+      "comingSoonPreserved": true,
+      "noAutoplay": true
+    }
+  ],
+  "behavior": [
+    {
+      "name": "reduced motion before/during transition and resize preserves selected slide",
+      "status": "passed"
+    },
+    {
+      "name": "native mobile touch swipes left and right",
+      "status": "passed",
+      "method": "CDP touchStart/touchMove/touchEnd, not synthetic scrollLeft assignment"
+    },
+    {
+      "name": "JavaScript off: native anchor, scrollable images, no dead controls",
+      "status": "passed"
+    },
+    {
+      "name": "direct fragment navigation and rapid next clicks",
+      "status": "passed"
+    }
+  ],
+  "errors": [],
+  "webkitInstalled": false,
+  "browser": "154.0.8037.57",
+  "status": "passed"
+}

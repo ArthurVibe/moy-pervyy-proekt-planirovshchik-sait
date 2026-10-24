@@ -1,0 +1,44 @@
+{
+  "status": "passed",
+  "browser": "154.0.8037.57",
+  "keyboardNavigation": [
+    {
+      "viewport": "desktop-1440x900",
+      "via": "Hero link, Enter",
+      "passed": true
+    },
+    {
+      "viewport": "desktop-1280x800",
+      "via": "Hero link, Enter",
+      "passed": true
+    },
+    {
+      "viewport": "tablet-1024x768",
+      "via": "menu link, Enter",
+      "passed": true
+    },
+    {
+      "viewport": "mobile-390x844",
+      "via": "Hero link, Enter",
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    "desktop-1440x900-slide-01.png",
+    "desktop-1440x900-slide-02.png",
+    "desktop-1440x900-slide-03.png",
+    "desktop-1440x900-slide-04.png",
+    "desktop-1280x800-slide-01.png",
+    "desktop-1280x800-slide-02.png",
+    "desktop-1280x800-slide-03.png",
+    "desktop-1280x800-slide-04.png",
+    "tablet-1024x768-slide-01.png",
+    "tablet-1024x768-slide-02.png",
+    "tablet-1024x768-slide-03.png",
+    "tablet-1024x768-slide-04.png",
+    "mobile-390x844-slide-01.png",
+    "mobile-390x844-slide-02.png",
+    "mobile-390x844-slide-03.png",
+    "mobile-390x844-slide-04.png"
+  ]
+}

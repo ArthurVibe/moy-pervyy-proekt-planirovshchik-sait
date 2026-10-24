@@ -350,6 +350,73 @@
       .mini-bro { --mini-bro-size: 48px; --mini-bro-inset: 16px; }
     }
 
+    /* Page 02 is isolated from the approved Hero styles and photo. */
+    .page-two {
+      position: relative; isolation: isolate; display: grid; place-items: center;
+      min-height: 100vh; min-height: 100svh; padding: 36px var(--page-gutter) 28px;
+      overflow: hidden; background: #122119;
+    }
+    .page-two:focus { outline: none; }
+    .page-two::before, .page-two::after { content: ''; position: absolute; inset: 0; pointer-events: none; }
+    .page-two::before { z-index: -2; background: url('assets/page-02/club_ambience_background.webp') center / cover no-repeat; opacity: .9; }
+    .page-two::after { z-index: -1; background: linear-gradient(180deg, rgb(10 22 16 / .42), rgb(11 23 17 / .74)); }
+    .page-two-inner { width: min(1100px, 100%); min-width: 0; }
+    .page-two-intro { text-align: center; margin-bottom: 22px; }
+    .page-two-eyebrow { color: var(--bronze-light); font-size: 12px; font-weight: 600; letter-spacing: .2em; }
+    .page-two-title { margin: 10px 0 6px; font: 400 clamp(38px, 3.6vw, 56px)/1.08 var(--display); letter-spacing: -.035em; }
+    .page-two-tagline { color: var(--ivory); font: 400 clamp(22px, 1.8vw, 27px)/1.4 var(--display); }
+    .page-two-description { max-width: 70ch; margin: 10px auto 0; color: var(--warm-text); font-size: 15px; line-height: 1.6; }
+    .page-two-carousel { width: min(100%, max(520px, calc((100svh - 370px) * 1.60768)), 1000px); margin-inline: auto; }
+    .page-two-track {
+      position: relative; display: flex; overflow-x: auto; overflow-y: hidden;
+      scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none;
+      border: 1px solid rgb(196 154 108 / .48); border-radius: 12px;
+      background: rgb(10 18 14 / .65); box-shadow: 0 18px 48px rgb(0 0 0 / .3);
+    }
+    .page-two-track::-webkit-scrollbar { display: none; }
+    .page-two-track:focus-visible { outline: 2px solid var(--ivory); outline-offset: 5px; }
+    .page-two-slide {
+      flex: 0 0 100%; min-width: 0; margin: 0; padding: 4px; aspect-ratio: 1590 / 989;
+      display: grid; place-items: center; scroll-snap-align: start; scroll-snap-stop: always;
+    }
+    .page-two-slide img { display: block; width: 100%; height: 100%; object-fit: contain; }
+    .page-two-controls { display: grid; grid-template-columns: 48px 1fr auto 48px; align-items: center; gap: 16px; max-width: 430px; margin: 16px auto 0; }
+    .page-two-arrow {
+      display: grid; place-items: center; width: 48px; height: 48px; padding: 0;
+      color: var(--ivory); border: 1px solid var(--bronze-light); border-radius: 50%;
+      background: rgb(15 30 21 / .8); font-size: 28px; line-height: 1;
+    }
+    .page-two-arrow[aria-disabled="true"] { opacity: .4; cursor: default; }
+    .page-two-dots { display: flex; justify-content: center; }
+    .page-two-dot { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 6px; background: transparent; }
+    .page-two-dot::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #718073; }
+    .page-two-dot[aria-current="true"]::before { background: var(--bronze-light); box-shadow: 0 0 0 3px rgb(196 154 108 / .15); }
+    .page-two-count { color: var(--bronze-light); font-size: 13px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .page-two-summary { max-width: 70ch; min-height: 42px; margin: 8px auto 0; text-align: center; color: var(--warm-text); font-size: 14px; line-height: 1.5; }
+    @media (hover: hover) and (pointer: fine) {
+      .page-two-arrow:not([aria-disabled="true"]):hover { background: #293b2d; border-color: var(--ivory); }
+      .page-two-dot:hover::before { background: var(--ivory); }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .page-two-arrow { transition: background-color 220ms ease, border-color 220ms ease; }
+      .page-two-dot::before { transition: background-color 180ms ease; }
+    }
+    @media (max-width: 767px) {
+      .page-two { padding: 36px 24px 28px; }
+      .page-two-eyebrow { font-size: 10px; letter-spacing: .14em; }
+      .page-two-title { font-size: clamp(37px, 9.5vw, 50px); }
+      .page-two-tagline { font-size: 23px; }
+      .page-two-description { font-size: 14px; }
+      .page-two-track { border-radius: 8px; }
+      .page-two-controls { grid-template-columns: 44px 1fr 44px; gap: 4px 8px; }
+      .page-two-arrow { width: 44px; height: 44px; }
+      .page-two-prev { grid-column: 1; grid-row: 1; }
+      .page-two-dots { grid-column: 2; grid-row: 1; }
+      .page-two-next { grid-column: 3; grid-row: 1; }
+      .page-two-count { grid-column: 2; grid-row: 2; text-align: center; }
+      .page-two-summary { min-height: 63px; font-size: 13px; }
+    }
+    @media (max-width: 359px) { .page-two-dot { width: 40px; } }
   </style>
 </head>
 <body>
@@ -367,14 +434,15 @@
         <div class="header-controls" id="header-controls">
           <nav class="main-nav" aria-label="Main navigation">
             <button class="nav-action" type="button" data-coming-soon>About Bro</button>
-            <button class="nav-action" type="button" data-coming-soon>How It Works</button>
+            <a class="nav-action" href="#how-it-works" data-section-link>How It Works</a>
             <button class="nav-action" type="button" data-coming-soon>Features</button>
           </nav>
           <button class="button invitation" type="button" data-coming-soon><span class="button-face">Get Early Access <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></span></button>
         </div>
       </div>
     </header>
-    <main class="hero" id="hero" aria-labelledby="hero-title">
+    <main>
+    <section class="hero" id="hero" aria-labelledby="hero-title">
       <figure class="hero-scene"><picture><source type="image/webp" srcset="assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp"><img class="hero-photo" id="club-photo" src="assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.png" width="2560" height="1440" alt="Bro Gentleman in a green hoodie and graphite jacket beside a burgundy Chesterfield sofa in a warmly lit private club." fetchpriority="high" decoding="async"></picture></figure>
       <div class="hero-content">
         <h1 class="hero-title" id="hero-title" tabindex="-1"><span>PLAN LIKE</span><span>A GENTLEMAN.</span></h1>
@@ -382,13 +450,52 @@
         <p class="hero-description">Your personal AI planner for tasks, plans, and the things you don't want to forget. Just tell Bro.</p>
         <div class="hero-actions">
           <button class="button button-meet" id="meet-bro" type="button" data-coming-soon><span class="button-face">Meet Bro <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M7 6h11v11"/></svg></span></button>
-          <button class="button button-outline" type="button" data-coming-soon><span class="button-face">How It Works <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></span></button>
+          <a class="button button-outline" href="#how-it-works" data-section-link><span class="button-face">How It Works <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></span></a>
         </div>
       </div>
       <picture class="mini-bro" aria-hidden="true">
         <source type="image/webp" srcset="assets/mini-bro/mini-bro-icon-v1.0-64.webp 64w, assets/mini-bro/mini-bro-icon-v1.0-128.webp 128w, assets/mini-bro/mini-bro-icon-v1.0-256.webp 256w" sizes="(max-width: 767px) 48px, 64px">
         <img src="assets/mini-bro/mini-bro-icon-v1.0-64.png" srcset="assets/mini-bro/mini-bro-icon-v1.0-48.png 48w, assets/mini-bro/mini-bro-icon-v1.0-64.png 64w, assets/mini-bro/mini-bro-icon-v1.0-128.png 128w, assets/mini-bro/mini-bro-icon-v1.0-256.png 256w" sizes="(max-width: 767px) 48px, 64px" width="64" height="64" alt="" decoding="async" fetchpriority="low" draggable="false">
       </picture>
+    </section>
+    <section class="page-two" id="how-it-works" aria-labelledby="page-two-title" tabindex="-1">
+      <div class="page-two-inner">
+        <header class="page-two-intro">
+          <p class="page-two-eyebrow">THE PRIVATE CLUB / 02</p>
+          <h2 class="page-two-title" id="page-two-title">JUST TELL BRO.</h2>
+          <p class="page-two-tagline">Your plans. One conversation.</p>
+          <p class="page-two-description">Tell Bro what's on your mind. He helps turn it into an organized day.</p>
+        </header>
+        <div class="page-two-carousel" role="group" aria-roledescription="carousel" aria-label="Four planner capabilities">
+          <div class="page-two-track" id="bro-slides" role="group" tabindex="0" aria-label="Planner illustrations. Use Left and Right arrow keys to browse." aria-keyshortcuts="ArrowLeft ArrowRight Home End">
+            <figure class="page-two-slide" role="group" aria-roledescription="slide" aria-label="1 of 4: Tasks and reminders">
+              <img src="assets/page-02/01_tasks_reminders.webp" width="1590" height="989" loading="lazy" decoding="async" alt="Never miss what matters. Bro turns a request into two tasks: call Alex tomorrow at 10 AM and prepare a presentation.">
+            </figure>
+            <figure class="page-two-slide" role="group" aria-roledescription="slide" aria-label="2 of 4: Daily timeline">
+              <img src="assets/page-02/02_day_timeline.webp" width="1024" height="637" loading="lazy" decoding="async" alt="Bro presents a daily timeline, with workouts, meetings, meals and evening plans organized by time.">
+            </figure>
+            <figure class="page-two-slide" role="group" aria-roledescription="slide" aria-label="3 of 4: Thoughts and notes">
+              <img src="assets/page-02/03_bro_thoughts.webp" width="1024" height="637" loading="lazy" decoding="async" alt="Bro writes in a notebook beside Bro Thoughts, a board of saved ideas and notes.">
+            </figure>
+            <figure class="page-two-slide" role="group" aria-roledescription="slide" aria-label="4 of 4: Rescheduling">
+              <img src="assets/page-02/04_reschedule.webp" width="1024" height="641" loading="lazy" decoding="async" alt="Bro relaxes after moving an existing meeting from today to tomorrow, without creating a duplicate.">
+            </figure>
+          </div>
+          <div class="page-two-controls" role="group" aria-label="Carousel navigation" hidden>
+            <button class="page-two-arrow page-two-prev" type="button" aria-label="Previous slide" aria-controls="bro-slides" aria-disabled="true"><span aria-hidden="true">‹</span></button>
+            <div class="page-two-dots" role="group" aria-label="Select slide">
+              <button class="page-two-dot" type="button" aria-label="Go to slide 1: Tasks and reminders" aria-controls="bro-slides" aria-current="true"></button>
+              <button class="page-two-dot" type="button" aria-label="Go to slide 2: Daily timeline" aria-controls="bro-slides" aria-current="false"></button>
+              <button class="page-two-dot" type="button" aria-label="Go to slide 3: Thoughts and notes" aria-controls="bro-slides" aria-current="false"></button>
+              <button class="page-two-dot" type="button" aria-label="Go to slide 4: Rescheduling" aria-controls="bro-slides" aria-current="false"></button>
+            </div>
+            <span class="page-two-count" aria-hidden="true">01 / 04</span>
+            <button class="page-two-arrow page-two-next" type="button" aria-label="Next slide" aria-controls="bro-slides" aria-disabled="false"><span aria-hidden="true">›</span></button>
+          </div>
+          <p class="page-two-summary" aria-live="polite" aria-atomic="true"><span class="sr-only" id="page-two-slide-status">Slide 1 of 4. </span><span id="page-two-summary-text">Create tasks from one natural-language message — without extra forms.</span></p>
+        </div>
+      </div>
+    </section>
     </main>
   </div>
   <aside class="notice" id="coming-soon" aria-label="Preview notice" hidden>
@@ -577,6 +684,95 @@
 
       photo.addEventListener('error', photoUnavailable);
       if (photo.complete && !photo.naturalWidth) photoUnavailable();
+    })();
+  </script>
+  <script>
+    // Native scrolling supplies touch gestures; controls add explicit navigation.
+    (() => {
+      const section = document.getElementById('how-it-works');
+      const carousel = section.querySelector('.page-two-carousel');
+      const track = section.querySelector('.page-two-track');
+      const slides = [...track.querySelectorAll('.page-two-slide')];
+      const dots = [...section.querySelectorAll('.page-two-dot')];
+      const previous = section.querySelector('.page-two-prev');
+      const next = section.querySelector('.page-two-next');
+      const count = section.querySelector('.page-two-count');
+      const status = document.getElementById('page-two-slide-status');
+      const summary = document.getElementById('page-two-summary-text');
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+      const captions = [
+        'Create tasks from one natural-language message — without extra forms.',
+        'See your tasks in a clear timeline, ordered by time.',
+        'Keep ideas and notes in Bro Thoughts without assigning unnecessary deadlines.',
+        'Move an existing task to another day or time without duplicating it.'
+      ];
+      let index = 0, destination = null, settleTimer;
+      const clamp = value => Math.max(0, Math.min(slides.length - 1, value));
+      const offset = value => slides[value].offsetLeft - slides[0].offsetLeft;
+      const nearest = () => slides.reduce((best, slide, candidate) =>
+        Math.abs(offset(candidate) - track.scrollLeft) < Math.abs(offset(best) - track.scrollLeft) ? candidate : best, 0);
+      const publish = value => {
+        index = value;
+        slides.forEach((slide, current) => slide.setAttribute('aria-hidden', String(current !== index)));
+        dots.forEach((dot, current) => dot.setAttribute('aria-current', String(current === index)));
+        previous.setAttribute('aria-disabled', String(index === 0));
+        next.setAttribute('aria-disabled', String(index === slides.length - 1));
+        count.textContent = `${String(index + 1).padStart(2, '0')} / 04`;
+        if (summary.textContent !== captions[index]) {
+          status.textContent = `Slide ${index + 1} of 4. `;
+          summary.textContent = captions[index];
+        }
+      };
+      const settle = () => {
+        clearTimeout(settleTimer);
+        destination = null;
+        publish(nearest());
+      };
+      const move = value => {
+        destination = clamp(value);
+        const left = offset(destination);
+        if (Math.abs(track.scrollLeft - left) < 1) { settle(); return; }
+        track.scrollTo({ left, behavior: reduced.matches ? 'instant' : 'smooth' });
+        if (reduced.matches) settle();
+      };
+      previous.addEventListener('click', () => move((destination ?? index) - 1));
+      next.addEventListener('click', () => move((destination ?? index) + 1));
+      dots.forEach((dot, current) => dot.addEventListener('click', () => move(current)));
+      carousel.addEventListener('keydown', event => {
+        const current = destination ?? index;
+        const target = { ArrowLeft: current - 1, ArrowRight: current + 1, Home: 0, End: slides.length - 1 }[event.key];
+        if (target === undefined) return;
+        event.preventDefault();
+        move(target);
+      });
+      track.addEventListener('scroll', () => {
+        clearTimeout(settleTimer);
+        settleTimer = setTimeout(settle, 140);
+      }, { passive: true });
+      track.addEventListener('scrollend', settle);
+      const align = () => {
+        const current = destination ?? index;
+        track.scrollTo({ left: offset(current), behavior: 'instant' });
+        destination = null;
+        publish(current);
+      };
+      if ('ResizeObserver' in window) new ResizeObserver(align).observe(track);
+      else addEventListener('resize', align, { passive: true });
+      reduced.addEventListener('change', () => { if (reduced.matches) align(); });
+      publish(0);
+      section.querySelector('.page-two-controls').hidden = false;
+
+      // Keep the existing mobile-menu and notice handlers as the source of truth.
+      document.querySelectorAll('[data-section-link]').forEach(link => link.addEventListener('click', event => {
+        if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        const menu = document.getElementById('menu-toggle');
+        if (menu.getAttribute('aria-expanded') === 'true') menu.click();
+        if (!document.getElementById('coming-soon').hidden) document.getElementById('notice-close').click();
+        if (location.hash !== link.hash) history.pushState(null, '', link.hash);
+        section.focus({ preventScroll: true });
+        section.scrollIntoView({ block: 'start', behavior: reduced.matches ? 'instant' : 'smooth' });
+      }));
     })();
   </script>
 </body>
