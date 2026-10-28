@@ -445,7 +445,17 @@
       background: #0b1410; border: 1px solid rgb(196 154 108 / .58);
       box-shadow: 0 28px 64px rgb(0 0 0 / .46), 0 0 0 5px rgb(185 154 105 / .06);
     }
-    .page-three-video { display: block; width: 100%; height: 100%; object-fit: contain; background: #070d09; }
+    .page-three-video { display: block; width: 100%; height: 100%; border: 0; background: #070d09; }
+    .page-three-sound {
+      position: absolute; z-index: 2; right: 18px; bottom: 18px; padding: 12px 17px;
+      border: 1px solid var(--bronze-light); border-radius: 6px;
+      color: var(--ivory); background: rgb(14 31 21 / .93);
+      font-size: 13px; box-shadow: 0 8px 22px rgb(0 0 0 / .42);
+      cursor: pointer;
+    }
+    .page-three-sound:focus-visible { outline: 2px solid var(--ivory); outline-offset: 4px; }
+    @media (hover: hover) and (pointer: fine) { .page-three-sound:hover { background: #294332; } }
+    @media (max-width: 767px) { .page-three-sound { right: 9px; bottom: 9px; font-size: 11px; padding: 9px 11px; } }
     .page-three-cover {
       position: absolute; inset: 0; z-index: 1; display: grid; place-items: center;
       background:
@@ -582,18 +592,20 @@
           <p class="page-three-description">Thirty seconds. One conversation. Everything under control.</p>
         </header>
         <div class="page-three-frame" id="bro-film-frame" data-state="poster">
-          <video class="page-three-video" id="bro-film" width="1280" height="720"
-            poster="assets/Whats_Up_Bro_Private_Club_Hero_2560x1440.webp"
-            preload="none" playsinline aria-label="What’s Up, Bro? — Just Tell Bro. Thirty-second promotional film."></video>
+          <iframe class="page-three-video" id="bro-film" title="WHAT'S UP, BRO? — Just Tell Bro. 30-second film." width="1280" height="720"
+            loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+            allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock"
+            allowfullscreen></iframe>
           <div class="page-three-cover" id="bro-film-cover">
             <button type="button" class="page-three-play" id="bro-film-play" aria-label="Play the 30-second film with sound">
               <span class="page-three-play-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.8c0-.8.9-1.3 1.6-.9l12 7.2c.7.4.7 1.4 0 1.8l-12 7.2c-.7.4-1.6-.1-1.6-.9V4.8Z"/></svg></span>
-              <span class="page-three-play-label">Play the film</span>
+              <span class="page-three-play-label">Play with sound</span>
             </button>
           </div>
+          <button class="page-three-sound" type="button" id="bro-film-sound" hidden>♫ Turn on music</button>
         </div>
-        <p class="page-three-error" id="bro-film-error" role="alert" hidden>Video is temporarily unavailable. Please try again shortly.</p>
-        <p class="page-three-meta">JUST TELL BRO. &nbsp;·&nbsp; 30 SEC &nbsp;·&nbsp; SOUND ON</p>
+        <p class="page-three-error" id="bro-film-error" role="alert" hidden>The film could not load. Open it on Kinescope or try again.</p>
+        <p class="page-three-meta">JUST TELL BRO. &nbsp;·&nbsp; 30 SEC &nbsp;·&nbsp; SOUND ON WHEN ALLOWED</p>
       </div>
     </section>
 
@@ -878,32 +890,99 @@
   </script>
 
   <script>
-    // Page 03: lazy-load the approved film only after explicit user activation.
+    // Page 03: lazy-load Kinescope once the visitor reaches the third screen.
+    // Attempt sound-on autoplay; browser policy may force the player to mute.
     (() => {
       const frame = document.getElementById('bro-film-frame');
-      const video = document.getElementById('bro-film');
+      const iframe = document.getElementById('bro-film');
       const play = document.getElementById('bro-film-play');
+      const cover = document.getElementById('bro-film-cover');
+      const sound = document.getElementById('bro-film-sound');
       const error = document.getElementById('bro-film-error');
-      const mediaPath = 'assets/page-03/whats-up-bro-just-tell-bro-v2.mp4';
-      play.addEventListener('click', () => {
-        if (frame.dataset.state === 'loading' || frame.dataset.state === 'playing') return;
+      const videoId = 'raYVAmYtNggSsbwc1GjJPn';
+      const embedUrl = 'https://kinescope.io/embed/' + videoId
+        + '?autoplay=1&muted=0&playsinline=1&loop=0&enableIframeApi';
+      let started = false;
+      let player = null;
+      let userWantsSound = false;
+      let observer = null;
+
+      const refreshSoundStatus = () => {
+        if (!player || !started) return;
+        player.isMuted().then((muted) => {
+          sound.hidden = !muted;
+        }).catch(() => { /* Native player volume control remains available. */ });
+      };
+      const connectAPI = () => {
+        if (document.getElementById('kinescope-iframe-api')) return;
+        window.onKinescopeIframeAPIReady = (factory) => {
+          factory.on(factory.Events.Created, ({ data: created }) => {
+            player = created;
+            // Leave source mix intact; this is a quiet initial listening level.
+            Promise.resolve(player.setVolume(0.25)).catch(() => {});
+            player.once(player.Events.Loaded, () => {
+              Promise.resolve(player.setVolume(0.25)).catch(() => {});
+              if (userWantsSound) {
+                Promise.resolve(player.unmute()).then(() => player.play()).catch(() => {});
+              }
+              setTimeout(refreshSoundStatus, 900);
+            });
+            player.on(player.Events.Playing, () => {
+              frame.dataset.state = 'playing';
+              setTimeout(refreshSoundStatus, 400);
+            });
+          });
+        };
+        const tag = document.createElement('script');
+        tag.id = 'kinescope-iframe-api';
+        tag.src = 'https://player.kinescope.io/latest/iframe.player.js?auto';
+        tag.async = true;
+        document.head.appendChild(tag);
+      };
+      const startFilm = (withSound = false) => {
+        if (withSound) userWantsSound = true;
+        if (started) {
+          if (withSound && player) {
+            Promise.resolve(player.setVolume(0.25))
+              .then(() => player.unmute())
+              .then(() => player.play())
+              .then(() => { sound.hidden = true; })
+              .catch(() => { sound.hidden = false; });
+          }
+          return;
+        }
+        started = true;
         error.hidden = true;
         frame.dataset.state = 'loading';
-        video.controls = true;
-        video.src = mediaPath;
-        const start = video.play();
-        if (start && typeof start.catch === 'function') {
-          start.catch(() => {
-            if (video.error) return; // The error event supplies the actionable fallback.
-            frame.dataset.state = 'poster';
-          });
-        }
+        cover.hidden = true;
+        // Assign iframe URL only on actual view/click; no video fetch on Hero.
+        iframe.src = embedUrl;
+        connectAPI();
+      };
+
+      iframe.addEventListener('load', () => {
+        frame.dataset.state = 'playing';
       });
-      video.addEventListener('playing', () => { frame.dataset.state = 'playing'; });
-      video.addEventListener('error', () => {
-        video.controls = false;
+      play.addEventListener('click', () => startFilm(true));
+      sound.addEventListener('click', () => startFilm(true));
+
+      // The film starts on arrival at screen 03, with audio if the browser allows.
+      if ('IntersectionObserver' in window) {
+        observer = new IntersectionObserver(entries => {
+          if (entries.some(entry => entry.isIntersecting && entry.intersectionRatio >= 0.4)) {
+            startFilm(false);
+            observer.disconnect();
+          }
+        }, { threshold: [0, 0.4, 0.6] });
+        observer.observe(frame);
+      } else {
+        // No autoplay until the viewer clicks on browsers without observation support.
+        frame.dataset.state = 'poster';
+      }
+      iframe.addEventListener('error', () => {
         frame.dataset.state = 'poster';
         error.hidden = false;
+        cover.hidden = false;
       });
     })();
   </script>
